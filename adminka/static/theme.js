@@ -9,16 +9,8 @@ function loadTheme() {
     
     $.getJSON(url, function(data) {
         console.log(data);
-        if(data.theme == 1) {
-            themeOne(data);
-            lastData = data.theme;
-        }else if(data.theme == 2) {
-            themeSecond(data);
-            lastData = data.theme;
-        }else if(data.theme == 3) {
-            themeThird();
-            lastData = data.theme;
-        }
+        themeOne(data);
+
 
         /*setInterval(function(){
             $.getJSON('http://test/static/json/data.json', function(data) {
@@ -59,32 +51,6 @@ function themeOne(data) {
     buttonClick();
 }
 
-function themeSecond(data) {
-    console.log(data);
-    var header = "";
-    var content = "";
-    header += "<header class='header2'><div class='head-left-item'><div class='menu-buttons'><button class='active'>Главная</button>";
-    header +="<button >Информационный блок</button></div></div><div class='head-right-item'>"
-    header +="<img src='static/img/left-arrow.png' alt='left-arrow'><img src='static/img/right-arrow.png' alt='right-arrow'>";
-    header += "</div></header>";
-
-    content += "<div class='wrapper2'><ul><li><h2>" + data.title1 + "</h2><img src='static/img/right.png' alt=''></li>"
-    content += "<li><h2>" + data.title1 + "</h2><img src='static/img/right.png' alt=''></li>";
-    content += "<li><h2>" + data.title2 + "</h2><img src='static/img/right.png' alt=''></li>";
-    content += "<li><h2>" + data.title3 + "</h2><img src='static/img/right.png' alt=''></li>"; 
-    content += "<li><h2>" + data.title4 + "</h2><img src='static/img/right.png' alt=''></li>";
-    content += "</ul></div>";
-
-    var themeSecond = ""
-    themeSecond += "<div class='themeSecondFon'><div class='themeOverlay'></div><div class='left-sidebar'><img src='static/img/logo.png' alt='logo'>";
-    themeSecond += "<h2>Академия политического менеджмента</h2></div>"
-                
-           
-    themeSecond += header+content;
-    themeSecond += "</div></div>"
-    $('.themeContent').html(themeSecond);
-    buttonClick();
-}
 var blockNum = ''
 function buttonClick(e) {
     var blocks = document.querySelectorAll('.card');
