@@ -1,0 +1,15 @@
+{
+            "theme": "1",
+            "block": "1",
+            "title1": "Новые клиенты за сегодня",
+            "img1": "static/img/bg.jpg",
+            "text1": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
+            "title2": "Новые клиенты за сегодня",
+            "img2": "static/img/bg.jpg",
+            "text2": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
+            "title3": "Новые клиенты за сегодня",
+            "img3": "static/img/bg.jpg",
+            "text3": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
+            "img-src1": "static/img/bg.jpg",
+            "video1": "static/video/vid.mp4"
+        }
