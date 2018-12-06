@@ -8,13 +8,7 @@
 	<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.min.js"></script>
 	<script type="text/javascript" src="../static/DIVid.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-                    <form id = my_tree method="post">
-					Кол-во блоков
-					<input type="text" name="block">
-						<a href="#" onclick="setHeadline(); return false;">кнопка 1</a>
-						<button type="submit">Where?</button>
-					</label>
-					</form>
+
     <meta content="Demo page of the nestedSortable jQuery Plugin" name=
     "description">
     <meta content="Manuele J Sarfatti" name="author">
@@ -24,8 +18,8 @@
 		}
 
 		body {
-			-webkit-border-radius: 10px;
-			-moz-border-radius: 10px;
+			 -webkit-border-radius: 10px;
+			 -moz-border-radius: 10px;
 			border-radius: 10px;
 			color: #444;
 			background-color: #fff;
@@ -35,8 +29,8 @@
 			width: 860px;
 			margin: 15px auto;
 			box-shadow: 1px 1px 8px #444;
-			-mox-box-shadow: 1px 1px 8px #444;
-			-webkit-box-shadow: 1px -1px 8px #444;
+			 -mox-box-shadow: 1px 1px 8px #444;
+			 -webkit-box-shadow: 1px -1px 8px #444;
 		}
 
 		a,a:visited {
@@ -90,8 +84,8 @@
 
 		.sortable li div {
 			border: 1px solid #d4d4d4;
-			-webkit-border-radius: 3px;
-			-moz-border-radius: 3px;
+			 -webkit-border-radius: 3px;
+			 -moz-border-radius: 3px;
 			border-radius: 3px;
 			cursor: move;
 			border-color: #D4D4D4 #D4D4D4 #BCBCBC;
@@ -445,3 +439,26 @@
 
 
 
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>////.</title>
+  <meta name="description" content="Article FRUCTCODE.COM. How to send ajax form.">
+  <meta name="author" content="fructcode.com">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="./static/DIVid.js"></script>
+	    <form method="post" id="ajax_form" action="" >
+        <input type="text" name="block" placeholder="NAME" /><br>
+        <input type="text" name="phone" placeholder="YOUR PHONE" /><br>
+        <input type="button" id="btn" value="Отправить" />
+    </form>
+
+    <br>
+    <div id="result_form"></div>
+
+</head>
+
+
+</html>

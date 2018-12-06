@@ -28,16 +28,8 @@ nums = random.random()
 app.config['SECRET_KEY'] = 'secret!'
 
 
-
-
-@app.route('/ok')
-def ok():
-    global blocks
-    return render_template('DIVid.html', **locals())
-
 @app.route('/')
 def os():
-    global blocks
     return render_template('DIVid.html', **locals())
 
 
@@ -46,7 +38,7 @@ def er():
     global blocks
     blocks = request.form['block']
     print(blocks)
-    return redirect('http://0.0.0.0:8888/')
+    return render_template('DIVid.html')
 
 
 if __name__ == '__main__':
