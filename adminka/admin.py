@@ -1,12 +1,4 @@
 
-
-
-
-
-
-
-
-
 from flask import Flask, render_template, session, request, json, jsonify, url_for, Markup, redirect
 from flask_pymongo import PyMongo
 import pymongo
@@ -30,15 +22,15 @@ app.config['SECRET_KEY'] = 'secret!'
 
 @app.route('/')
 def os():
-    return render_template('DIVid.html', **locals())
-
-
-@app.route('/', methods = ['GET', 'POST'])
-def er():
-    global blocks
-    blocks = request.form['block']
-    print(blocks)
     return render_template('DIVid.html')
+
+
+# @app.route('/', methods = ['GET', 'POST'])
+# def er():
+#     global blocks
+#     blocks = request.form['block']
+#     print(blocks)
+#     return render_template('DIVid.html')
 
 
 if __name__ == '__main__':
