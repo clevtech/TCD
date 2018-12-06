@@ -27,6 +27,52 @@ thread_lock = Lock()
 message = {}
 
 
+
+@app.route('/ok')
+def my_form():
+    global block
+    my_ip = "192.168.1.1"
+    name = 'hi!'
+    return render_template ('index(me).html', **locals()) #моя адмика
+
+
+@app.route('/ok', methods=['GET' ,'POST'])
+def my_form_post():
+    global title
+    global text
+    global car
+    title = request.form['title']
+    num = random.random()
+    car = request.form['image']
+    print(car)
+    uri = 'static/img/' + car
+    vid = request.form['video']
+    urii = 'static/vid/' + vid
+    text = request.form['texts']
+    print(text)
+    rad = request.form['radio']
+    if rad == 'yes':
+        frid = 1
+    if rad == 'no':
+        frid = 2
+    if rad == 'ok':
+        frid = 3
+    block = request.form['block']
+    print(block)
+    # user.insert(message)
+    return render_template('index(me).html', **locals())
+
+
+
+
+
+
+
+
+
+
+
+
 @app.route('/', methods = ['GET', 'POST'])
 def mark_selected():
     return render_template('index.html', async_mode=socketio.async_mode)
@@ -34,7 +80,9 @@ def mark_selected():
 
 @app.route('/button/<value>/', methods = ['GET', 'POST'])
 def button(value=0):
-
+    global title
+    global text
+    global car
     global message
     print("Value from button: " + value)
     print("Now we changed theme")
@@ -59,15 +107,15 @@ def button(value=0):
         message = {
             "theme": "1",
             "block": "2",
-            "title1": "Новые клиенты за сегодня",
+            "title1": title,
             "img1": "static/img/bg.jpg",
-            "text1": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
-            "title2": "Новые клиенты за сегодня2",
+            "text1": text,
+            "title2": title,
             "img2": "static/img/bg.jpg",
-            "text2": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
-            "title3": "Новые клиенты за сегодня",
+            "text2": text,
+            "title3": title,
             "img3": "static/img/bg.jpg",
-            "text3": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
+            "text3": text,
             "img-src1": "static/img/bg.jpg",
             "video1": "static/video/vid.mp4"
         }
@@ -128,6 +176,7 @@ def ek():
 if __name__ == '__main__':
     socketio.run(app, host='0.0.0.0', port=8888, debug=True)
     # app.run(host='0.0.0.0', port=8888,debug=True)
+
 
 
 

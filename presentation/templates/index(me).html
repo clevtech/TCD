@@ -43,7 +43,7 @@ DOCTYPE html>
 				</label>
 				<label for="names">
 					Text
-					<textarea rows="4" cols="30" id="names" name="text"></textarea>
+					<textarea rows="4" cols="30" id="names" name="texts"></textarea>
 				</label>
 				<label for="">
 					<select name="image">
@@ -63,16 +63,14 @@ DOCTYPE html>
 						<option>car3</option>
 						<option>car4</option>
 					</select>
-					<form id = my_tree>
-					<label for="name" id>
+					<label for="name">
 					Кол-во блоков
-					<input type="text" name="block" id = tree>
-					</label>
-					</form>
+					<input type="text" name="block">
 						<label for="name">
    									 Данные с дерева
     			<input type="text" name="text">
     			</label>
+				</label>
 				</label>
 				<button type="button">View</button>
 				<button type="submit">Where?</button>
@@ -361,7 +359,6 @@ DOCTYPE html>
 		}
 	</script>
 
-
     <section id="demo">
 		<ol class="sortable ui-sortable mjs-nestedSortable-branch mjs-nestedSortable-expanded">
 		   <li style="display: list-item;" class="mjs-nestedSortable-branch mjs-nestedSortable-expanded" id="menuItem_2" data-foo="bar">
@@ -393,14 +390,14 @@ DOCTYPE html>
 				   <span></span>
 				   </span>
 				   <span>
-				   <span data-id="4" class="itemTitle" id = block>block</span>
+				   <span data-id="4" class="itemTitle" id = {{block}}>{{block}}</span>
 				   <span title="Click to delete item." data-id="4" class="deleteMenu ui-icon ui-icon-closethick">
 				   <span></span>
 				   </span>
 				   </span>
 				   <div id="menuEdit4" class="menuEdit hidden">
-					   <p >
-						   my texts
+					   <p text = {{text}}>
+						   {{text}}
 					   </p>
 				   </div>
 			   </div>
@@ -451,6 +448,8 @@ DOCTYPE html>
 			   </li>
 		   </ol>
 		   </li>
+		   <ol>
+		   </ol>
 		   <li style="display: list-item;" class="mjs-nestedSortable-leaf" id="menuItem_7">
 		   <div class="menuDiv">
 			   <span title="Click to show/hide children" class="disclose ui-icon ui-icon-minusthick">
@@ -487,9 +486,9 @@ DOCTYPE html>
 			   </span>
 			   </span>
 			   <div id="menuEdit8" class="menuEdit hidden" >
-				   <div id = {{text}}>
+				   <div id = {{texts}}>
 				   <p>
-					  {{text}}
+					  {{texts}}
 				   </p>
 					   </div>
 			   </div>
@@ -517,7 +516,6 @@ DOCTYPE html>
 			   </div>
 		   </div>
 		   </li>
-			 <script type="text/javascript" src="./static/DIVid.js"></script>
         <h3>Try the custom methods:</h3>
 
         <p><br>
@@ -537,7 +535,6 @@ DOCTYPE html>
 		</pre>
 
         <p><em>Note: This demo has the <code>maxLevels</code> option set to '4'.</em></p>
-		</ol>
     </section><!-- END #demo -->
 
     <section id="license">

@@ -1,7 +1,6 @@
 
 from flask import Flask, render_template, session, request, json, jsonify, url_for, Markup, redirect
 from flask_pymongo import PyMongo
-from admin import *
 import pymongo
 import random
 from pprint import pprint
