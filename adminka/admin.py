@@ -31,23 +31,8 @@ def os():
 #     blocks = request.form['block']
 #     print(blocks)
 #     return render_template('DIVid.html')
-
+#
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8888,debug=True)
-
-
-
-
-
-
-
-# a = input('passwd!:')
-# g = int(a)
-# n = 10000
-# if g < int(n):
-#
-#     b =g + 1
-#     print(b)
-
 

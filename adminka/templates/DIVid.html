@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-
-    <meta content="Demo page of the nestedSortable jQuery Plugin" name=
-    "description">
+    <meta content="Demo page of the nestedSortable jQuery Plugin" name="description">
     <meta content="Manuele J Sarfatti" name="author">
     <style type="text/css">
 		html {
@@ -121,7 +119,7 @@
 		}
 
 		.itemTitle {
-			vertical-align: middle;
+			vertical-align: right;
 			cursor: pointer;
 		}
 
@@ -387,7 +385,9 @@
 			   <span></span>
 			   </span>
 			   <span>
-			   <span data-id="8" class="itemTitle">f</span>
+				   <a href = 'https://google.kz' class = '.ajax' onclick = 'Tree'>
+			   <span data-id="8" style='position:absolute;padding-left: 30px'>Какой то заголовок </span>
+					   </a>
 			   <span title="Click to delete item." data-id="8" class="deleteMenu ui-icon ui-icon-closethick">
 			   <span></span>
 			   </span>
@@ -399,6 +399,7 @@
 				   </p>
 					   </div>
 			   </div>
+
 		   </div>
 		   </li>
 
@@ -426,6 +427,7 @@
         </ol>
             </section >
         </div>
+	</form>
 </head>
 <body>
 	<script src="./static/DIVid.js"></script>
@@ -433,6 +435,13 @@
         <input type="text" name="block" placeholder="NAME" /><br>
         <input type="text" name="phone" placeholder="YOUR PHONE" /><br>
         <input type="button" id="btn" value="Отправить" />
+			<input type="button" id = 'save' value = "save" />
+    </form>
+
+	<form method="post" id="admin" action="" >
+        <input type="text" name="block" placeholder="NAME" /><br>
+        <input type="text" name="phone" placeholder="YOUR PHONE" /><br>
+        <input type="button" id="but" value="Отправить" />
     </form>
 
     <br>

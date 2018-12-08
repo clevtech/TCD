@@ -95,6 +95,7 @@ DOCTYPE html>
 				<!--<button type="submit">Save</button>-->
 					<div>ip={{my_ip}}
 			</div>
+			</div>
 		</form>
 	</div>
 
@@ -363,7 +364,8 @@ DOCTYPE html>
 
 
     <section id="demo">
-		<ol class="sortable ui-sortable mjs-nestedSortable-branch mjs-nestedSortable-expanded">
+		<ol class="sortable ui-sortable mjs-nestedSortable-branch mjs-nestedSortable-expanded" >
+			<div id = '90'>
 		   <li style="display: list-item;" class="mjs-nestedSortable-branch mjs-nestedSortable-expanded" id="menuItem_2" data-foo="bar">
 		   <div class="menuDiv">
 			   <span title="Click to show/hide children" class="disclose ui-icon ui-icon-minusthick">
@@ -517,7 +519,18 @@ DOCTYPE html>
 			   </div>
 		   </div>
 		   </li>
+			</div>
 			 <script type="text/javascript" src="./static/DIVid.js"></script>
+
+				<script src="./static/DIVid.js"></script>
+			<form method="post" id="ajax_form" action="" >
+			<label>
+        <input type="text" name="block" placeholder="NAME" /><br>
+        <input type="text" name="phone" placeholder="YOUR PHONE" /><br>
+        <input type="button" id="btn" value="Отправить" />
+			<input type="button" id = 'save' value = "save" />
+			</label>
+			</form>
         <h3>Try the custom methods:</h3>
 
         <p><br>
