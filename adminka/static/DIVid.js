@@ -9,7 +9,7 @@
 });
 
 function sendAjaxForm(result_form, ajax_form) {
-    jQuery.ajax({
+        $.ajax({
         url:     "http://0.0.0.0:8888/", //url страницы (action_ajax_form.php)
         type:     "POST", //метод отправки
         dataType: "json", //формат данных
@@ -25,9 +25,9 @@ function sendAjaxForm(result_form, ajax_form) {
     		  var out = '';
     		  var i = 1;
     		  var block = 10
+    		  var message = 'Hello you!'
     		  var block_num = block // NAME
                 while(i < block_num){
-
 
                         out +=   "<li style= 'display: list-item;' class= 'mjs-nestedSortable-leaf' id= 'menuItem_ "+ i +"'>";
                         out +=  "<div class='menuDiv' id = "+ i +">";
@@ -38,13 +38,13 @@ function sendAjaxForm(result_form, ajax_form) {
                         out +=  "<span></span>";
                         out += "</span>";
                         out += "<span>";
-                        out += "<span data-id="+ i +" class='itemTitle'>f</span>";
+                        out += "<a href = ok/"+ i +">  <span data-id="+ i +" class='itemTitle'> "+ message +" </span></a>  ";
                         out += "<span title='Click to delete item.' data-id="+ i +" class='deleteMenu ui-icon ui-icon-closethick'>";
                         out += "<span></span>";
                         out += "</span>";
                         out += "</span>";
                         out += "<div id='menuEdit"+ i +"' class='menuEdit hidden'>";
-                        out +=  "<p>Content or form, or nothing here. Whatever you want.</p>";
+                        out +=  "<p>"+ i +" ) "+ message +" </p>"; // сюда идет сообщение которое прихоидт с сервера
                         out += "</div>";
                         out += "</div>";
                         out += "</li>";

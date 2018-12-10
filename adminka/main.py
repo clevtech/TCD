@@ -41,6 +41,7 @@ def my_form():
 def my_form_post():
     global title
     global car
+    global text
     title = request.form['title'] #имя в скобках (и в html) влияет на их передачу в <div id = ''>
     num = random.random()
     car = request.form['image']
@@ -61,14 +62,6 @@ def my_form_post():
     print(block)
     # user.insert(message)
     return render_template('index(me).html', **locals())
-
-
-
-
-
-
-
-
 
 
 
@@ -102,30 +95,36 @@ def button(value=0):
             "img-src1": "static/img/fon.jpg",
             "video1": "static/video/vid.mp4"
         }
+        with open('static/json/data.json', 'w') as dat: # открывает json файл "W"- это команда на запись (write, read)
+            jsn = json.dump(message, dat, indent=2, ensure_ascii=False ) # mep это зн7ачение которому присвоено наше json значение из монги
+
 
     elif int(value) == 2:
         message = {
             "theme": "1",
             "block": "2",
-            "title1": title,
-            "img1": "static/img/bg.jpg",
-            "text1": text,
-            "title2": title,
+            "title1": "Новые клиенты за сегодня1",
+            "img1": "static/img/fon.jpg",
+            "text1": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
+            "title2": "Новые клиенты за сегодня1",
             "img2": "static/img/bg.jpg",
-            "text2": text,
-            "title3": title,
-            "img3": "static/img/bg.jpg",
-            "text3": text,
-            "img-src1": "static/img/bg.jpg",
+            "text2": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
+            "title3": "Новые клиенты за сегодня1",
+            "img3": "static/img/fon.jpg",
+            "text3": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
+            "img-src1": "static/img/fon.jpg",
             "video1": "static/video/vid.mp4"
+
         }
+        with open('static/json/data.json', 'w') as dat: # открывает json файл "W"- это команда на запись (write, read)
+            jsn = json.dump(message, dat, indent=2, ensure_ascii=False ) # mep это зн7ачение которому присвоено наше json значение из монги
 
 
     elif int(value) == 3:
         message = {
             "theme": "1",
             "block": "3",
-            "title1": "Новые клиенты за сегодня",
+            "title1": "Новые клиенты за сегодня1",
             "img1": "static/img/bg.jpg",
             "text1": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
             "title2": "Новые клиенты за сегодня",
@@ -137,6 +136,8 @@ def button(value=0):
             "img-src1": "static/img/bg.jpg",
             "video": "static/video/vid.mp4"
         }
+        with open('static/json/data.json', 'w') as dat: # открывает json файл "W"- это команда на запись (write, read)
+            jsn = json.dump(message, dat, indent=2, ensure_ascii=False ) # mep это зн7ачение которому присвоено наше json значение из монги
 
     print(message)
     return render_template('main.html')
@@ -181,3 +182,19 @@ if __name__ == '__main__':
 
 
 
+
+
+
+# try:
+#     global a
+#     print(type(a))
+#     js = {'_id':a}
+#     user.insert(js)
+# except:
+#     global summ
+#     num = str(1000)
+#     print(type (num))
+#     while a > num:
+#         a = a + str(1)
+#         print(a)
+#         a = summ

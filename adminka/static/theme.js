@@ -1,6 +1,12 @@
-$('document').ready(function() {
-        loadTheme();
-        
+$(document).ready(function() {
+        $.ajaxSetup({
+        url: "http://0.0.0.0:8888/static/json/data.json",
+        cache: false,
+        dataType: "json",
+                        });
+        console.log(themeOne)
+		loadTheme();
+
 });
 var url = document.URL + 'static/json/data.json';
         console.log(url)
@@ -27,6 +33,7 @@ function loadTheme() {
 function themeOne(data) {
     var header = "";
     var content = "";
+    var block = data.block
     header += "<header class='header1'><div class='head-left-item'>";
     header +="<img src='static/img/logo.png' alt='logo'><div><h3>НҰР ОТАН</h3>"
     header +="<p>ПАРТИЯСЫ САЙЛАУАЛДЫ<br>БАҒДАРЛАМАСЫ</p></div></div>";
@@ -37,7 +44,7 @@ function themeOne(data) {
     content += "<div class='wrapper'><div class='container'><ul>";
     content += "<li class='card test1'>";
     content += "<img src=" + data.img1 + " alt='image'><div class='info '><h2>" + data.title1 + "</h2>";
-    content += "<p>" + data.text1 + "</p></div></li>"; 
+    content += "<p>" + data.text1 + "</p></div></li>";
     content += "<li class='card test2'>";
     content += "<img src=" + data.img2 + " alt='image'><div class='info '><h2>" + data.title2 + "</h2>";
     content += "<p>" + data.text2 + "</p></div></li>";
@@ -49,6 +56,50 @@ function themeOne(data) {
 
     $('.themeContent').html(themeOne);
     buttonClick();
+    if (block == 3){
+        content += "<header class='header1'><div class='head-left-item'>";
+        content +="<img src='static/img/logo.png' alt='logo'><div><h3>НҰР ОТАН</h3>"
+        content +="<p> САЙЛАУАЛДЫ<br>БАҒДАРЛАМАСЫ</p></div></div>";
+        content += "<div class='head-right-item'><div class='arrows'>";
+        content += "<img src='static/img/left-arrow.png' alt='left-arrow'><img src='static/img/right-arrow.png' alt='right-arrow'></div>";
+        content += "<div class='menu-buttons'><button>Главная</button><button class='active'>Информационный блок</button></div></div></header>";
+        content += "<div class='wrapper'><div class='container'><ul>";
+        content += "<li class='card test1'>";
+        content += "<img src=" + data.img1 + " alt='image'><div class='info '><h2>" + data.title1 + "</h2>";
+        content += "<p>" + data.text1 + "</p></div></li>";
+        content += "<li class='card test2'>";
+        content += "<img src=" + data.img2 + " alt='image'><div class='info '><h2>" + data.title2 + "</h2>";
+        content += "<p>" + data.text2 + "</p></div></li>";
+        content += "<li class='card test3'>";
+        content += "<img src=" + data.img3 + " alt='image'><div class='info '><h2>" + data.title3 + "</h2>";
+        content += "<p>" + data.text3 + "</p></div></li>";
+        content += "</ul></div></div>";
+        var themeOne = content;
+
+        $('.themeContent').html(themeOne);
+        buttonClick();
+        }
+    else if(block ==2){
+        content += "<div class='wrapper'><div class='container'><ul>";
+        content += "<li class='card test1'>";
+        content += "<img src=" + data.img1 + " alt='image'><div class='info '><h2>" + data.title1 + "</h2>";
+        content += "<p>" + data.text1 + "</p></div></li>";
+        content += "<li class='card test2'>";
+        content += "<img src=" + data.img2 + " alt='image'><div class='info '><h2>" + data.title2 + "</h2>";
+        content += "<p>" + data.text2 + "</p></div></li>";
+        content += "<li class='card test3'>";
+        content += "<img src=" + data.img3 + " alt='image'><div class='info '><h2>" + data.title3 + "</h2>";
+        content += "<p>" + data.text3 + "</p></div></li>";
+        content += "</ul></div></div>";
+        var themeOne = content;
+        $('.themeContent').html(themeOne);
+        buttonClick();
+
+    }
+
+
+
+
 }
 
 var blockNum = ''
@@ -79,10 +130,37 @@ function buttonClick(e) {
 function sendAjaxForm(blockNum, url) {
 $.ajax({
 url: url, //url страницы (action_ajax_form.php)
-type: "POST", //метод отправки
+type: "POST", //мжетод отправки
 dataType: "html", //формат данных
 data: $(blockNum).serialize(), // Сеарилизуем объект
-success: function(response) { //Данные отправлены успешно
+success: function(response)            {
+        content += "<header class='header1'><div class='head-left-item'>";
+        content +="<img src='static/img/logo.png' alt='logo'><div><h3>НҰР ОТАН</h3>"
+        content +="<p>ПАРТИЯСЫ САЙЛАУАЛДЫ<br>БАҒДАРЛАМАСЫ</p></div></div>";
+        content += "<div class='head-right-item'><div class='arrows'>";
+        content += "<img src='static/img/left-arrow.png' alt='left-arrow'><img src='static/img/right-arrow.png' alt='right-arrow'></div>";
+        content += "<div class='menu-buttons'><button>Главная</button><button class='active'>Информационный блок</button></div></div></header>";
+
+        content += "<div class='wrapper'><div class='container'><ul>";
+        content += "<li class='card test1'>";
+        content += "<img src= 'static/img/fon.jpg' alt='image'><div class='info '><h2>TITLE3</h2>";
+        content += "<p>HELLO</p></div></li>";
+        content += "<li class='card test2'>";
+        content += "<img src=static/img/fon.jpg' alt='image'><div class='info '><h2>TITLE2</h2>";
+        content += "<p>HELLO!</p></div></li>";
+        content += "<li class='card test3'>";
+        content += "<img src=static/img/fon.jpg' alt='image'><div class='info '><h2>TITLE1</h2>";
+        content += "<p>hello</p></div></li>";
+        content += "</ul></div></div>";
+
+        var themeOne = content;
+
+        $('.themeContent').html(themeOne);
+        buttonClick();
+
+
+
+ //Данные отправлены успешно
 console.log('+')
 
 },
@@ -91,3 +169,4 @@ console.log(blockNum);
 }
 });
 }
+

@@ -107,15 +107,15 @@ def button(value=0):
         message = {
             "theme": "1",
             "block": "2",
-            "title1": title,
+            "title1": "Новые клиенты за сегодня1",
             "img1": "static/img/bg.jpg",
-            "text1": text,
-            "title2": title,
+            "text1": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
+            "title2": "Новые клиенты за сегодня1",
             "img2": "static/img/bg.jpg",
-            "text2": text,
-            "title3": title,
+            "text2": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
+            "title3": "Новые клиенты за сегодня1",
             "img3": "static/img/bg.jpg",
-            "text3": text,
+            "text3": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
             "img-src1": "static/img/bg.jpg",
             "video1": "static/video/vid.mp4"
         }
