@@ -95,8 +95,7 @@ def button(value=0):
             "img-src1": "static/img/fon.jpg",
             "video1": "static/video/vid.mp4"
         }
-        with open('static/json/data.json', 'w') as dat: # открывает json файл "W"- это команда на запись (write, read)
-            jsn = json.dump(message, dat, indent=2, ensure_ascii=False ) # mep это зн7ачение которому присвоено наше json значение из монги
+
 
 
     elif int(value) == 2:
@@ -116,8 +115,6 @@ def button(value=0):
             "video1": "static/video/vid.mp4"
 
         }
-        with open('static/json/data.json', 'w') as dat: # открывает json файл "W"- это команда на запись (write, read)
-            jsn = json.dump(message, dat, indent=2, ensure_ascii=False ) # mep это зн7ачение которому присвоено наше json значение из монги
 
 
     elif int(value) == 3:
@@ -136,8 +133,7 @@ def button(value=0):
             "img-src1": "static/img/bg.jpg",
             "video": "static/video/vid.mp4"
         }
-        with open('static/json/data.json', 'w') as dat: # открывает json файл "W"- это команда на запись (write, read)
-            jsn = json.dump(message, dat, indent=2, ensure_ascii=False ) # mep это зн7ачение которому присвоено наше json значение из монги
+
 
     print(message)
     return render_template('main.html')
