@@ -26,8 +26,6 @@ thread_lock = Lock()
 
 message = {}
 
-
-
 @app.route('/ok')
 def my_form():
     global block
@@ -42,6 +40,7 @@ def my_form_post():
     global title
     global car
     global text
+    global b
     title = request.form['title'] #имя в скобках (и в html) влияет на их передачу в <div id = ''>
     num = random.random()
     car = request.form['image']
@@ -59,10 +58,22 @@ def my_form_post():
     if rad == 'ok':
         frid = 3
     block = request.form['block']
+    i = 0
     print(block)
-    # user.insert(message)
-    return render_template('index(me).html', **locals())
+    block = int(block) #очень станно когда просто int(block) он выдает ошибку а с параметром block = int(block) пишет что все ок нужно узнать почему так
+    while i < block:
+        i = i + 1
+        a = {i}
+        b = {
+                      "title": "Новые клиенты за сегодняeqweqw",
+                      "img": "static/img/bg.jpg",
+                      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
+                        "num": i
+            }
 
+        print(b)
+        # user.insert(message)
+    return render_template('index(me).html', **locals())
 
 
 
@@ -81,62 +92,96 @@ def button(value=0):
     print("Now we changed theme")
     if int(value) == 1:
         message = {
-            "theme": "1",
-            "block": "1",
-            "title1": "Новые клиенты за сегодня1",
-            "img1": "static/img/fon.jpg",
-            "text1": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
-            "title2": "Новые клиенты за сегодня",
-            "img2": "static/img/fon.jpg",
-            "text2": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
-            "title3": "Новые клиенты за сегодня",
-            "img3": "static/img/fon.jpg",
-            "text3": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
-            "img-src1": "static/img/fon.jpg",
-            "video1": "static/video/vid.mp4"
-        }
+                "_id": "1",
+                "theme": "1",
+                "block": "1",
+                "num": value,
+                "test": [
+                  {
+                  "title": "Новые клиенты за сегоднsdasdя",
+                  "img": "static/img/bg.jpg",
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
+                  },
+                  {
+                  "title": "Новые клиенты за сегодняeqweqw",
+                  "img": "static/img/bg.jpg",
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!"
+                  },
+                  {
+                  "title": "Новые клиенты за сегодня",
+                  "img": "static/img/bg.jpg",
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!"
+                  }
 
+                ],
+                "img-src1": "static/img/bg.jpg",
+                "video1": "static/video/vid.mp4"
+                }
 
+        with open('static/json/data.json', 'w') as dat: # открывает json файл "W"- это команда на запись (write, read)
+            jsn = json.dump(message, dat, indent=2, ensure_ascii=False ) # mep это зн7ачение которому присвоено наше json значение из монги
 
     elif int(value) == 2:
         message = {
-            "theme": "1",
-            "block": "2",
-            "title1": "Новые клиенты за сегодня1",
-            "img1": "static/img/fon.jpg",
-            "text1": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
-            "title2": "Новые клиенты за сегодня1",
-            "img2": "static/img/bg.jpg",
-            "text2": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
-            "title3": "Новые клиенты за сегодня1",
-            "img3": "static/img/fon.jpg",
-            "text3": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
-            "img-src1": "static/img/fon.jpg",
-            "video1": "static/video/vid.mp4"
-
-        }
-
+                "_id": "1",
+                "theme": "1",
+                "block": "2",
+                "num": value,
+                "test": [
+                  {
+                  "title1": "Новые клиенты за сегоднsdasdя",
+                  "img1": "static/img/fon.jpg",
+                  "text1": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!"
+                  },
+                  {
+                  "title": "Новые клиенты за сегодняeqweqw",
+                  "img": "static/img/bg.jpg",
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!"
+                  },
+                  {
+                  "title": "Новые клиенты за сегодня",
+                  "img": "static/img/bg.jpg",
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!"
+                  },
+                ],
+                "img-src1": "static/img/bg.jpg",
+                "video1": "static/video/vid.mp4"
+                }
+        with open('static/json/data.json', 'w') as dat: # открывает json файл "W"- это команда на запись (write, read)
+            jsn = json.dump(message, dat, indent=2, ensure_ascii=False ) # mep это зн7ачение которому присвоено наше json значение из монги
 
     elif int(value) == 3:
         message = {
-            "theme": "1",
-            "block": "3",
-            "title1": "Новые клиенты за сегодня1",
-            "img1": "static/img/bg.jpg",
-            "text1": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
-            "title2": "Новые клиенты за сегодня",
-            "img2": "static/img/bg.jpg",
-            "text2": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
-            "title3": "Новые клиенты за сегодня3",
-            "img3": "static/img/bg.jpg",
-            "text3": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
-            "img-src1": "static/img/bg.jpg",
-            "video": "static/video/vid.mp4"
-        }
+                "_id": "1",
+                "theme": "1",
+                "block": "3",
+                "num": value,
+                "test": [
+                  {
+                  "title": "Новые клиенты за сегоднsdasdя",
+                  "img": "static/img/bg.jpg",
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!"
+                  },
+                  {
+                  "title": "Новые клиенты за сегодняeqweqw",
+                  "img": "static/img/bg.jpg",
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!"
+                  },
+                  {
+                  "title": "Новые клиенты за сегодня",
+                  "img": "static/img/bg.jpg",
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
+                    "video": "static/video/vid.mp4"
+                  },
+                ],
+                "img-src1": "static/img/bg.jpg",
+                "video1": "static/video/vid.mp4"
+                }
 
-
+        with open('static/json/data.json', 'w') as dat: # открывает json файл "W"- это команда на запись (write, read)
+            jsn = json.dump(message, dat, indent=2, ensure_ascii=False ) # mep это зн7ачение которому присвоено наше json значение из монги
     print(message)
-    return render_template('main.html')
+    return render_template('main.html', async_mode=socketio.async_mode)
 
 
 # То что крутиться на заднем фоне

@@ -1,13 +1,15 @@
-from flask import Flask, render_template, session, request, json, jsonify, url_for, Markup, redirect
+block = input('ga')
+i = 0
+block = int(block)
+while i < block:
+    i = i + 1
+    a = {i}
+    b = {
+                  "title": "Новые клиенты за сегодняeqweqw",
+                  "img": "static/img/bg.jpg",
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
+                    "num": i
+        }
 
-app = Flask(__name__)
+    print(b)
 
-@app.route("/")
-def route():
-    render_template('index.html', name = name)
-
-
-
-@app.route("/")
-def routtte():
-    re
