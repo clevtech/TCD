@@ -8,12 +8,13 @@ from flask_socketio import SocketIO, emit, join_room, leave_room, \
     close_room, rooms, disconnect
 import random
 from threading import Lock
-
+from flask_cors import CORS, cross_origin
 
 
 async_mode = None
 
 app = Flask(__name__)
+CORS(app,support_credentials=True, resources={r"/*": {"origins": "*"}})
 app.config["MONGO_URI"] = "mongodb://localhost:27017/test"
 mongo = PyMongo(app)
 user = mongo.db.users
@@ -61,33 +62,43 @@ def my_form_post():
     i = 0
     print(block)
     block = int(block) #очень станно когда просто int(block) он выдает ошибку а с параметром block = int(block) пишет что все ок нужно узнать почему так
-    while i < block:
-        i = i + 1
-        a = {i}
-        b = {
+    i = 0
+    b = [{
                       "title": "Новые клиенты за сегодняeqweqw",
                       "img": "static/img/bg.jpg",
                       "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
-                        "num": i
-            }
+            }]
 
-        print(b)
+    if i > block:
+        global z
+        print('heelo!')
+    else:
+
+        a = (block * b)
+        print(a)
+    z = a
+
+
         # user.insert(message)
     return render_template('index(me).html', **locals())
 
 
 
 @app.route('/', methods = ['GET', 'POST'])
+@cross_origin(supports_credentials=True)
 def mark_selected():
+    request.headers.get ('Access-Control-Allow-Origin:*')
     return render_template('index.html', async_mode=socketio.async_mode)
 
 
 @app.route('/button/<value>/', methods = ['GET', 'POST'])
+@cross_origin()
 def button(value=0):
     global title
     global text
     global car
     global message
+    global z
     print("Value from button: " + value)
     print("Now we changed theme")
     if int(value) == 1:
@@ -99,20 +110,29 @@ def button(value=0):
                 "test": [
                   {
                   "title": "Новые клиенты за сегоднsdasdя",
-                  "img": "static/img/bg.jpg",
-                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
+                  "img": "static/img/fon.jpg",
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!"
                   },
                   {
                   "title": "Новые клиенты за сегодняeqweqw",
                   "img": "static/img/bg.jpg",
-                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!"
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!"
                   },
                   {
                   "title": "Новые клиенты за сегодня",
                   "img": "static/img/bg.jpg",
-                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!"
-                  }
-
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!"
+                  },
+                  {
+                  "title": "Новые клиенты за сегоднsdasdя",
+                  "img": "static/img/fon.jpg",
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!"
+                  },
+                    {
+                  "title": "Новые клиенты за сегоднsdasdя",
+                  "img": "static/img/fon.jpg",
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!"
+                  },
                 ],
                 "img-src1": "static/img/bg.jpg",
                 "video1": "static/video/vid.mp4"
@@ -129,19 +149,19 @@ def button(value=0):
                 "num": value,
                 "test": [
                   {
-                  "title1": "Новые клиенты за сегоднsdasdя",
-                  "img1": "static/img/fon.jpg",
-                  "text1": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!"
+                  "title": "Новые клиенты за сегоднsdasdя",
+                  "img": "static/img/fon.jpg",
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!"
                   },
                   {
                   "title": "Новые клиенты за сегодняeqweqw",
                   "img": "static/img/bg.jpg",
-                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!"
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!"
                   },
                   {
                   "title": "Новые клиенты за сегодня",
                   "img": "static/img/bg.jpg",
-                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!"
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!"
                   },
                 ],
                 "img-src1": "static/img/bg.jpg",
@@ -160,17 +180,17 @@ def button(value=0):
                   {
                   "title": "Новые клиенты за сегоднsdasdя",
                   "img": "static/img/bg.jpg",
-                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!"
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at33!"
                   },
                   {
                   "title": "Новые клиенты за сегодняeqweqw",
                   "img": "static/img/bg.jpg",
-                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!"
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at33!"
                   },
                   {
                   "title": "Новые клиенты за сегодня",
                   "img": "static/img/bg.jpg",
-                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at33!",
                     "video": "static/video/vid.mp4"
                   },
                 ],

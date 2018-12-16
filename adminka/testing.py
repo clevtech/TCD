@@ -1,15 +1,20 @@
-block = input('ga')
-i = 0
+
+block = input('hi')
 block = int(block)
-while i < block:
-    i = i + 1
-    a = {i}
-    b = {
-                  "title": "Новые клиенты за сегодняeqweqw",
-                  "img": "static/img/bg.jpg",
-                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
-                    "num": i
-        }
+i = 0
+b = [{
+                      "title": "Новые клиенты за сегодняeqweqw",
+                      "img": "static/img/bg.jpg",
+                      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
+            }]
 
-    print(b)
+if i > block:
+    global z
+    print('heelo!')
+else:
 
+    a = (block * b)
+    print(a)
+
+    z = (a)[1:-1]
+    print(z)

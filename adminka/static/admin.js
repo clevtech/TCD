@@ -46,6 +46,6 @@ function loadData() {
    					loadData();
   				}
   			})
-  		}, 500);
+  		}, 2000);
     })
 }
