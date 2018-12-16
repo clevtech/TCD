@@ -95,16 +95,17 @@ function themeOne(data) {
     }
 
 function MyClick(data){
-+ $(".container").click(function() {
+ $(".container").click(function() {
       $.ajaxSetup({
         url: "http://0.0.0.0:8888/static/json/data.json",
         crossDomain:true,
         cache: false,
         dataType: "json",
                         });
+ setTimeout(function(){
     $.getJSON('http://0.0.0.0:8888/static/json/data.json', function(data) {
      console.log("NEW JSON")
-        if(data.num != 10){
+        if(data.num != 0){
             themeOne(data);
 
 
@@ -113,24 +114,11 @@ function MyClick(data){
 
             })
 
+}, 2000);
 });
 }
 
 
-
-//function innerBlock(data, content, block, header) {
-//        for(var i = 0; i < data.test.length; i++) {
-//        block += "<li class='card test"+ i + "'>";
-//        block += "<img src="+ data.test[i].img +" alt='image'><div class='info'><h2>"+ data.test[i].title + "</h2>";
-//        block += "<p>"+ data.test[i].text +"</p></div></li>";
-//        console.log('NUMBER inner');
-//        console.log(data.num);
-//        content += "</ul></div></div>";
-//        alert('inner funct')
-//
-//        $('.themeContent').html(themeOne);
-//}
-//}
 
 var blockNum = ''
 function buttonClick(e) {
