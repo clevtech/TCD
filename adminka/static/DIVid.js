@@ -1,33 +1,29 @@
-
- $( document ).ready(function() {
+$( document ).ready(function() {
     $("#btn").click(
 		function(){
-			sendAjaxForm('result_form', 'ajax_form', './admin.py');
+			sendAjaxForm('result_form', 'ajax_form', 'action_ajax_form.php');
 			return false;
 		}
 	);
 });
 
 function sendAjaxForm(result_form, ajax_form) {
-        $.ajax({
+    var myData = $('#ajax_form').serializeArray();
+    $.ajax({
         url:     "http://0.0.0.0:8888/", //url страницы (action_ajax_form.php)
         type:     "POST", //метод отправки
-        dataType: "json", //формат данных
-        data: jQuery("#"+ajax_form).serialize(),  // Сеарилизуем объект
+        dataType: "html", //формат данных
+        data: myData,  // Сеарилизуем объект
         success: function(response) { //Данные отправлены успешно
-        	result = $.parseJSON(response);
-        console.log(response)
-        	document.getElementById(result_form).innerHTML = "Имя: "+result.block+"<br>Телефон: "+result.phone;
-    	},
-    	error: function(response) { // Данные не отправлены
+            result_phone = myData[0].value;
+            console.log(result_phone);
     		document.getElementById(90).html;
-    		console.log(response)
+    		console.log(response);
     		  var out = '';
-    		  var i = 1;
-    		  var block = 10
+    		  var i = 0
+    		  var block = result_phone;
     		  var message = 'Hello you!'
-    		  var block_num = block // NAME
-                while(i < block_num){
+                while(i < block){
 
                         out +=   "<li style= 'display: list-item;' class= 'mjs-nestedSortable-leaf' id= 'menuItem_ "+ i +"'>";
                         out +=  "<div class='menuDiv' id = "+ i +">";
@@ -51,20 +47,7 @@ function sendAjaxForm(result_form, ajax_form) {
                         $('#90').html(out);
                         i++;
                         }
-                        alert('bye!');
 
-
-
-
-
-
-
-
-
-
-
-    	}
- 	});
 }
-
-
+})
+}

@@ -1,24 +1,33 @@
 {
   "_id": "1",
-  "block": "3",
+  "block": "1",
   "img-src1": "static/img/bg.jpg",
-  "num": "3",
+  "num": "1",
   "test": [
     {
-      "img": "static/img/bg.jpg",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at33!",
+      "img": "static/img/fon.jpg",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!",
       "title": "Новые клиенты за сегоднsdasdя"
     },
     {
       "img": "static/img/bg.jpg",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at33!",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!",
       "title": "Новые клиенты за сегодняeqweqw"
     },
     {
       "img": "static/img/bg.jpg",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at33!",
-      "title": "Новые клиенты за сегодня",
-      "video": "static/video/vid.mp4"
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!",
+      "title": "Новые клиенты за сегодня"
+    },
+    {
+      "img": "static/img/fon.jpg",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!",
+      "title": "Новые клиенты за сегоднsdasdя"
+    },
+    {
+      "img": "static/img/fon.jpg",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!",
+      "title": "Новые клиенты за сегоднsdasdя"
     }
   ],
   "theme": "1",

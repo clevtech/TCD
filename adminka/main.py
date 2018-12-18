@@ -77,7 +77,8 @@ def my_form_post():
         a = (block * b)
         print(a)
     z = a
-
+    name = request.form["phone"]
+    print(name)
 
         # user.insert(message)
     return render_template('index(me).html', **locals())

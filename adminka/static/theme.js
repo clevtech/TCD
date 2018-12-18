@@ -114,7 +114,7 @@ function MyClick(data){
 
             })
 
-}, 2000);
+}, 500);
 });
 }
 

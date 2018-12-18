@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0dc3d244-a896-4b21-b507-843920d64790" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminka/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminka/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminka/static/DIVid.js" beforeDir="false" afterPath="$PROJECT_DIR$/adminka/static/DIVid.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adminka/static/json/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/adminka/static/json/data.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adminka/static/theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/adminka/static/theme.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminka/templates/DIVid.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminka/templates/DIVid.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminka/templates/index(me).html" beforeDir="false" afterPath="$PROJECT_DIR$/adminka/templates/index(me).html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,8 +22,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/adminka/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2865">
-              <caret line="191" column="36" selection-start-line="191" selection-start-column="36" selection-end-line="191" selection-end-column="36" />
+            <state relative-caret-position="240">
+              <caret line="16" column="26" lean-forward="true" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
               <folding>
                 <element signature="e#1#101#0" expanded="true" />
               </folding>
@@ -27,28 +32,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/adminka/static/DIVid.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="67">
+              <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/adminka/templates/index(me).html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="553">
+              <caret line="545" column="3" selection-start-line="545" selection-start-column="3" selection-end-line="545" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/adminka/static/theme.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="116" column="4" selection-start-line="116" selection-start-column="4" selection-end-line="116" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/adminka/static/admin.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="412">
-              <caret line="48" column="16" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../androidflask/flaskled/test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="975">
-              <caret line="69" selection-start-line="69" selection-end-line="69" />
+            <state relative-caret-position="279">
+              <caret line="57" column="48" selection-start-line="57" selection-start-column="12" selection-end-line="57" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -56,8 +61,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/adminka/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
+            <state relative-caret-position="210">
+              <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/adminka/static/admin.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="517">
+              <caret line="48" column="16" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -91,10 +105,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>2.0.3</find>
-      <find>menuitem</find>
-      <find>item</find>
-      <find>itemTitle</find>
       <find>8</find>
       <find>data-id</find>
       <find>vert</find>
@@ -104,8 +114,6 @@
       <find>left</find>
       <find>theme</find>
       <find>conten</find>
-      <find>name=</find>
-      <find>btn</find>
       <find>setInter</find>
       <find>http</find>
       <find>content</find>
@@ -121,6 +129,12 @@
       <find>inner</find>
       <find>last</find>
       <find>z</find>
+      <find>btn</find>
+      <find>90</find>
+      <find>ok</find>
+      <find>form</find>
+      <find>title</find>
+      <find>name=</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -133,36 +147,36 @@
         <option value="$PROJECT_DIR$/../Рабочий стол/presentation/main.py" />
         <option value="$PROJECT_DIR$/adminka/templates/DIVid.js" />
         <option value="$PROJECT_DIR$/adminka/static/jquery.mjs.nestedSortable.js" />
-        <option value="$PROJECT_DIR$/adminka/templates/DIVid.html" />
         <option value="$PROJECT_DIR$/presentation/main.py" />
         <option value="$PROJECT_DIR$/presentation/static/json/data.json" />
         <option value="$PROJECT_DIR$/adminka/admin.py" />
-        <option value="$PROJECT_DIR$/adminka/static/DIVid.js" />
-        <option value="$PROJECT_DIR$/adminka/templates/index(me).html" />
         <option value="$PROJECT_DIR$/adminka/testing.py" />
         <option value="$PROJECT_DIR$/../androidflask/flask zhamal/flask zhamal!-20181128T075222Z-001/flask zhamal!/templates/main.html" />
         <option value="$PROJECT_DIR$/adminka/templates/main.html" />
         <option value="$PROJECT_DIR$/../androidflask/flaskled/templates/main.html" />
-        <option value="$PROJECT_DIR$/adminka/main.py" />
         <option value="$PROJECT_DIR$/adminka/static/json/data.json" />
-        <option value="$PROJECT_DIR$/adminka/templates/index.html" />
         <option value="$PROJECT_DIR$/adminka/static/admin.js" />
         <option value="$PROJECT_DIR$/adminka/static/theme.js" />
+        <option value="$PROJECT_DIR$/../androidflask/flaskled/test.py" />
+        <option value="$PROJECT_DIR$/adminka/templates/index.html" />
+        <option value="$PROJECT_DIR$/adminka/templates/DIVid.html" />
+        <option value="$PROJECT_DIR$/adminka/main.py" />
+        <option value="$PROJECT_DIR$/adminka/templates/index(me).html" />
+        <option value="$PROJECT_DIR$/adminka/static/DIVid.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="444" />
-    <option name="y" value="27" />
-    <option name="width" value="1331" />
-    <option name="height" value="681" />
+    <option name="x" value="833" />
+    <option name="y" value="25" />
+    <option name="width" value="767" />
+    <option name="height" value="875" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Course" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -185,11 +199,12 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Course" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -427,13 +442,6 @@
     <entry file="file://$PROJECT_DIR$/presentation/static/theme.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/adminka/templates/DIVid.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="271" column="4" selection-start-line="271" selection-start-column="4" selection-end-line="271" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/presentation/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -473,13 +481,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2565">
           <caret line="179" selection-start-line="179" selection-end-line="179" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adminka/static/DIVid.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-165">
-          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -528,13 +529,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/adminka/templates/index(me).html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="72" column="52" selection-start-line="72" selection-start-column="52" selection-end-line="72" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/adminka/testing.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -556,17 +550,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../androidflask/flaskled/test.py">
+    <entry file="file://$PROJECT_DIR$/adminka/templates/DIVid.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="975">
-          <caret line="69" selection-start-line="69" selection-end-line="69" />
+        <state relative-caret-position="150">
+          <caret line="10" column="9" lean-forward="true" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/adminka/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        <state relative-caret-position="210">
+          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -584,27 +578,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/adminka/main.py">
+    <entry file="file://$PROJECT_DIR$/../androidflask/flaskled/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2865">
-          <caret line="191" column="36" selection-start-line="191" selection-start-column="36" selection-end-line="191" selection-end-column="36" />
+        <state relative-caret-position="-270">
           <folding>
-            <element signature="e#1#101#0" expanded="true" />
+            <element signature="e#1#91#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/adminka/static/admin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
+        <state relative-caret-position="517">
           <caret line="48" column="16" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adminka/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="26" lean-forward="true" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+          <folding>
+            <element signature="e#1#101#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/adminka/static/theme.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="116" column="4" selection-start-line="116" selection-start-column="4" selection-end-line="116" selection-end-column="4" />
+        <state relative-caret-position="279">
+          <caret line="57" column="48" selection-start-line="57" selection-start-column="12" selection-end-line="57" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adminka/templates/index(me).html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="553">
+          <caret line="545" column="3" selection-start-line="545" selection-start-column="3" selection-end-line="545" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adminka/static/DIVid.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="67">
+          <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
         </state>
       </provider>
     </entry>
