@@ -1,4 +1,4 @@
-
+import requests
 from flask import Flask, render_template, session, request, json, jsonify, url_for, Markup, redirect
 from flask_pymongo import PyMongo
 import pymongo
@@ -42,45 +42,81 @@ def my_form_post():
     global car
     global text
     global b
-    title = request.form['title'] #имя в скобках (и в html) влияет на их передачу в <div id = ''>
-    num = random.random()
-    car = request.form['image']
-    print(car)
-    uri = 'static/img/' + car
-    vid = request.form['video']
-    urii = 'static/vid/' + vid
-    text = request.form['text']
-    print(text)
-    rad = request.form['radio']
-    if rad == 'yes':
-        frid = 1
-    if rad == 'no':
-        frid = 2
-    if rad == 'ok':
-        frid = 3
-    block = request.form['block']
-    i = 0
-    print(block)
-    block = int(block) #очень станно когда просто int(block) он выдает ошибку а с параметром block = int(block) пишет что все ок нужно узнать почему так
-    i = 0
-    b = [{
+    if request.method == 'POST':
+        title = request.form['title']
+        num = random.random()
+        car = request.form['image']
+        print(car)
+        uri = 'static/img/' + car
+        vid = request.form['video']
+        video = 'static/vid/' + vid
+        text = request.form['text']
+        print(text)
+        rad = request.form['radio']
+        if rad == 'yes':
+            frid = 1
+        if rad == 'no':
+            frid = 2
+        if rad == 'ok':
+            frid = 3
+        block = request.form['block']
+        i = 0
+        print(block)
+
+        block = int(block) #очень станно когда просто int(block) он выдает ошибку а с параметром block = int(block) пишет что все ок нужно узнать почему так
+
+        i = 0
+        b = [{
+                          "title": title,
+                          "img": uri,
+                          "text": text,
+                }]
+
+        if i > block:
+            global z
+            print('heelo!')
+        else:
+
+            a = (block * b)
+        z = a
+        msg = {     "ID":3.1,
+                    "_id": num,
+                    "theme": "1",
+                    "block": "2",
+                    "num": "1",
+                    "test": [
+                      {
+                      "title": "Новые клиенты за сегоднsdasdя",
+                      "img": "static/img/fon.jpg",
+                      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!"
+                      },
+                      {
                       "title": "Новые клиенты за сегодняeqweqw",
                       "img": "static/img/bg.jpg",
-                      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
-            }]
+                      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!"
+                      },
+                        {
+                      "title": "Новые клиенты за сегоднsdasdя",
+                      "img": "static/img/fon.jpg",
+                      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!"
+                      },
+                        {
+                      "title": "Новые клиенты за сегодняeqweqw",
+                      "img": "static/img/bg.jpg",
+                      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!"
+                      },
+                      {
+                      "title": "Новые клиенты за сегодня",
+                      "img": "static/img/bg.jpg",
+                      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!"
+                      },
+                    ],
+                    "img-src1": "static/img/bg.jpg",
+                    "video1": "static/video/vid.mp4"
+                    }
+        print(msg)
+        user.insert(msg)
 
-    if i > block:
-        global z
-        print('heelo!')
-    else:
-
-        a = (block * b)
-        print(a)
-    z = a
-    name = request.form["phone"]
-    print(name)
-
-        # user.insert(message)
     return render_template('index(me).html', **locals())
 
 
@@ -98,49 +134,14 @@ def button(value=0):
     global title
     global text
     global car
-    global message
     global z
     print("Value from button: " + value)
     print("Now we changed theme")
     if int(value) == 1:
-        message = {
-                "_id": "1",
-                "theme": "1",
-                "block": "1",
-                "num": value,
-                "test": [
-                  {
-                  "title": "Новые клиенты за сегоднsdasdя",
-                  "img": "static/img/fon.jpg",
-                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!"
-                  },
-                  {
-                  "title": "Новые клиенты за сегодняeqweqw",
-                  "img": "static/img/bg.jpg",
-                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!"
-                  },
-                  {
-                  "title": "Новые клиенты за сегодня",
-                  "img": "static/img/bg.jpg",
-                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!"
-                  },
-                  {
-                  "title": "Новые клиенты за сегоднsdasdя",
-                  "img": "static/img/fon.jpg",
-                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!"
-                  },
-                    {
-                  "title": "Новые клиенты за сегоднsdasdя",
-                  "img": "static/img/fon.jpg",
-                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!"
-                  },
-                ],
-                "img-src1": "static/img/bg.jpg",
-                "video1": "static/video/vid.mp4"
-                }
-
+        for mymsg in user.find({"ID":3.1}):
+            print(mymsg)
         with open('static/json/data.json', 'w') as dat: # открывает json файл "W"- это команда на запись (write, read)
-            jsn = json.dump(message, dat, indent=2, ensure_ascii=False ) # mep это зн7ачение которому присвоено наше json значение из монги
+            jsn = json.dump(mymsg, dat, indent=2, ensure_ascii=False ) # mep это зн7ачение которому присвоено наше json значение из монги
 
     elif int(value) == 2:
         message = {
@@ -155,6 +156,11 @@ def button(value=0):
                   "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!"
                   },
                   {
+                  "title": "Новые клиенты за сегодняeqweqw",
+                  "img": "static/img/bg.jpg",
+                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!"
+                  },
+                    {
                   "title": "Новые клиенты за сегодняeqweqw",
                   "img": "static/img/bg.jpg",
                   "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!"
@@ -192,7 +198,6 @@ def button(value=0):
                   "title": "Новые клиенты за сегодня",
                   "img": "static/img/bg.jpg",
                   "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at33!",
-                    "video": "static/video/vid.mp4"
                   },
                 ],
                 "img-src1": "static/img/bg.jpg",

@@ -40,7 +40,6 @@ function themeOne(data) {
 
     if(data.num == '1')
     {
-        $('.container').remove();
         for(var i = 0; i < data.test.length; i++) {
         block += "<li class='card test"+ i + "'>";
         block += "<img src="+ data.test[i].img +" alt='image'><div class='info'><h2>"+ data.test[i].title + "</h2>";
@@ -67,7 +66,6 @@ function themeOne(data) {
 
     }
     if(data.num == '3'){
-        $('.container').remove();
 
         for(var i = 0; i < data.test.length; i++) {
         block += "<li class='card test"+ i + "'>";
@@ -75,15 +73,14 @@ function themeOne(data) {
         block += "<p>"+ data.test[i].text +"</p></div></li>";
         console.log(data.num);
 
-    }
 
     }
-    else
-    {
-
-    console.error('err')
-
     }
+
+
+
+
+
     content += block;
     content += "</ul></div></div>";
     var themeOne = header+content;
