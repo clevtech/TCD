@@ -43,43 +43,33 @@ def button(value=0):
     global text
     global car
     global z
-    # for filename in glob.glob('static/database/**/2.json', recursive=True):
-    #     print(filename)
     # filename = glob.glob("static/database/3*.json", recursive=True)
     # print(filename)
-    gl = glob.glob("static/database/3*.json", recursive=True)[3]
-    message = {
-                "_id": "1",
-                "theme": "1",
-                "block": "1",
-                "num": value,
-                "test": [
-                  {
-                  "title": "Новые клиенты за сегоднsdasdя",
-                  "img": "static/img/fon.jpg",
-                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!"
-                  },
-                  {
-                  "title": "Новые клиенты за сегодняeqweqw",
-                  "img": "static/img/bg.jpg",
-                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!"
-                  },
-                    {
-                  "title": "Новые клиенты за сегодняeqweqw",
-                  "img": "static/img/bg.jpg",
-                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!"
-                  },
-                  {
-                  "title": "Новые клиенты за сегодня",
-                  "img": "static/img/bg.jpg",
-                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!"
-                  },
-                ],
-                "img-src1": "static/img/bg.jpg",
-                "video1": "static/video/vid.mp4"
-                }
-    with open(gl, "w") as der :
-        jsn = json.dump(message, der, indent=2, ensure_ascii=False ) # mep это зн7ачение которому присвоено наше json значение из монги
+    gl = glob.glob("static/database/3*.json", recursive=True)
+    print(gl)
+    a = gl.sort()
+    print(a)
+    gl.pop()
+    print(gl)
+    b = len(gl)
+    print(b)
+    i = 0
+
+    while i < b:
+        a = gl[i]
+        print(a)
+
+        with open(a, 'r', encoding='utf-8') as fh: #открываем файл на чтение
+            data = json.load(fh) #загружаем из файла данные в словарь data
+            print(data)
+
+        with open("static/json/mydata.json", "w") as der :
+            jsn = json.dump(data, der, indent=2, ensure_ascii=False ) # mep это зн7ачение которому присвоено наше json значение из монги
+
+
+
+
+        i = i + 1
     print("Value from button: " + value)
     print("Now we changed theme")
 

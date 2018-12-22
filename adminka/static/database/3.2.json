@@ -2,7 +2,7 @@
   "_id": "1",
   "block": "1",
   "img-src1": "static/img/bg.jpg",
-  "num": "1",
+  "num": "3",
   "test": [
     {
       "img": "static/img/fon.jpg",
@@ -26,5 +26,6 @@
     }
   ],
   "theme": "1",
-  "video1": "static/video/vid.mp4"
+  "video1": "static/video/vid.mp4",
+  "hi":3.2
 }
