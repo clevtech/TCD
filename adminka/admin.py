@@ -36,6 +36,19 @@ def mark_selected():
     return render_template('index.html', async_mode=socketio.async_mode)
 
 
+def cycle(a):
+    with open(a, 'r', encoding='utf-8') as fh: #открываем файл на чтение
+        data = json.load(fh) #загружаем из файла данные в словарь data type dict
+        print(data)
+        print(type(data))
+        # st = {"t":1}
+        # st.update(data) #команда которая позволяет соединить два массива (.update)
+
+        # print(st)
+    with open("static/json/mydata.json", "w") as der :
+        jsn = json.dump(data, der, indent=2, ensure_ascii=False )
+
+
 @app.route('/button/<value>/', methods = ['GET', 'POST'])
 @cross_origin()
 def button(value=0):
@@ -43,35 +56,45 @@ def button(value=0):
     global text
     global car
     global z
-    # filename = glob.glob("static/database/3*.json", recursive=True)
-    # print(filename)
-    gl = glob.glob("static/database/3*.json", recursive=True)
+    global num1
+    global num2
+    gl = glob.glob("static/database/" + str(value) + ".*.json", recursive=True) #type list
+
     print(gl)
     a = gl.sort()
     print(a)
-    gl.pop()
-    print(gl)
+    # gl.pop()
+    # print(gl)
     b = len(gl)
     print(b)
     i = 0
 
     while i < b:
-        a = gl[i]
-        print(a)
+            a = gl[i]
+            print(a)
 
-        with open(a, 'r', encoding='utf-8') as fh: #открываем файл на чтение
-            data = json.load(fh) #загружаем из файла данные в словарь data
-            print(data)
+            print(len(a))
+            if len(a) == 24:
+                num1 = [a]
+                print(num1)
 
-        with open("static/json/mydata.json", "w") as der :
-            jsn = json.dump(data, der, indent=2, ensure_ascii=False ) # mep это зн7ачение которому присвоено наше json значение из монги
+            elif len(a) ==  25:
+                num2 = [a]
+                print(a)
+
+            else:
+                
+                print(a)
+            # cycle(a)
+
+
+            i = i + 1
 
 
 
 
-        i = i + 1
-    print("Value from button: " + value)
-    print("Now we changed theme")
+
+
 
     if int(value) == 1:
         message = {

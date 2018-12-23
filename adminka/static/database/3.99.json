@@ -1,7 +1,6 @@
 {
   "_id": "1",
   "block": "1",
-  "hi": "3.1.1",
   "img-src1": "static/img/bg.jpg",
   "num": "3",
   "test": [
@@ -27,5 +26,6 @@
     }
   ],
   "theme": "1",
-  "video1": "static/video/vid.mp4"
+  "video1": "static/video/vid.mp4",
+  "hi":"3.1.1"
 }
