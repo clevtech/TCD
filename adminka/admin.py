@@ -37,16 +37,40 @@ def mark_selected():
 
 
 def cycle(a):
-    with open(a, 'r', encoding='utf-8') as fh: #открываем файл на чтение
-        data = json.load(fh) #загружаем из файла данные в словарь data type dict
-        print(data)
-        print(type(data))
-        # st = {"t":1}
-        # st.update(data) #команда которая позволяет соединить два массива (.update)
-
-        # print(st)
+    head = ""
+    tail = ""
+    write2 = []
+    for el in a:
+        with open(el, 'r', encoding='utf-8') as fh: #открываем файл на чтение
+            data = json.load(fh) #загружаем из файла данные в словарь data type dict
+            print(data["test"])
+            write2.extend(data["test"])
+    with open("static/json/mydata.json", "r") as der :
+        old = json.load(der)
+        old["test"].extend(write2)
     with open("static/json/mydata.json", "w") as der :
-        jsn = json.dump(data, der, indent=2, ensure_ascii=False )
+        jsn = json.dump(old, der, indent=2, ensure_ascii=False )
+
+
+def find_daughters(gl, parent="3."):
+    lenofp = len(parent)
+    parentnum = parent.split(".")
+    lenofnumparent = len(parentnum)
+    slides = []
+    for el in gl:
+        line = str(el).split("database/")[1].split("json")[0]
+        number = line.split(".")
+        print(number)
+        print(len(number))
+        slides.append(line)
+
+    print("Our daughters are:")
+    dau = []
+    for el in slides:
+        if len(el.split("."))==lenofnumparent+1:
+            if el[0:lenofp] == parent:
+                dau.append()
+    return dau
 
 
 @app.route('/button/<value>/', methods = ['GET', 'POST'])
@@ -58,39 +82,38 @@ def button(value=0):
     global z
     global num1
     global num2
-    gl = glob.glob("static/database/" + str(value) + ".*.json", recursive=True) #type list
-
+    gl = glob.glob("static/database/" + str(value) +  "*.json", recursive=True) #type list
     print(gl)
-    a = gl.sort()
-    print(a)
     # gl.pop()
     # print(gl)
     b = len(gl)
     print(b)
     i = 0
 
+    ## Algorithm for taking daughters
+
+
+    ## Till here
+
+    paths = []
     while i < b:
-            a = gl[i]
-            print(a)
+        a = gl[i]
+        # print(a)
+        # print(len(a))
 
-            print(len(a))
-            if len(a) == 24:
-                num1 = [a]
-                print(num1)
+        # for g in range(200):
+        #     print(g)
+        if a == "static/database/3.*.json":
+            num1 = [a]
+            # print(num1)
 
-            elif len(a) ==  25:
-                num2 = [a]
-                print(a)
+        elif len(a) ==  25:
+            num2 = [a]
+            # print(a)
+        paths.append(a)
+        i = i + 1
 
-            else:
-                
-                print(a)
-            # cycle(a)
-
-
-            i = i + 1
-
-
+    cycle(paths)
 
 
 

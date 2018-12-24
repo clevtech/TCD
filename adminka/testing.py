@@ -75,11 +75,11 @@ def button(value=0):
                 }
 
 
-        for i in user.insert(msg):
-            print("+")
-
-        for mymsg in user.find().sort({"ID"}):
-            print(mymsg)
+        # for i in user.insert(msg):
+        #     print("+")
+        #
+        # for mymsg in user.find().sort({"ID"}):
+        #     print(mymsg)
 
         with open('static/json/data.json', 'w') as dat: # открывает json файл "W"- это команда на запись (write, read)
             jsn = json.dump(mymsg, dat, indent=2, ensure_ascii=False ) # mep это зн7ачение которому присвоено наше json значение из монги
