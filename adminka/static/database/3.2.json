@@ -6,23 +6,8 @@
   "test": [
     {
       "img": "static/img/fon.jpg",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at3.2!",
       "title": "Новые клиенты за сегоднsdasdя"
-    },
-    {
-      "img": "static/img/bg.jpg",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!",
-      "title": "Новые клиенты за сегодняeqweqw"
-    },
-    {
-      "img": "static/img/bg.jpg",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!",
-      "title": "Новые клиенты за сегодняeqweqw"
-    },
-    {
-      "img": "static/img/bg.jpg",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!",
-      "title": "Новые клиенты за сегодня"
     }
   ],
   "theme": "1",

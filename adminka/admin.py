@@ -52,7 +52,47 @@ def cycle(a):
         jsn = json.dump(old, der, indent=2, ensure_ascii=False )
 
 
-def find_daughters(gl, parent="3."):
+# def find_daughters(gl,value):
+#     parent= value + "."
+#     lenofp = len(parent)
+#     parentnum = parent.split(".")
+#     lenofnumparent = len(parentnum)
+#     slides = []
+#     for el in gl:
+#         line = str(el).split("database/")[1].split("json")[0]
+#         number = line.split(".")
+#         print(number)
+#         print(len(number))
+#         slides.append(line)
+#
+#     print("Our daughters are:")
+#     dau = []
+#     for el in slides:
+#         if len(el.split("."))==lenofnumparent+1:
+#             if el[0:lenofp] == parent:
+#                 dau.append()
+#
+#     return dau
+
+
+@app.route('/button/<value>/', methods = ['GET', 'POST'])
+@cross_origin()
+def button(value=0):
+    global title
+    global text
+    global car
+    global z
+    global num1
+    global num2
+    gl = glob.glob("static/database/" + str(value) +  "*.json", recursive=True) #type list
+    print(gl)
+    # gl.pop()
+    # print(gl)
+    i = 0
+
+    ## Algorithm for taking daughters
+
+    parent= str(value) + "."
     lenofp = len(parent)
     parentnum = parent.split(".")
     lenofnumparent = len(parentnum)
@@ -69,47 +109,19 @@ def find_daughters(gl, parent="3."):
     for el in slides:
         if len(el.split("."))==lenofnumparent+1:
             if el[0:lenofp] == parent:
-                dau.append()
-    return dau
+                dau.append(el)
 
-
-@app.route('/button/<value>/', methods = ['GET', 'POST'])
-@cross_origin()
-def button(value=0):
-    global title
-    global text
-    global car
-    global z
-    global num1
-    global num2
-    gl = glob.glob("static/database/" + str(value) +  "*.json", recursive=True) #type list
-    print(gl)
-    # gl.pop()
-    # print(gl)
-    b = len(gl)
-    print(b)
-    i = 0
-
-    ## Algorithm for taking daughters
-
-
+    lenght = len(dau)
+    print(lenght)
+    dauth = dau
+    print(dauth)
     ## Till here
 
     paths = []
-    while i < b:
-        a = gl[i]
+
+    while i < lenght:
+        a = "static/database/" +dau[i].lstrip()+ "json"
         # print(a)
-        # print(len(a))
-
-        # for g in range(200):
-        #     print(g)
-        if a == "static/database/3.*.json":
-            num1 = [a]
-            # print(num1)
-
-        elif len(a) ==  25:
-            num2 = [a]
-            # print(a)
         paths.append(a)
         i = i + 1
 
