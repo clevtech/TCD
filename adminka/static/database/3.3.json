@@ -2,12 +2,13 @@
   "_id": "1",
   "block": "2",
   "img-src1": "static/img/bg.jpg",
-  "num": "2",
+  "num": "3.3",
   "test": [
     {
       "img": "static/img/fon.jpg",
       "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at3.3!",
-      "title": "Новые клиенты за сегоднsdasdя"
+      "title": "Новые клиенты за сегоднsdasdя",
+      "ID": 3.3
     }
   ],
   "theme": "1",

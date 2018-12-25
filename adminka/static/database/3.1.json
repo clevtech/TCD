@@ -7,7 +7,8 @@
     {
       "img": "static/img/fon.jpg",
       "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at3.1!",
-      "title": "Новые клиенты за сегоднsdasdя"
+      "title": "Новые клиенты за сегоднsdasdя",
+      "ID": 3.1
     }
   ],
   "theme": "1",

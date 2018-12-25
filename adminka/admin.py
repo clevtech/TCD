@@ -40,39 +40,36 @@ def cycle(a):
     head = ""
     tail = ""
     write2 = []
+    i = 0
     for el in a:
         with open(el, 'r', encoding='utf-8') as fh: #открываем файл на чтение
             data = json.load(fh) #загружаем из файла данные в словарь data type dict
-            print(data["test"])
+            # print(data["test"])
             write2.extend(data["test"])
-    with open("static/json/mydata.json", "r") as der :
+    with open("static/json/data.json", "r") as der :
         old = json.load(der)
-        old["test"].extend(write2)
-    with open("static/json/mydata.json", "w") as der :
+        # print(old["test"])
+        mysort = old["test"].sort(key=lambda k:("ID" not in k, k.get("ID", None)))
+        mysort2 = old["test"]
+        mysort2.extend(write2)
+        print(mysort2)
+    with open("static/json/data.json", "w") as der :
         jsn = json.dump(old, der, indent=2, ensure_ascii=False )
 
+# with open(el, 'r', encoding='utf-8') as fh: #открываем файл на чтение
+#             data = json.load(fh) #загружаем из файла данные в словарь data type dict
+#             print(data["test"])
+#             write2.extend(data["test"])
+#     with open("static/json/mydata.json", "r") as der :
+#         old = json.load(der)
+#         old["test"].extend(write2)
+#     with open("static/json/mydata.json", "w") as der :
+# jsn = json.dump(old, der, indent=2, ensure_ascii=False )
 
-# def find_daughters(gl,value):
-#     parent= value + "."
-#     lenofp = len(parent)
-#     parentnum = parent.split(".")
-#     lenofnumparent = len(parentnum)
-#     slides = []
-#     for el in gl:
-#         line = str(el).split("database/")[1].split("json")[0]
-#         number = line.split(".")
-#         print(number)
-#         print(len(number))
-#         slides.append(line)
-#
-#     print("Our daughters are:")
-#     dau = []
-#     for el in slides:
-#         if len(el.split("."))==lenofnumparent+1:
-#             if el[0:lenofp] == parent:
-#                 dau.append()
-#
-#     return dau
+
+
+
+
 
 
 @app.route('/button/<value>/', methods = ['GET', 'POST'])
@@ -84,51 +81,6 @@ def button(value=0):
     global z
     global num1
     global num2
-    gl = glob.glob("static/database/" + str(value) +  "*.json", recursive=True) #type list
-    print(gl)
-    # gl.pop()
-    # print(gl)
-    i = 0
-
-    ## Algorithm for taking daughters
-
-    parent= str(value) + "."
-    lenofp = len(parent)
-    parentnum = parent.split(".")
-    lenofnumparent = len(parentnum)
-    slides = []
-    for el in gl:
-        line = str(el).split("database/")[1].split("json")[0]
-        number = line.split(".")
-        print(number)
-        print(len(number))
-        slides.append(line)
-
-    print("Our daughters are:")
-    dau = []
-    for el in slides:
-        if len(el.split("."))==lenofnumparent+1:
-            if el[0:lenofp] == parent:
-                dau.append(el)
-
-    lenght = len(dau)
-    print(lenght)
-    dauth = dau
-    print(dauth)
-    ## Till here
-
-    paths = []
-
-    while i < lenght:
-        a = "static/database/" +dau[i].lstrip()+ "json"
-        # print(a)
-        paths.append(a)
-        i = i + 1
-
-    cycle(paths)
-
-
-
 
 
     if int(value) == 1:
@@ -201,35 +153,50 @@ def button(value=0):
             jsn = json.dump(message, dat, indent=2, ensure_ascii=False ) # mep это зн7ачение которому присвоено наше json значение из монги
 
     elif int(value) == 3:
-        message = {
-                "_id": "1",
-                "theme": "1",
-                "block": "3",
-                "num": value,
-                "test": [
-                  {
-                  "title": "Новые клиенты за сегоднsdasdя",
-                  "img": "static/img/bg.jpg",
-                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at33!"
-                  },
-                  {
-                  "title": "Новые клиенты за сегодняeqweqw",
-                  "img": "static/img/bg.jpg",
-                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at33!"
-                  },
-                  {
-                  "title": "Новые клиенты за сегодня",
-                  "img": "static/img/bg.jpg",
-                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at33!",
-                  },
-                ],
-                "img-src1": "static/img/bg.jpg",
-                "video1": "static/video/vid.mp4"
-                }
+        gl = glob.glob("static/database/" + str(value) +  "*.json", recursive=True) #type list
+        # print(gl)
+        # gl.pop()
+        # print(gl)
+        i = 0
 
-        with open('static/json/data.json', 'w') as dat: # открывает json файл "W"- это команда на запись (write, read)
-            jsn = json.dump(message, dat, indent=2, ensure_ascii=False ) # mep это зн7ачение которому присвоено наше json значение из монги
-    print(message)
+        ## Algorithm for taking daughters
+
+        parent= str(value) + "."
+        lenofp = len(parent)
+        parentnum = parent.split(".")
+        lenofnumparent = len(parentnum)
+        slides = []
+        for el in gl:
+            line = str(el).split("database/")[1].split("json")[0]
+            number = line.split(".")
+            print(number)
+            print(len(number))
+            slides.append(line)
+
+        print("Our daughters are:")
+        dau = []
+        for el in slides:
+            if len(el.split("."))==lenofnumparent+1:
+                if el[0:lenofp] == parent:
+                    dau.append(el)
+
+        lenght = len(dau)
+        dauth = dau
+        ## Till here
+
+        paths = []
+
+        while i < lenght:
+            a = "static/database/" +dau[i].lstrip()+ "json"
+            print(a)
+            paths.append(a)
+            i = i + 1
+
+        cycle(paths)
+
+
+
+
     return render_template('main.html', async_mode=socketio.async_mode)
 
 
