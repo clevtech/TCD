@@ -38,44 +38,16 @@ function themeOne(data) {
 
     content += "<div class='wrapper'><div class='container'><ul>";
 
-    if(data.num == '1')
-    {
-        for(var i = 0; i < data.test.length; i++) {
-        block += "<li class='card test"+ i + "'>";
-        block += "<img src="+ data.test[i].img +" alt='image'><div class='info'><h2>"+ data.test[i].title + "</h2>";
-        block += "<p>"+ data.test[i].text +"</p></div></li>";
-
-        console.log(data.num);
-        console.log(data.test[data.num].ID);
-
-
-    }
-
-    }
-    if(data.num == '2'){
-
         for(var i = 0; i < data.test.length; i++) {
         block += "<li class='card test"+ i + "'>";
         block += "<img src="+ data.test[i].img +" alt='image'><div class='info'><h2>"+ data.test[i].title + "</h2>";
         block += "<p>"+ data.test[i].text +"</p></div></li>";
         console.log(data.num);
-        console.log(data.test[data.num].ID);
+        console.log(data.test[Math.round(data.num)].ID);
 
 
     }
 
-    }
-    if(data.num == '3'){
-        var Number = data.num;
-        for(var i = 0; i < data.test.length; i++) {
-        block += "<li class='card test"+ i + "'>";
-        block += "<img src="+ data.test[i].img +" alt='image'><div class='info'><h2>"+ data.test[i].title + "</h2>";
-        block += "<p>"+ data.test[i].text +"</p></div></li>";
-        console.log(data.test[data.num - 1].ID);
-        }
-
-
-    }
 
 
 
@@ -128,9 +100,9 @@ function buttonClick(e, data) {
             }
             this.classList.toggle('block-active');
             MyClick();
-
             if(this.className == "card test0 block-active")       {
-                blockNum = data.test[i].ID;
+                blockNum = "1";
+                console.log(data)
             }else if(this.className == "card test1 block-active") {
                 blockNum = '2';
             }else if(this.className == "card test2 block-active") {
