@@ -36,7 +36,7 @@ def mark_selected():
     return render_template('index.html', async_mode=socketio.async_mode)
 
 
-def cycle(a):
+def cycle(a, value):
     head = ""
     tail = ""
     write2 = []
@@ -49,13 +49,12 @@ def cycle(a):
     with open("static/json/data.json", "r") as der :
         old = json.load(der)
         # print(old["test"])
-        mysort = old["test"].sort(key=lambda k:("ID" not in k, k.get("ID", None)))
-        mysort2 = old["test"]
-        mysort2.extend(write2)
-        print(mysort2)
+        old["test"].extend(write2)
+        print(old["test"])
+        old["num"] = value
+        print(old)
     with open("static/json/data.json", "w") as der :
         jsn = json.dump(old, der, indent=2, ensure_ascii=False )
-
 # with open(el, 'r', encoding='utf-8') as fh: #открываем файл на чтение
 #             data = json.load(fh) #загружаем из файла данные в словарь data type dict
 #             print(data["test"])
@@ -81,118 +80,47 @@ def button(value=0):
     global z
     global num1
     global num2
+    gl = glob.glob("static/database/" + str(value) +  "*.json", recursive=True) #type list
+    # print(gl)
+    # gl.pop()
+    # print(gl)
+    i = 0
 
+    ## Algorithm for taking daughters
 
-    if int(value) == 1:
-        message = {
-                "_id": "1",
-                "theme": "1",
-                "block": "1",
-                "num": value,
-                "test": [
-                  {
-                  "title": "Новые клиенты за сегоднsdasdя",
-                  "img": "static/img/fon.jpg",
-                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!"
-                  },
-                  {
-                  "title": "Новые клиенты за сегодняeqweqw",
-                  "img": "static/img/bg.jpg",
-                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!"
-                  },
-                    {
-                  "title": "Новые клиенты за сегодняeqweqw",
-                  "img": "static/img/bg.jpg",
-                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!"
-                  },
-                  {
-                  "title": "Новые клиенты за сегодня",
-                  "img": "static/img/bg.jpg",
-                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!"
-                  },
-                ],
-                "img-src1": "static/img/bg.jpg",
-                "video1": "static/video/vid.mp4"
-                }
-        with open('static/json/data.json', 'w') as dat: # открывает json файл "W"- это команда на запись (write, read)
-            jsn = json.dump(message, dat, indent=2, ensure_ascii=False ) # mep это зн7ачение которому присвоено наше json значение из монги
+    parent= str(value) + "."
+    lenofp = len(parent)
+    parentnum = parent.split(".")
+    lenofnumparent = len(parentnum)
+    slides = []
+    for el in gl:
+        line = str(el).split("database/")[1].split("json")[0]
+        number = line.split(".")
+        print(number)
+        print(len(number))
+        slides.append(line)
 
+    print("Our daughters are:")
+    dau = []
+    for el in slides:
+        if len(el.split("."))==lenofnumparent+1:
+            if el[0:lenofp] == parent:
+                dau.append(el)
 
-    elif int(value) == 2:
-        message = {
-                "_id": "1",
-                "theme": "1",
-                "block": "2",
-                "num": value,
-                "test": [
-                  {
-                  "title": "Новые клиенты за сегоднsdasdя",
-                  "img": "static/img/fon.jpg",
-                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!"
-                  },
-                  {
-                  "title": "Новые клиенты за сегодняeqweqw",
-                  "img": "static/img/bg.jpg",
-                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!"
-                  },
-                    {
-                  "title": "Новые клиенты за сегодняeqweqw",
-                  "img": "static/img/bg.jpg",
-                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!"
-                  },
-                  {
-                  "title": "Новые клиенты за сегодня",
-                  "img": "static/img/bg.jpg",
-                  "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at22!"
-                  },
-                ],
-                "img-src1": "static/img/bg.jpg",
-                "video1": "static/video/vid.mp4"
-                }
-        with open('static/json/data.json', 'w') as dat: # открывает json файл "W"- это команда на запись (write, read)
-            jsn = json.dump(message, dat, indent=2, ensure_ascii=False ) # mep это зн7ачение которому присвоено наше json значение из монги
+    lenght = len(dau)
+    dau.sort()
+    print(dau)
+    ## Till here
 
-    elif int(value) == 3:
-        gl = glob.glob("static/database/" + str(value) +  "*.json", recursive=True) #type list
-        # print(gl)
-        # gl.pop()
-        # print(gl)
-        i = 0
+    paths = []
 
-        ## Algorithm for taking daughters
+    while i < lenght:
+        a = "static/database/" +dau[i].lstrip()+ "json"
+        print(a)
+        paths.append(a)
+        i = i + 1
 
-        parent= str(value) + "."
-        lenofp = len(parent)
-        parentnum = parent.split(".")
-        lenofnumparent = len(parentnum)
-        slides = []
-        for el in gl:
-            line = str(el).split("database/")[1].split("json")[0]
-            number = line.split(".")
-            print(number)
-            print(len(number))
-            slides.append(line)
-
-        print("Our daughters are:")
-        dau = []
-        for el in slides:
-            if len(el.split("."))==lenofnumparent+1:
-                if el[0:lenofp] == parent:
-                    dau.append(el)
-
-        lenght = len(dau)
-        dauth = dau
-        ## Till here
-
-        paths = []
-
-        while i < lenght:
-            a = "static/database/" +dau[i].lstrip()+ "json"
-            print(a)
-            paths.append(a)
-            i = i + 1
-
-        cycle(paths)
+    cycle(paths, value)
 
 
 

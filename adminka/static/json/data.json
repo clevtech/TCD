@@ -2,14 +2,8 @@
   "_id": "1",
   "block": "2",
   "img-src1": "static/img/bg.jpg",
-  "num": "3",
+  "num": "2",
   "test": [
-    {
-      "ID": 3.1,
-      "img": "static/img/fon.jpg",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at3.1!",
-      "title": "Новые клиенты за сегоднsdasdя"
-    },
     {
       "ID": 3.1,
       "img": "static/img/fon.jpg",
@@ -20,6 +14,30 @@
       "ID": 3.2,
       "img": "static/img/fon.jpg",
       "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at3.2!",
+      "title": "Новые клиенты за сегоднsdasdя"
+    },
+    {
+      "ID": 3.3,
+      "img": "static/img/fon.jpg",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at3.3!",
+      "title": "Новые клиенты за сегоднsdasdя"
+    },
+    {
+      "ID": 3.3,
+      "img": "static/img/fon.jpg",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at3.3!",
+      "title": "Новые клиенты за сегоднsdasdя"
+    },
+    {
+      "ID": 3.3,
+      "img": "static/img/fon.jpg",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at3.3!",
+      "title": "Новые клиенты за сегоднsdasdя"
+    },
+    {
+      "ID": 3.3,
+      "img": "static/img/fon.jpg",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at3.3!",
       "title": "Новые клиенты за сегоднsdasdя"
     }
   ],
