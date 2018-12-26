@@ -2,8 +2,6 @@ import requests
 import glob
 import os
 from flask import Flask, render_template, session, request, json, jsonify, url_for, Markup, redirect
-from flask_pymongo import PyMongo
-import pymongo
 import random
 from pprint import pprint
 from flask_socketio import SocketIO, emit, join_room, leave_room, \
@@ -11,15 +9,16 @@ from flask_socketio import SocketIO, emit, join_room, leave_room, \
 import random
 from threading import Lock
 from flask_cors import CORS, cross_origin
-
+from pymongo import*
+from pymongo import MongoClient
 
 async_mode = None
 
 app = Flask(__name__)
 CORS(app,support_credentials=True, resources={r"/*": {"origins": "*"}})
-app.config["MONGO_URI"] = "mongodb://localhost:27017/test"
-mongo = PyMongo(app)
-user = mongo.db.users
+client = MongoClient('mongodb://localhost:27017/')
+db = client["test"]
+users = db.users
 nums = random.random()
 
 app.config['SECRET_KEY'] = 'secret!'
@@ -36,39 +35,13 @@ def mark_selected():
     return render_template('index.html', async_mode=socketio.async_mode)
 
 
-def cycle(a, value):
-    head = ""
-    tail = ""
-    write2 = []
-    i = 0
-    for el in a:
-        with open(el, 'r', encoding='utf-8') as fh: #открываем файл на чтение
-            data = json.load(fh) #загружаем из файла данные в словарь data type dict
-            # print(data["test"])
-            write2.extend(data["test"])
-    with open("static/json/data.json", "r") as der :
-        old = json.load(der)
-        # print(old["test"])
-        old["test"].extend(write2)
-        print(old["test"])
-        old["num"] = value
-        print(old)
-    with open("static/json/data.json", "w") as der :
-        jsn = json.dump(old, der, indent=2, ensure_ascii=False )
-# with open(el, 'r', encoding='utf-8') as fh: #открываем файл на чтение
-#             data = json.load(fh) #загружаем из файла данные в словарь data type dict
-#             print(data["test"])
-#             write2.extend(data["test"])
-#     with open("static/json/mydata.json", "r") as der :
-#         old = json.load(der)
-#         old["test"].extend(write2)
+# def cycle(a):
+#     with open(a, 'r', encoding='utf-8') as fh: #открываем файл на чтение
+#         data = json.load(fh) #загружаем из файла данные в словарь data
+#         print(data)
+#
 #     with open("static/json/mydata.json", "w") as der :
-# jsn = json.dump(old, der, indent=2, ensure_ascii=False )
-
-
-
-
-
+#         jsn = json.dump(data, der, indent=2, ensure_ascii=False )
 
 
 @app.route('/button/<value>/', methods = ['GET', 'POST'])
@@ -78,16 +51,14 @@ def button(value=0):
     global text
     global car
     global z
-    global num1
-    global num2
-    print(value)
-    gl = glob.glob("static/database/" + str(value) +  "*.json", recursive=True) #type list
-    print(gl)
-    print(gl)
-    i = 0
 
-    ## Algorithm for taking daughters
+    print("Value from button: " + value)
+    print("Now we changed theme")
 
+
+
+    gl = users.find({"ID":{"$gt": str(value), "$lt": str(value) + ".99"}})
+    print(list(gl))
     parent= str(value) + "."
     lenofp = len(parent)
     parentnum = parent.split(".")
@@ -101,32 +72,17 @@ def button(value=0):
         print(len(number))
         slides.append(line)
 
-    print("Our daughters are:")
-    dau = []
-    for el in slides:
-        if len(el.split("."))==lenofnumparent+1:
-            if el[0:lenofp] == parent:
-                dau.append(el)
-
-    lenght = len(dau)
-    dau.sort()
-    print(dau)
-    ## Till here
-
-    paths = []
-
-    while i < lenght:
-        a = "static/database/" +dau[i].lstrip()+ "json"
-        print(a)
-        paths.append(a)
-        i = i + 1
-
-    cycle(paths, value)
 
 
 
 
-    return render_template('main.html', async_mode=socketio.async_mode)
+
+
+        # with open('static/json/data.json', 'w') as dat: # открывает json файл "W"- это команда на запись (write, read)
+        #     jsn = json.dump(mymsg, dat, indent=2, ensure_ascii=False ) # mep это зн7ачение которому присвоено наше json значение из монги
+
+
+    #         jsn = json.dump(message, dat, indent=2, ensure_ascii=False ) # mep это зн7ачение которому присвоено наше json значение из монги
 
 
 # То что крутиться на заднем фоне

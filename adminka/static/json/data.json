@@ -2,54 +2,12 @@
   "_id": "1",
   "block": "2",
   "img-src1": "static/img/bg.jpg",
-  "num": "3.1",
+  "num": "3.1.3.1",
   "test": [
     {
-      "ID": 3.1,
-      "img": "static/img/fon.jpg",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at3.1!",
-      "title": "Новые клиенты за сегоднsdasdя"
-    },
-    {
-      "ID": 3.2,
-      "img": "static/img/fon.jpg",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at3.2!",
-      "title": "Новые клиенты за сегоднsdasdя"
-    },
-    {
-      "ID": 3.3,
-      "img": "static/img/fon.jpg",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at3.3!",
-      "title": "Новые клиенты за сегоднsdasdя"
-    },
-    {
-      "ID": 3.1,
-      "img": "static/img/fon.jpg",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at3.1!",
-      "title": "Новые клиенты за сегоднsdasdя"
-    },
-    {
-      "ID": 3.2,
-      "img": "static/img/fon.jpg",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at3.2!",
-      "title": "Новые клиенты за сегоднsdasdя"
-    },
-    {
-      "ID": 3.3,
-      "img": "static/img/fon.jpg",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at3.3!",
-      "title": "Новые клиенты за сегоднsdasdя"
-    },
-    {
-      "ID": 3.99,
-      "img": "static/img/fon.jpg",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at3.99!",
-      "title": "Новые клиенты за сегоднsdasdя"
-    },
-    {
       "ID": "3.1.1",
       "img": "static/img/fon.jpg",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at3.3!",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at3.2!",
       "title": "Новые клиенты за сегоднsdasdя"
     },
     {
@@ -65,21 +23,15 @@
       "title": "Новые клиенты за сегоднsdasdя"
     },
     {
-      "ID": "3.1.1",
+      "ID": "3.1.3.1",
       "img": "static/img/fon.jpg",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at3.3!",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at3.2!",
       "title": "Новые клиенты за сегоднsdasdя"
     },
     {
-      "ID": "3.1.2",
+      "ID": "3.1.3.1.1",
       "img": "static/img/fon.jpg",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at3.3!",
-      "title": "Новые клиенты за сегоднsdasdя"
-    },
-    {
-      "ID": "3.1.3",
-      "img": "static/img/fon.jpg",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at3.3!",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at3.2!",
       "title": "Новые клиенты за сегоднsdasdя"
     }
   ],

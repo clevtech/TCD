@@ -43,8 +43,7 @@ function themeOne(data) {
         block += "<img src="+ data.test[i].img +" alt='image'><div class='info'><h2>"+ data.test[i].title + "</h2>";
         block += "<p>"+ data.test[i].text +"</p></div></li>";
         console.log(data.num);
-        console.log(data.test[Math.round(data.num)].ID);
-
+//        console.log(data.test[Math.round(data.num)].ID);
 
     }
 
@@ -59,7 +58,7 @@ function themeOne(data) {
     var themeOne = header+content;
 
     $('.themeContent').html(themeOne);
-    buttonClick();
+    buttonClick(data);
 
 
     }
@@ -91,27 +90,32 @@ function MyClick(data){
 
 
 var blockNum = ''
-function buttonClick(e, data) {
+function buttonClick(data) {
+
     var blocks = document.querySelectorAll('.card');
     for(var i = 0; i < blocks.length; i++) {
-        blocks[i].onclick = function(e, data) {
+        blocks[i].onclick = function(e) {
             for(var j = 0; j < blocks.length; j++) {
                 blocks[j].classList.remove('block-active');
             }
             this.classList.toggle('block-active');
             MyClick();
+            console.log(i);
+
             if(this.className == "card test0 block-active")       {
-                blockNum = "1";
-                console.log(data)
+                blockNum = data.test[0].ID;
+                console.log(data);
             }else if(this.className == "card test1 block-active") {
-                blockNum = '2';
+                blockNum =  data.test[1].ID;
             }else if(this.className == "card test2 block-active") {
-                blockNum = '3';
+                blockNum =  data.test[2].ID;
             }else if(this.className == "card test3 block-active") {
-                blockNum = '3.1';
+                blockNum = data.test[3].ID;
             }else if(this.className == "card test4 block-active") {
-                blockNum = '5';
+                blockNum = data.test[4].ID;
             }
+
+
 
             sendAjaxForm( 'block-num', 'http://0.0.0.0:8888/button/' + blockNum + '/');
             console.log('http://0.0.0.0:8888/button/'+blockNum);
