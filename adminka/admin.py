@@ -55,16 +55,6 @@ def cycle(a, value):
         print(old)
     with open("static/json/data.json", "w") as der :
         jsn = json.dump(old, der, indent=2, ensure_ascii=False )
-# with open(el, 'r', encoding='utf-8') as fh: #открываем файл на чтение
-#             data = json.load(fh) #загружаем из файла данные в словарь data type dict
-#             print(data["test"])
-#             write2.extend(data["test"])
-#     with open("static/json/mydata.json", "r") as der :
-#         old = json.load(der)
-#         old["test"].extend(write2)
-#     with open("static/json/mydata.json", "w") as der :
-# jsn = json.dump(old, der, indent=2, ensure_ascii=False )
-
 
 
 
@@ -82,7 +72,6 @@ def button(value=0):
     global num2
     print(value)
     gl = glob.glob("static/database/" + str(value) +  "*.json", recursive=True) #type list
-    print(gl)
     print(gl)
     i = 0
 

@@ -58,22 +58,59 @@ def button(value=0):
 
 
     gl = users.find({"ID":{"$gt": str(value), "$lt": str(value) + ".99"}})
+
+    items = list(gl)
     print(list(gl))
+
+
+    result_id= []
+    results = [ item['ID'] for item in items ]
+
+    find_from_id = [item_id["_id"] for item_id in items]
+
+    for document in find_from_id:
+        document['_id'] = str(document['_id'])
+        result_id.append(document)
+
+    print(list(find_from_id))
+
+    print(results)
+
+    for document in gl:
+        document['_id'] = str(document['_id'])
+        print(type(result_id))
+        result_id.append(document)
+## Algorithm for taking daughters
+
     parent= str(value) + "."
     lenofp = len(parent)
     parentnum = parent.split(".")
     lenofnumparent = len(parentnum)
     print(lenofnumparent)
     slides = []
-    for el in gl:
-        line = str(el).split("database/")[1].split("json")[0]
+    for el in results:
+        line = str(el)
         number = line.split(".")
-        print(number)
-        print(len(number))
+        # print(number)
+        # print(len(number))
         slides.append(line)
 
+    print("Our daughters are:")
+    dau = []
+    for el in slides:
+        if len(el.split("."))==lenofnumparent+1:
+            if el[0:lenofp] == parent:
+                dau.append(el)
 
-
+    lenght = len(dau)
+    dau.sort()
+    print(dau)
+    ## Till here
+    find_user = users.find({"ID":{"$gt": dau[0], "$lt": dau[-1]}})
+    sort_id = list(find_user)
+    print(sort_id)
+    with open('static/json/data.json', 'w') as dat: # открывает json файл "W"- это команда на запись (write, read)
+            jsn = json.dump(sort_id, dat, indent=2, ensure_ascii=False ) # mep это зн7ачение которому присвоено наше json значение из монги
 
 
 

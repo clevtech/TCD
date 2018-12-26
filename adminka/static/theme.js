@@ -103,14 +103,14 @@ function buttonClick(data) {
             console.log(i);
 
             if(this.className == "card test0 block-active")       {
-                blockNum = data.test[0].ID;
+                blockNum = "1";
                 console.log(data);
             }else if(this.className == "card test1 block-active") {
-                blockNum =  data.test[1].ID;
+                blockNum =  "2";
             }else if(this.className == "card test2 block-active") {
-                blockNum =  data.test[2].ID;
+                blockNum =  "3";
             }else if(this.className == "card test3 block-active") {
-                blockNum = data.test[3].ID;
+                blockNum = "4";
             }else if(this.className == "card test4 block-active") {
                 blockNum = data.test[4].ID;
             }
