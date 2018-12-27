@@ -55,58 +55,56 @@ def button(value=0):
     print("Value from button: " + value)
     print("Now we changed theme")
 
-
+    # for i in range(1, 5):
+    #     add_user = {"_id":random.random(), "ID": "2." + str(i) + ".1"}
+    #
+    #     users.insert(add_user)
+    #     err_find = users.find()
 
     gl = users.find({"ID":{"$gt": str(value), "$lt": str(value) + ".99"}})
-
     items = list(gl)
-    print(list(gl))
+    print(items)
 
-
-    result_id= []
     results = [ item['ID'] for item in items ]
-
-    find_from_id = [item_id["_id"] for item_id in items]
-
-    for document in find_from_id:
-        document['_id'] = str(document['_id'])
-        result_id.append(document)
-
-    print(list(find_from_id))
 
     print(results)
 
-    for document in gl:
-        document['_id'] = str(document['_id'])
-        print(type(result_id))
-        result_id.append(document)
 ## Algorithm for taking daughters
 
     parent= str(value) + "."
     lenofp = len(parent)
     parentnum = parent.split(".")
     lenofnumparent = len(parentnum)
-    print(lenofnumparent)
+    # print(lenofnumparent)
     slides = []
     for el in results:
         line = str(el)
         number = line.split(".")
-        # print(number)
+
+        print(number)
         # print(len(number))
         slides.append(line)
 
     print("Our daughters are:")
     dau = []
     for el in slides:
-        if len(el.split("."))==lenofnumparent+1:
+        if len(el.split("."))==lenofnumparent:
             if el[0:lenofp] == parent:
                 dau.append(el)
-
     lenght = len(dau)
     dau.sort()
-    print(dau)
+    # print(dau)
+    list_numbers = list(dau)
+    print(list_numbers)
+    # if list_numbers2 ==
+
+    algorithm_for_short = dau[0]
+    # if algorithm_for_short == numbers:
+
+
+
     ## Till here
-    find_user = users.find({"ID":{"$gt": dau[0], "$lt": dau[-1]}})
+    find_user = users.find({"ID":{"$in" : dau}})
     sort_id = list(find_user)
     print(sort_id)
     with open('static/json/data.json', 'w') as dat: # открывает json файл "W"- это команда на запись (write, read)

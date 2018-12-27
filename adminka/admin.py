@@ -75,42 +75,42 @@ def button(value=0):
     print(gl)
     i = 0
 
-    ## Algorithm for taking daughters
-
-    parent= str(value) + "."
-    lenofp = len(parent)
-    parentnum = parent.split(".")
-    lenofnumparent = len(parentnum)
-    print(lenofnumparent)
-    slides = []
-    for el in gl:
-        line = str(el).split("database/")[1].split("json")[0]
-        number = line.split(".")
-        print(number)
-        print(len(number))
-        slides.append(line)
-
-    print("Our daughters are:")
-    dau = []
-    for el in slides:
-        if len(el.split("."))==lenofnumparent+1:
-            if el[0:lenofp] == parent:
-                dau.append(el)
-
-    lenght = len(dau)
-    dau.sort()
-    print(dau)
-    ## Till here
-
-    paths = []
-
-    while i < lenght:
-        a = "static/database/" +dau[i].lstrip()+ "json"
-        print(a)
-        paths.append(a)
-        i = i + 1
-
-    cycle(paths, value)
+    # ## Algorithm for taking daughters
+    #
+    # parent= str(value) + "."
+    # lenofp = len(parent)
+    # parentnum = parent.split(".")
+    # lenofnumparent = len(parentnum)
+    # print(lenofnumparent)
+    # slides = []
+    # for el in gl:
+    #     line = str(el).split("database/")[1].split("json")[0]
+    #     number = line.split(".")
+    #     print(number)
+    #     print(len(number))
+    #     slides.append(line)
+    #
+    # print("Our daughters are:")
+    # dau = []
+    # for el in slides:
+    #     if len(el.split("."))==lenofnumparent+1:
+    #         if el[0:lenofp] == parent:
+    #             dau.append(el)
+    #
+    # lenght = len(dau)
+    # dau.sort()
+    # print(dau)
+    # ## Till here
+    #
+    # paths = []
+    #
+    # while i < lenght:
+    #     a = "static/database/" +dau[i].lstrip()+ "json"
+    #     print(a)
+    #     paths.append(a)
+    #     i = i + 1
+    #
+    # cycle(paths, value)
 
 
 
