@@ -56,10 +56,40 @@ def button(value=0):
     print("Now we changed theme")
 
     # for i in range(1, 5):
-    #     add_user = {"_id":random.random(), "ID": "2." + str(i) + ".1"}
+    #     add_user =  [
+    #                 {
+    #                   "img": "static/img/fon.jpg",
+    #                   "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at3.2!",
+    #                   "title": "Новые клиенты за сегоднsdasdя",
+    #                     "_id":random.random(),
+    #                     "ID": "3.1.1.1" + str(i)
     #
-    #     users.insert(add_user)
-    #     err_find = users.find()
+    #                 },
+    #                 {
+    #                   "img": "static/img/fon.jpg",
+    #                   "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at3.2!",
+    #                   "title": "Новые клиенты за сегоднsdasdя",
+    #                   "_id":random.random(),
+    #                     "ID": "3.2.2.2" + str(i)
+    #
+    #                 },
+    #                 {
+    #                   "img": "static/img/fon.jpg",
+    #                   "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at3.2!",
+    #                   "title": "Новые клиенты за сегоднsdasdя",
+    #                     "_id":random.random(),
+    #                     "ID": "3.3.3.2" + str(i)
+    #
+    #                 },
+    #                 ]
+
+
+
+
+
+        # users.insert(add_user)
+    err_find = users.find()
+    print(list(err_find))
 
     gl = users.find({"ID":{"$gt": str(value), "$lt": str(value) + ".99"}})
     items = list(gl)
@@ -116,12 +146,12 @@ def button(value=0):
         del (my_json["test"])[:]
         # print(my_json)
         my_json["test"].extend(sort_id)
-        my_json["num"] = value
+        my_json["num"] = str(value)
         print(my_json)
         print(sort_id)
     with open("static/json/data.json", "w") as der :
         jsn = json.dump(my_json, der, indent=2, ensure_ascii=False )
-
+    #
 
 
 
