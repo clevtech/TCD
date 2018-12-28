@@ -106,7 +106,7 @@ function buttonClick(data) {
                 blockNum = "1";
                 console.log(data);
             }else if(this.className == "card test1 block-active") {
-                blockNum =  "2";
+                blockNum =  "2.1";
             }else if(this.className == "card test2 block-active") {
                 blockNum =  "3";
             }else if(this.className == "card test3 block-active") {

@@ -104,11 +104,29 @@ def button(value=0):
 
 
     ## Till here
-    find_user = users.find({"ID":{"$in" : dau}})
+    find_user = users.find({"ID":{"$in" : list_numbers}})
     sort_id = list(find_user)
+
     print(sort_id)
-    with open('static/json/data.json', 'w') as dat: # открывает json файл "W"- это команда на запись (write, read)
-            jsn = json.dump(sort_id, dat, indent=2, ensure_ascii=False ) # mep это зн7ачение которому присвоено наше json значение из монги
+    write2 = []
+    with open('static/json/data.json', 'r', encoding='utf-8') as dat: # открывает json файл "W"- это команда на запись (write, read)
+        my_json = json.load(dat)
+        # write2.extend(my_json["test"])
+
+        del (my_json["test"])[:]
+        # print(my_json)
+        my_json["test"].extend(sort_id)
+        my_json["num"] = value
+        print(my_json)
+        print(sort_id)
+    with open("static/json/data.json", "w") as der :
+        jsn = json.dump(my_json, der, indent=2, ensure_ascii=False )
+
+
+
+
+
+        # jsn = json.dump(sort_id, dat, indent=2, ensure_ascii=False ) # mep это зн7ачение которому присвоено наше json значение из монги
 
 
 
