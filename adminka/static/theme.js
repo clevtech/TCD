@@ -32,8 +32,8 @@ function themeOne(data) {
     header += "<header class='header1'><div class='head-left-item'>";
     header +="<img src='static/img/logo.png' alt='logo'><div><h3>НҰР ОТАН</h3>"
     header +="<p>ОСНОВНОЙ ТЕКСТ<br>БАҒДАРЛАМАСЫ</p></div></div>";
-    header += "<div class='head-right-item'><div class='arrows'>";
-    header += "<img src='static/img/left-arrow.png' alt='left-arrow'><img src='static/img/right-arrow.png' alt='right-arrow'></div>";
+    header += "<div class='head-right-item'><div class='arrows'><button>";
+    header += "<img src='static/img/left-arrow.png' alt='left-arrow'><img src='static/img/right.png' alt='right-arrow'></div>";
     header += "<div class='menu-buttons'><button>Главная</button><button class='active'>Информационный блок</button></div></div></header>";
 
     content += "<div class='wrapper'><div class='container'><ul>";
@@ -106,11 +106,11 @@ function buttonClick(data) {
                 blockNum = data.test[0].ID;
                 console.log(data);
             }else if(this.className == "card test1 block-active") {
-                blockNum =  "2";
+                blockNum =  data.test[1].ID;;
             }else if(this.className == "card test2 block-active") {
-                blockNum =  "3.1";
+                blockNum =  data.test[2].ID;;
             }else if(this.className == "card test3 block-active") {
-                blockNum = "4";
+                blockNum = data.test[3].ID;;
             }else if(this.className == "card test4 block-active") {
                 blockNum = data.test[4].ID;
             }

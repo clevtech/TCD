@@ -8,14 +8,12 @@ from flask_socketio import SocketIO, emit, join_room, leave_room, \
     close_room, rooms, disconnect
 import random
 from threading import Lock
-from flask_cors import CORS, cross_origin
 from pymongo import*
 from pymongo import MongoClient
 
 async_mode = None
 
 app = Flask(__name__)
-CORS(app,support_credentials=True, resources={r"/*": {"origins": "*"}})
 client = MongoClient('mongodb://localhost:27017/')
 db = client["test"]
 users = db.users
@@ -29,23 +27,12 @@ thread_lock = Lock()
 message = {}
 
 @app.route('/', methods = ['GET', 'POST'])
-@cross_origin(supports_credentials=True)
 def mark_selected():
     request.headers.get ('Access-Control-Allow-Origin:*')
     return render_template('index.html', async_mode=socketio.async_mode)
 
 
-# def cycle(a):
-#     with open(a, 'r', encoding='utf-8') as fh: #открываем файл на чтение
-#         data = json.load(fh) #загружаем из файла данные в словарь data
-#         print(data)
-#
-#     with open("static/json/mydata.json", "w") as der :
-#         jsn = json.dump(data, der, indent=2, ensure_ascii=False )
-
-
 @app.route('/button/<value>/', methods = ['GET', 'POST'])
-@cross_origin()
 def button(value=0):
     global title
     global text
@@ -55,48 +42,13 @@ def button(value=0):
     print("Value from button: " + value)
     print("Now we changed theme")
 
-    # for i in range(1, 5):
-    #     add_user =  [
-    #                 {
-    #                   "img": "static/img/fon.jpg",
-    #                   "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at3.2!",
-    #                   "title": "Новые клиенты за сегоднsdasdя",
-    #                     "_id":random.random(),
-    #                     "ID": "3.1.1.1" + str(i)
-    #
-    #                 },
-    #                 {
-    #                   "img": "static/img/fon.jpg",
-    #                   "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at3.2!",
-    #                   "title": "Новые клиенты за сегоднsdasdя",
-    #                   "_id":random.random(),
-    #                     "ID": "3.2.2.2" + str(i)
-    #
-    #                 },
-    #                 {
-    #                   "img": "static/img/fon.jpg",
-    #                   "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at3.2!",
-    #                   "title": "Новые клиенты за сегоднsdasdя",
-    #                     "_id":random.random(),
-    #                     "ID": "3.3.3.2" + str(i)
-    #
-    #                 },
-    #                 ]
-
-
-
-
-
-        # users.insert(add_user)
-    err_find = users.find()
-    print(list(err_find))
-
     gl = users.find({"ID":{"$gt": str(value), "$lt": str(value) + ".99"}})
     items = list(gl)
+    print("Items are: ")
     print(items)
 
     results = [ item['ID'] for item in items ]
-
+    print("Values from MongoDB: ")
     print(results)
 
 ## Algorithm for taking daughters
@@ -116,6 +68,7 @@ def button(value=0):
         slides.append(line)
 
     print("Our daughters are:")
+    print(slides)
     dau = []
     for el in slides:
         if len(el.split("."))==lenofnumparent:
@@ -123,12 +76,12 @@ def button(value=0):
                 dau.append(el)
     lenght = len(dau)
     dau.sort()
-    # print(dau)
+    print(dau)
     list_numbers = list(dau)
     print(list_numbers)
     # if list_numbers2 ==
 
-    algorithm_for_short = dau[0]
+    # algorithm_for_short = dau[0]
     # if algorithm_for_short == numbers:
 
 
@@ -147,43 +100,48 @@ def button(value=0):
         # print(my_json)
         my_json["test"].extend(sort_id)
         my_json["num"] = str(value)
-        print(my_json)
+        my_json["block"] = my_json["num"][-1]
+        print(my_json["block"])
+        ## TODO: Check is there video, if so - send 3, if only img send 2, if text+img send 1
         print(sort_id)
+        display_it(my_json)
     with open("static/json/data.json", "w") as der :
         jsn = json.dump(my_json, der, indent=2, ensure_ascii=False )
-    #
+
+    return render_template('index.html', async_mode=socketio.async_mode)
 
 
+# TODO: def to change display content
+def display_it(value):
+    global message
+    print(value)
+    message = {}
+    if value["video1"] != "":
+        message = value
+    if value["block"] == 1:
+        value["block"] = 1
 
 
-        # jsn = json.dump(sort_id, dat, indent=2, ensure_ascii=False ) # mep это зн7ачение которому присвоено наше json значение из монги
-
-
-
-
-        # with open('static/json/data.json', 'w') as dat: # открывает json файл "W"- это команда на запись (write, read)
-        #     jsn = json.dump(mymsg, dat, indent=2, ensure_ascii=False ) # mep это зн7ачение которому присвоено наше json значение из монги
-
-
-    #         jsn = json.dump(message, dat, indent=2, ensure_ascii=False ) # mep это зн7ачение которому присвоено наше json значение из монги
 
 
 # То что крутиться на заднем фоне
 def background_thread():
-    global message
-    old_msg = message
+    old_msg = ""
     while True:
+        global message
+        message = {}
+        print(message)
         # Спит 0.1 секунду
         socketio.sleep(1)
-        if old_msg == message:
-            print("Old one")
-            pass
-        else:
-            old_msg = message
-            print("New one")
-            socketio.emit('my_response',
-                          message,
-                          namespace='/test')
+        if message != {}:
+            if old_msg != message:
+                print("Message is: ")
+                print(message)
+                old_msg = message
+                print("New one")
+                socketio.emit('my_response',
+                              message,
+                              namespace='/test')
 
 
 @socketio.on('connect', namespace='/test')
@@ -202,8 +160,4 @@ def ek():
 if __name__ == '__main__':
     socketio.run(app, host='0.0.0.0', port=8888, debug=True)
     # app.run(host='0.0.0.0', port=8888,debug=True)
-
-
-
-
 
