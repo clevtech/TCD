@@ -62,8 +62,8 @@ def my_bread(new_breads):
     print(my_bread)
     # button(value = my_bread )
     allresults.index(my_bread)
-    print(allresults.index(my_bread))
-    button(value = allresults[int(new_breads)])
+    index_bread = (allresults.index(my_bread))
+    button(value = allresults[index_bread])
     return render_template('index.html', async_mode=socketio.async_mode, name = new_breads)
 
 
