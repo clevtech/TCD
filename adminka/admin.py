@@ -1,39 +1,31 @@
-import flask
-from breadcrump import breadcrumb
+import csv
+from flask import Flask, render_template, session, request, json, jsonify, url_for, Markup, redirect
+import random
+import re
+from pprint import pprint
+from flask_socketio import SocketIO, emit, join_room, leave_room, \
+    close_room, rooms, disconnect
+import random
+from threading import Lock
+from pymongo import*
+from pymongo import MongoClient
 
-app = flask.Flask(__name__)
+async_mode = None
 
-@app.route('/')
-@breadcrumb('The index page')
-def index():
-    return flask.render_template('zip.html')
-
-@app.route('/a')
-@breadcrumb('')
-def pagea():
-    return flask.render_template('zip.html')
-
-@app.route('/b')
-@breadcrumb('rob')
-def pageb():
-    name = "rob"
-    return flask.render_template('zip.html', name = name)
-
-@app.route('/c')
-@breadcrumb('Chimp')
-def pagec(id = 1):
-    return flask.render_template('zip.html', name = id)
-
-@app.route('/d')
-@breadcrumb('Donkey')
-def paged():
-    return flask.render_template('zip.html')
+app = Flask(__name__)
+client = MongoClient('mongodb://localhost:27017/')
+db = client["test"]
+users = db.users
+filename = 'static/forms/nurform.csv'
 
 
+@app.route('/', methods = ['GET', 'POST'])
+def button(value=0):
+
+    # gl = users.find({"ID":{"$gt": str(value), "$lt": str(value) + ".99"}})
+    # items = list(gl)
 
 
 
 if __name__ == '__main__':
-    app.secret_key = '83cf5ca3-b1ee-41bb-b7a8-7a56c906b05f'
-    app.debug = True
-    app.run(host='0.0.0.0', port=8888, debug=True)
+    app.run(host='0.0.0.0', port=7777,debug=True)

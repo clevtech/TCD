@@ -56,13 +56,13 @@ def my_bread(new_breads):
     print("hi")
     textlookfor = r"(?!/)[\d+.\d+]+"
     allresults = re.findall(textlookfor, bread)
-    bread = len(allresults)
-    new_breads = allresults[1]
+    # bread = len(allresults)
+    # print(allresults)
+    my_bread  = new_breads.index
+    print(my_bread)
+    button(value = my_bread )
     print(allresults)
-    for i in range(0 , bread):
-        print(allresults[i])
-        button(value = allresults[i])
-        new_breads = allresults[i]
+    button(value = allresults[int(new_breads)])
     return render_template('index.html', async_mode=socketio.async_mode, name = new_breads)
 
 

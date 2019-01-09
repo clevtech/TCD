@@ -1,32 +1,10 @@
 {
   "_id": "1",
-  "block": "1",
+  "block": ">",
   "hi": 3.3,
   "img-src1": "static/img/bg.jpg",
-  "num": "3.1",
-  "test": [
-    {
-      "ID": "3.1",
-      "_id": 0.03582383000524203,
-      "img": "static/img/fon.jpg",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at3.2!",
-      "title": "Новые клиенты за сегоднsdasdя"
-    },
-    {
-      "ID": "3.2",
-      "_id": 0.8400421504722329,
-      "img": "static/img/fon.jpg",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at3.2!",
-      "title": "Новые клиенты за сегоднsdasdя"
-    },
-    {
-      "ID": "3.3",
-      "_id": 0.17186028805005837,
-      "img": "static/img/fon.jpg",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at3.2!",
-      "title": "Новые клиенты за сегоднsdasdя"
-    }
-  ],
+  "num": "<built-in method index of str object at 0x7f51525364c8>",
+  "test": [],
   "theme": "1",
   "video1": "static/video/vid.mp4"
 }
