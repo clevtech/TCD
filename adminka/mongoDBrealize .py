@@ -58,10 +58,11 @@ def my_bread(new_breads):
     allresults = re.findall(textlookfor, bread)
     # bread = len(allresults)
     # print(allresults)
-    my_bread  = new_breads.index
+    my_bread  = new_breads
     print(my_bread)
-    button(value = my_bread )
-    print(allresults)
+    # button(value = my_bread )
+    allresults.index(my_bread)
+    print(allresults.index(my_bread))
     button(value = allresults[int(new_breads)])
     return render_template('index.html', async_mode=socketio.async_mode, name = new_breads)
 

@@ -1,9 +1,9 @@
 {
   "_id": "1",
-  "block": ">",
+  "block": "5",
   "hi": 3.3,
   "img-src1": "static/img/bg.jpg",
-  "num": "<built-in method index of str object at 0x7f51525364c8>",
+  "num": "3.5",
   "test": [],
   "theme": "1",
   "video1": "static/video/vid.mp4"
