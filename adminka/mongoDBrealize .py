@@ -3,6 +3,7 @@ import glob
 import os
 from flask import Flask, render_template, session, request, json, jsonify, url_for, Markup, redirect
 import random
+import re
 from pprint import pprint
 from flask_socketio import SocketIO, emit, join_room, leave_room, \
     close_room, rooms, disconnect
@@ -26,33 +27,46 @@ thread_lock = Lock()
 
 message = {}
 
+def bread_read(my_json):
+        f = open('static/bread.txt', 'a')
+        my_jsn = my_json
+        my_jsn = my_jsn["num"]
+        # print(my_jsn )
+
+        f.write( '' + my_jsn + '' + '/')
+        f.close()
+        f = open('static/bread.txt', 'r')
+        read_file = f.read()
+        show_to_path = print(read_file)
+        f.close()
+        return
+
+
+
 @app.route('/', methods = ['GET', 'POST'])
 def mark_selected():
-    request.headers.get ('Access-Control-Allow-Origin:*')
     return render_template('index.html', async_mode=socketio.async_mode)
 
 
-@app.route('/button/<value>/', methods = ['GET', 'POST'])
-def button(value=0):
-    global title
-    global text
-    global car
-    global z
+@app.route('/<new_breads>/', methods = ['GET', 'POST'])
+def my_bread(new_breads):
+    f = open('static/bread.txt', 'r')
+    bread = f.read()
+    f.close()
+    print("hi")
+    textlookfor = r"(?!/)[\d+.\d+]+"
+    allresults = re.findall(textlookfor, bread)
+    bread = len(allresults)
+    new_breads = allresults[1]
+    print(allresults)
+    for i in range(0 , bread):
+        print(allresults[i])
+        button(value = allresults[i])
+        new_breads = allresults[i]
+    return render_template('index.html', async_mode=socketio.async_mode, name = new_breads)
 
-    print("Value from button: " + value)
-    print("Now we changed theme")
 
-    gl = users.find({"ID":{"$gt": str(value), "$lt": str(value) + ".99"}})
-    items = list(gl)
-    print("Items are: ")
-    print(items)
-
-    results = [ item['ID'] for item in items ]
-    print("Values from MongoDB: ")
-    print(results)
-
-## Algorithm for taking daughters
-
+def my_short_algoritm(value, results):
     parent= str(value) + "."
     lenofp = len(parent)
     parentnum = parent.split(".")
@@ -79,13 +93,30 @@ def button(value=0):
     print(dau)
     list_numbers = list(dau)
     print(list_numbers)
-    # if list_numbers2 ==
-
-    # algorithm_for_short = dau[0]
-    # if algorithm_for_short == numbers:
+    return list_numbers
 
 
+@app.route('/button/<value>/', methods = ['GET', 'POST'])
+def button(value=0):
+    global title
+    global text
+    global car
+    global z
 
+    print("Value from button: " + str(value))
+    print("Now we changed theme")
+
+    gl = users.find({"ID":{"$gt": str(value), "$lt": str(value) + ".99"}})
+    items = list(gl)
+    print("Items are: ")
+    print(items)
+
+    results = [ item['ID'] for item in items ]
+    print("Values from MongoDB: ")
+    print(results)
+
+## Algorithm for taking daughters
+    list_numbers = my_short_algoritm(value, results)
     ## Till here
     find_user = users.find({"ID":{"$in" : list_numbers}})
     sort_id = list(find_user)
@@ -105,10 +136,13 @@ def button(value=0):
         ## TODO: Check is there video, if so - send 3, if only img send 2, if text+img send 1
         print(sort_id)
         display_it(my_json)
+
+        bread_read(my_json)
     with open("static/json/data.json", "w") as der :
         jsn = json.dump(my_json, der, indent=2, ensure_ascii=False )
 
     return render_template('index.html', async_mode=socketio.async_mode)
+
 
 
 # TODO: def to change display content
@@ -120,7 +154,6 @@ def display_it(value):
         message = value
     if value["block"] == 1:
         value["block"] = 1
-
 
 
 
@@ -150,7 +183,6 @@ def test_connect():
     with thread_lock:
         if thread is None:
             thread = socketio.start_background_task(target=background_thread)
-
 
 
 @app.route('/ek')

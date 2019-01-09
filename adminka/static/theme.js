@@ -34,7 +34,9 @@ function themeOne(data) {
     header +="<p>ОСНОВНОЙ ТЕКСТ<br>БАҒДАРЛАМАСЫ</p></div></div>";
     header += "<div class='head-right-item'><div class='arrows'><button>";
     header += "<img src='static/img/left-arrow.png' alt='left-arrow'><img src='static/img/right.png' alt='right-arrow'></div>";
+    header += "<a href = {{name}}> google </a>";
     header += "<div class='menu-buttons'><button>Главная</button><button class='active'>Информационный блок</button></div></div></header>";
+
 
     content += "<div class='wrapper'><div class='container'><ul>";
 
@@ -106,11 +108,11 @@ function buttonClick(data) {
                 blockNum = data.test[0].ID;
                 console.log(data);
             }else if(this.className == "card test1 block-active") {
-                blockNum =  data.test[1].ID;;
+                blockNum =  data.test[1].ID;
             }else if(this.className == "card test2 block-active") {
-                blockNum =  data.test[2].ID;;
+                blockNum =  data.test[2].ID;
             }else if(this.className == "card test3 block-active") {
-                blockNum = data.test[3].ID;;
+                blockNum = data.test[3].ID;
             }else if(this.className == "card test4 block-active") {
                 blockNum = data.test[4].ID;
             }
