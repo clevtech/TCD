@@ -1,0 +1,45 @@
+{
+"theme": "1",
+"block": "1",
+  "num": "3.2",
+"logo": "static/image/logo.png",
+"logoLeft": "static/image/left.png",
+"logoRight": "static/image/right.png",
+"logoHome": "static/image/home.png",
+"test": [
+  {
+  "ID": "2.2.2.1",
+"_id": 0.4469041,
+"title": "Nur Otan Trends",
+"img": "static/image/bg.jpg",
+"text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
+"video": "static/video/",
+"buttonLeft": "",
+"buttonRight": "",
+"buttonReturn": ""
+},
+      {
+  "ID": "2.2.2.2",
+"_id": 0.44360681,
+"title": "Казахстан в глобальных рейтингах",
+"img": "static/image/bg.jpg",
+"text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
+"video": "static/video/",
+"buttonLeft": "",
+"buttonRight": "",
+"buttonReturn": ""
+},
+      {
+  "ID": "2.2.2.3",
+"_id": 0.44736031,
+"title": "Отношение к партии и партийным проектам",
+"img": "static/image/bg.jpg",
+"text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
+"video": "static/video/",
+"buttonLeft": "",
+"buttonRight": "",
+"buttonReturn": ""
+}
+
+]
+}

@@ -1,4 +1,13 @@
 //отслеживаем клик вызываем функцию и заменяем все то что было у нас в class = container и заменяем его соими значениями + block
+
+    namespace = '/server'
+    var socket = io.connect(location.protocol+ '//' + document.domain + ':' + location.port + namespace);
+    socket.on('connect', function() {
+         console.log('connected');
+         let ev = document.getElementById('block');
+            ev.onclick = function(data){
+            socket.send(blockNum)
+    }});
 $(document).ready(function() {
         $.ajaxSetup({
         url: "http://0.0.0.0:8888/static/json/data.json",
@@ -28,23 +37,22 @@ function themeOne(data) {
     var header = "";
     var content = "";
     var block = "";
-    console.log(data.num)
+//    console.log(data.num)
     header += "<header class='header1'><div class='head-left-item'>";
     header +="<img src='static/img/logo.png' alt='logo'><div><h3>НҰР ОТАН</h3>"
     header +="<p>ОСНОВНОЙ ТЕКСТ<br>БАҒДАРЛАМАСЫ</p></div></div>";
     header += "<div class='head-right-item'><div class='arrows'><button>";
     header += "<img src='static/img/left-arrow.png' alt='left-arrow'><img src='static/img/right.png' alt='right-arrow'></div>";
-    header += "<a href = {{name}}> google </a>";
     header += "<div class='menu-buttons'><button>Главная</button><button class='active'>Информационный блок</button></div></div></header>";
 
 
-    content += "<div class='wrapper'><div class='container'><ul>";
+    content += "<div class='wrapper'><div class='container' id = 'block'><ul>";
 
         for(var i = 0; i < data.test.length; i++) {
         block += "<li class='card test"+ i + "'>";
         block += "<img src="+ data.test[i].img +" alt='image'><div class='info'><h2>"+ data.test[i].title + "</h2>";
         block += "<p>"+ data.test[i].text +"</p></div></li>";
-        console.log(data.num);
+//        console.log(data.num);
 //        console.log(data.test[Math.round(data.num)].ID);
 
     }
@@ -77,6 +85,7 @@ function MyClick(data){
     $.getJSON('http://0.0.0.0:8888/static/json/data.json', function(data) {
      console.log("NEW JSON")
         if(data.num != 0){
+            console.log("!");
             themeOne(data);
 
 
@@ -131,23 +140,13 @@ function buttonClick(data) {
 
 
 function sendAjaxForm(blockNum, url) {
-$.ajax({
-url: url, //url страницы (action_ajax_form.php)
-type: "POST", //мжетод отправки
-dataType: "html", //формат данных
-data: $(blockNum).serialize(), // Сеарилизуем объект
-success: function(response){
-
- //Данные отправлены успешно
-console.log(blockNum)
-
-},
-error: function(response) { // Данные не отправлены
-console.log(blockNum);
-
-
-}
-});
+    namespace = '/server'
+    var socket = io.connect(location.protocol+ '//' + document.domain + ':' + location.port + namespace);
+    socket.on('connect', function() {
+         let ev = document.getElementById('block');
+            ev.onclick = function(){
+            socket.send("send", "Connected!!")
 }
 
-
+}
+)}

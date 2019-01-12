@@ -1,0 +1,50 @@
+{
+"theme": "1",
+"block": "1",
+  "num": "2.2",
+"logo": "static/image/logo.png",
+"logoLeft": "static/image/left.png",
+"logoRight": "static/image/right.png",
+"logoHome": "static/image/home.png",
+"test": [
+{
+  "ID": "2.2.1",
+"_id": 0.44471930146841,
+"title": "Аналитическая деятельность",
+"img": "static/image/bg.jpg",
+"text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
+"video": "static/video/",
+"buttonLeft": "",
+"buttonRight": "",
+"buttonReturn": "",
+"block": "1"
+},
+  {
+    "name": "2.2",
+  "ID": "2.2.2",
+"_id": 0.4471936903481,
+"title": "Работа с экспертным сообществом",
+"img": "static/image/bg.jpg",
+"text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
+"video": "static/video/",
+"buttonLeft": "",
+"buttonRight": "",
+"buttonReturn": "",
+"block": "1"
+},
+    {
+  "ID": "2.2.3",
+"_id": 0.190346841,
+"title": "Информационно-разъяснительные материалы",
+"img": "static/image/bg.jpg",
+"text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
+"video": "static/video/",
+"buttonLeft": "",
+"buttonRight": "",
+"buttonReturn": "",
+"block": "1"
+}
+
+]
+}
+

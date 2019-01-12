@@ -1,0 +1,45 @@
+{
+"theme": "1",
+"block": "",
+  "num": "3.2",
+"logo": "static/image/logo.png",
+"logoLeft": "static/image/left.png",
+"logoRight": "static/image/right.png",
+"logoHome": "static/image/home.png",
+"test": [
+  {
+  "ID": "2.2.1.1",
+"_id": 0.44713690356841,
+"title": "Карта социальныйх настроений",
+"img": "static/image/bg.jpg",
+"text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
+"video": "static/video/",
+"buttonLeft": "",
+"buttonRight": "",
+"buttonReturn": ""
+},
+      {
+  "ID": "2.2.1.2",
+"_id": 0.44471936031,
+"title": "Казахстан в глобальных рейтингах",
+"img": "static/image/bg.jpg",
+"text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
+"video": "static/video/",
+"buttonLeft": "",
+"buttonRight": "",
+"buttonReturn": ""
+},
+      {
+  "ID": "2.2.1.3",
+"_id": 0.447193646841,
+"title": "Имидж партии",
+"img": "static/image/bg.jpg",
+"text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
+"video": "static/video/",
+"buttonLeft": "",
+"buttonRight": "",
+"buttonReturn": ""
+}
+
+]
+}

@@ -16,7 +16,7 @@ async_mode = None
 
 app = Flask(__name__)
 client = MongoClient('mongodb://localhost:27017/')
-db = client["test"]
+db = client["nurotan"]
 users = db.users
 nums = random.random()
 
@@ -48,23 +48,34 @@ def mark_selected():
     return render_template('index.html', async_mode=socketio.async_mode)
 
 
-@app.route('/<new_breads>/', methods = ['GET', 'POST'])
-def my_bread(new_breads):
-    f = open('static/bread.txt', 'r')
-    bread = f.read()
-    f.close()
-    print("hi")
-    textlookfor = r"(?!/)[\d+.\d+]+"
-    allresults = re.findall(textlookfor, bread)
-    # bread = len(allresults)
-    # print(allresults)
-    my_bread  = new_breads
-    print(my_bread)
-    # button(value = my_bread )
-    allresults.index(my_bread)
-    index_bread = (allresults.index(my_bread))
-    button(value = allresults[index_bread])
-    return render_template('index.html', async_mode=socketio.async_mode, name = new_breads)
+# @app.route('/<new_breads>/', methods = ['GET', 'POST'])
+# def my_bread(new_breads):
+#     f = open('static/bread.txt', 'r')
+#     bread = f.read()
+#     f.close()
+#     print("hi")
+#     textlookfor = r"(?!/)[\d+.\d+]+"
+#     allresults = re.findall(textlookfor, bread)
+#     # bread = len(allresults)
+#     # print(allresults)
+#     my_bread  = new_breads
+#     print(my_bread)
+#     # button(value = my_bread )
+#     allresults.index(my_bread)
+#     index_bread = (allresults.index(my_bread))
+#     button(value = allresults[index_bread])
+#     return render_template('index.html', async_mode=socketio.async_mode, name = new_breads)
+#
+# def sorted_list(my_json):
+#
+#         # write2.extend(my_json["test"])
+#         print(my_json["test"])
+#         print(my_json["block"])
+
+
+@socketio.on('message', namespace='/server')
+def my_msg(message, message2):
+    print('message', {'data': message, 'data2':message2})
 
 
 def my_short_algoritm(value, results):
@@ -97,16 +108,16 @@ def my_short_algoritm(value, results):
     return list_numbers
 
 
+
 @app.route('/button/<value>/', methods = ['GET', 'POST'])
-def button(value=0):
+@socketio.on('message', namespace='/server')
+def button(value):
     global title
     global text
     global car
     global z
-
     print("Value from button: " + str(value))
     print("Now we changed theme")
-
     gl = users.find({"ID":{"$gt": str(value), "$lt": str(value) + ".99"}})
     items = list(gl)
     print("Items are: ")
@@ -127,12 +138,17 @@ def button(value=0):
     with open('static/json/data.json', 'r', encoding='utf-8') as dat: # открывает json файл "W"- это команда на запись (write, read)
         my_json = json.load(dat)
         # write2.extend(my_json["test"])
+        # print(my_json["test"])
+        # print(my_json["block"])
+        # my_val = str(value)
+
+
+
 
         del (my_json["test"])[:]
         # print(my_json)
         my_json["test"].extend(sort_id)
         my_json["num"] = str(value)
-        my_json["block"] = my_json["num"][-1]
         print(my_json["block"])
         ## TODO: Check is there video, if so - send 3, if only img send 2, if text+img send 1
         print(sort_id)
@@ -146,12 +162,13 @@ def button(value=0):
 
 
 
+
 # TODO: def to change display content
 def display_it(value):
     global message
     print(value)
     message = {}
-    if value["video1"] != "":
+    if value["num"] != "":
         message = value
     if value["block"] == 1:
         value["block"] = 1

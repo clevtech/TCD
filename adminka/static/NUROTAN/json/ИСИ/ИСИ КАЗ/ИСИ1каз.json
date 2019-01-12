@@ -1,0 +1,23 @@
+{
+"theme": "1",
+"block": "1",
+  "num": "3.2",
+"logo": "static/image/logo.png",
+"logoLeft": "static/image/left.png",
+"logoRight": "static/image/right.png",
+"logoHome": "static/image/home.png",
+"test": [
+{
+  "ID": "2.2",
+"_id": 0.447690146841,
+"title": "Институт стратегических инициатив",
+"img": "static/image/bg.jpg",
+"text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
+"video": "static/video/",
+"buttonLeft": "",
+"buttonRight": "",
+"buttonReturn": "",
+  "block": "1"
+}
+]
+}
