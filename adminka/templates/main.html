@@ -31,7 +31,7 @@
   		if(msg.block == 1){
   		    console.log('msg',msg);
 	      	out += "<div class='layout-center'>";
-	      	out += "<img src=" + msg.test[0].img + ">";
+	      	out += "<img src=" + msg.test2[0].img + ">";
 	      	out += "</div>";
 	      	lastData = msg.block;
   		}else if(msg.block == 2){
@@ -40,14 +40,14 @@
 	        out += "</div>";
 	        out += "<div class='layout-right'>";
 	        out += "<span></span>";
-	        out += "<h1>" + msg.test[1].title + "</h1>";
-	        out += "<p>" + msg.test[1].text + "</p>";
+	        out += "<h1>" + msg.test2[1].title + "</h1>";
+	        out += "<p>" + msg.test2[1].text + "</p>";
 	        out += "</div>";
 	        lastData = msg.block;
   		}
   		else if(msg.block == 3){
   			out += "<video controls loop muted autoplay";
-  			out += " src=" + msg.test[2].video + " width='100%' height='100%'>";
+  			out += " src=" + msg.test2[2].video + " width='100%' height='100%'>";
             out += "Sorry, your browser doesn't support embedded videos."
             out += "</video>"
             lastData = msg.block;

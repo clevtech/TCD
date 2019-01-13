@@ -66,16 +66,16 @@ def mark_selected():
 #     button(value = allresults[index_bread])
 #     return render_template('index.html', async_mode=socketio.async_mode, name = new_breads)
 #
-# def sorted_list(my_json):
-#
-#         # write2.extend(my_json["test"])
-#         print(my_json["test"])
-#         print(my_json["block"])
 
 
 @socketio.on('message', namespace='/server')
-def my_msg(message, message2):
-    print('message', {'data': message, 'data2':message2})
+def my_msg(message):
+    print('message', {'data': message})
+    with open('static/json/data.json', 'r', encoding='utf-8') as data: # открывает json файл "W"- это команда на запись (write, read)
+        my_json = json.load(data)
+        print(my_json["test"])
+
+
 
 
 def my_short_algoritm(value, results):
@@ -122,77 +122,78 @@ def button(value):
     items = list(gl)
     print("Items are: ")
     print(items)
+    print( ", ".join( repr(e) for e in items ) )
+#     results = [ item['ID'] for item in items ]
+#     # print("Values from MongoDB: ")
+#     # print(results)
+#
+# ## Algorithm for taking daughters
+#     list_numbers = my_short_algoritm(value, results)
+#     ## Till here
+#     find_user = users.find({"ID":{"$in" : list_numbers}})
+#     sort_id = list(find_user)
 
-    results = [ item['ID'] for item in items ]
-    print("Values from MongoDB: ")
-    print(results)
-
-## Algorithm for taking daughters
-    list_numbers = my_short_algoritm(value, results)
-    ## Till here
-    find_user = users.find({"ID":{"$in" : list_numbers}})
-    sort_id = list(find_user)
-
-    print(sort_id)
+    # print(sort_id)
     write2 = []
     with open('static/json/data.json', 'r', encoding='utf-8') as dat: # открывает json файл "W"- это команда на запись (write, read)
+        global my_json
         my_json = json.load(dat)
         # write2.extend(my_json["test"])
+        write2.extend(items)
         # print(my_json["test"])
         # print(my_json["block"])
-        # my_val = str(value)
+        # print(my_json["test"])
+        print(write2)
+        print( ", ".join( repr(e) for e in write2 ) )
+        my_val = str(value)
 
 
 
 
-        del (my_json["test"])[:]
-        # print(my_json)
-        my_json["test"].extend(sort_id)
-        my_json["num"] = str(value)
-        print(my_json["block"])
-        ## TODO: Check is there video, if so - send 3, if only img send 2, if text+img send 1
-        print(sort_id)
-        display_it(my_json)
+        # del (my_json["test"])[:]
+        # # print(my_json)
+        # my_json["test"].extend(sort_id)
+        # my_json["num"] = str(value)
+        #
+        # ## TODO: Check is there video, if so - send 3, if only img send 2, if text+img send 1
+        # print(sort_id)
 
-        bread_read(my_json)
+        # bread_read(my_json)
     with open("static/json/data.json", "w") as der :
-        jsn = json.dump(my_json, der, indent=2, ensure_ascii=False )
-
+        jsn = json.dump(write2, der, indent=2, ensure_ascii=False )
+    background_thread(my_json)
     return render_template('index.html', async_mode=socketio.async_mode)
 
 
 
 
-# TODO: def to change display content
-def display_it(value):
-    global message
-    print(value)
-    message = {}
-    if value["num"] != "":
-        message = value
-    if value["block"] == 1:
-        value["block"] = 1
+# # TODO: def to change display content
+# def display_it(value):
+#     global message
+#     print(value)
+#     message = {}
+#     if value["num"] != "":
+#         message = value
+
 
 
 
 # То что крутиться на заднем фоне
-def background_thread():
+def background_thread(message):
     old_msg = ""
-    while True:
-        global message
-        message = {}
-        print(message)
-        # Спит 0.1 секунду
-        socketio.sleep(1)
-        if message != {}:
-            if old_msg != message:
-                print("Message is: ")
-                print(message)
-                old_msg = message
-                print("New one")
-                socketio.emit('my_response',
-                              message,
-                              namespace='/test')
+
+    print(message)
+    # Спит 0.1 секунду
+    socketio.sleep(1)
+    if message != {}:
+        if old_msg != message:
+            print("Message is: ")
+            print(message)
+            old_msg = message
+            print("New one")
+            socketio.emit('my_response',
+                          message,
+namespace='/test')
 
 
 @socketio.on('connect', namespace='/test')

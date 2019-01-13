@@ -24,10 +24,66 @@ thread = None
 thread_lock = Lock()
 socketio = SocketIO(app, async_mode=async_mode)
 
-@socketio.on('message', namespace='/server')
-def msg(message):
-    print("message is: " + message)
+users.insert(
+{
+"theme": "1",
+"block": "1",
+  "_id": 41241241212,
+  "num": "2.2",
+  "ID": "2.2",
+"logo": "static/image/logo.png",
+"logoLeft": "static/image/left.png",
+"logoRight": "static/image/right.png",
+"logoHome": "static/image/home.png",
+"test": [
+{
+  "ID": "2.2.1",
+"_id": 0.44471930146841,
+"title": "Аналитическая деятельность",
+"img": "static/image/bg.jpg",
+"text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
+"video": "static/video/",
+"buttonLeft": "",
+"buttonRight": "",
+"buttonReturn": "",
+"block": "1",
+"form": "2"
+},
+  {
+    "name": "2.2",
+  "ID": "2.2.2",
+"_id": 0.4471936903481,
+"title": "Работа с экспертным сообществом",
+"img": "static/image/bg.jpg",
+"text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
+"video": "static/video/",
+"buttonLeft": "",
+"buttonRight": "",
+"buttonReturn": "",
+"block": "1",
+"form": "2"
+},
+    {
+  "ID": "2.2.3",
+"_id": 0.190346841,
+"title": "Информационно-разъяснительные материалы",
+"img": "static/image/bg.jpg",
+"text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
+"video": "static/video/",
+"buttonLeft": "",
+"buttonRight": "",
+"buttonReturn": "",
+"block": "1",
+"form": "2"
+}
 
+]
+}
+
+
+
+
+)
 
 # def structure_number_one(): #ПАРТИЯ «НҰР ОТАН»
 #     users.insert({})
@@ -51,5 +107,3 @@ def msg(message):
 #     return render_template('indexZM.html', async_mode=socketio.async_mode)
 
 
-if __name__ == '__main__':
-    socketio.run(app, host='0.0.0.0', port=8888, debug=True)
