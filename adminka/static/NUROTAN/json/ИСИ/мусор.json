@@ -1,0 +1,23 @@
+{
+"name": "2.2",
+"theme": "1",
+"block": "1",
+  "form": "4",
+"num": "2.2.2",
+"ID": "2.2.2",
+"_id": 235235231240998,
+"logo": "static/image/logo.png",
+"logoLeft": "static/image/left.png",
+"logoRight": "static/image/right.png",
+"logoHome": "static/image/home.png",
+"test": [
+      {
+        "title": "Институт стратегических инициатив",
+        "img_path": "/img/14/.png",
+        "video": "/video/1.mp4",
+        "map": 9,
+        "text": "Бла бла бла бла бла бла бла"
+      }
+
+]
+}

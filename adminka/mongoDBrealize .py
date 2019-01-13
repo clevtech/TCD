@@ -87,7 +87,7 @@ def one():
 
 @app.route('/button/<value>/', methods = ['GET', 'POST'])
 @socketio.on('message', namespace='/server')
-def button(value, msg = "2"):
+def button(value):
     global title
     global text
     global car
@@ -147,14 +147,15 @@ def test_connect():
         if thread is None:
             thread = socketio.start_background_task(target=background_thread)
 
-@socketio.on('connects', namespace='/server')
+@socketio.on('message', namespace='/server')
 def my_msg(message, message2):
-    print('message is: ' "+" ,message ,"+" 'json',(str(message2)))
+    print('message is: ' "+" ,message ,"+" 'json:',message2)
     disp(message2)
 
 
 @socketio.on('my_disp', namespace='/disp')
 def disp(message2):
+    print("disp connected!")
     socketio.emit('my_disp',message2 , namespace='/disp')
 
 
