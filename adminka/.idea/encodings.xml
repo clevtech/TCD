@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" addBOMForNewFiles="with NO BOM" />
+  <component name="Encoding" addBOMForNewFiles="with NO BOM">
+    <file url="file://$PROJECT_DIR$/mongo/нуротан/1-КАЗАХСКИЕ ВАРИАНТ НҰР ОТАН/1-3-ПАРТИЯ-ҚҰНДЫЛЫҚТАРЫ/READ_ME.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mongo/нуротан/1-КАЗАХСКИЕ ВАРИАНТ НҰР ОТАН/1-5-ПАРТИЯЛЫҚ-ЖОБАЛАР/1-5-1-СТРАТЕГИЯЛЫҚ-ЖОБАЛАР/1-5-1-1-ЦИФРЛАНДЫРУ-ЖОБАЛАРЫ/1-5-1-1-2-it-ОРТАЛЫҚТАРЫ/1-5-1-1-2-it-ОРТАЛЫҚТАРЫ.txt" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mongo/нуротан/1-КАЗАХСКИЕ ВАРИАНТ НҰР ОТАН/1-5-ПАРТИЯЛЫҚ-ЖОБАЛАР/1-5-1-СТРАТЕГИЯЛЫҚ-ЖОБАЛАР/1-5-1-1-ЦИФРЛАНДЫРУ-ЖОБАЛАРЫ/1-5-1-1-ЦИФРЛАНДЫРУ-ЖОБАЛАРЫ.txt" charset="UTF-8" />
+  </component>
 </project>

@@ -2,7 +2,6 @@
   "ID": "2.2",
   "_id": 41241241212,
   "block": "2",
-  "form": "2",
   "logo": "static/image/logo.png",
   "logoHome": "static/image/home.png",
   "logoLeft": "static/image/left.png",
@@ -16,7 +15,7 @@
       "buttonLeft": "",
       "buttonReturn": "",
       "buttonRight": "",
-      "form": "2",
+      "form": "1",
       "img": "static/image/bg.jpg",
       "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
       "theme": "2",
@@ -30,7 +29,7 @@
       "buttonLeft": "",
       "buttonReturn": "",
       "buttonRight": "",
-      "form": "2",
+      "form": "1",
       "img": "static/image/bg.jpg",
       "name": "2.2",
       "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
@@ -44,12 +43,12 @@
       "buttonLeft": "",
       "buttonReturn": "",
       "buttonRight": "",
-      "form": "2",
+      "form": "1",
       "img": "static/image/bg.jpg",
       "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
       "title": "Информационно-разъяснительные материалы",
       "video": "static/video/"
     }
   ],
-  "theme": "2"
+  "theme": "1"
 }

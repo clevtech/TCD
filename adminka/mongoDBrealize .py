@@ -88,7 +88,7 @@ def one():
 
 
 
-# @app.route('/button/<value>/', methods = ['GET', 'POST'])
+@app.route('/button/<value>/', methods = ['GET', 'POST'])
 # @socketio.on('message', namespace='/server')
 def button(value):
     global title
@@ -97,17 +97,71 @@ def button(value):
     global z
     print("Value from button: " + str(value))
     print("Now we changed theme")
-    gl = users.find({"ID":str(value)})
-    items = list(gl)
+    # gl = users.find({})
+    items = {
+  "ID": "2.2",
+  "_id": 41241241212,
+  "block": "2",
+  "logo": "static/image/logo.png",
+  "logoHome": "static/image/home.png",
+  "logoLeft": "static/image/left.png",
+  "logoRight": "static/image/right.png",
+  "num": "2.2",
+  "test": [
+    {
+      "ID": "2.2.1",
+      "_id": 0.44471930146841,
+      "block": "2",
+      "buttonLeft": "",
+      "buttonReturn": "",
+      "buttonRight": "",
+      "form": "1",
+      "img": "static/image/bg.jpg",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
+      "theme": "2",
+      "title": "Аналитическая деятельность",
+      "video": "static/video/"
+    },
+    {
+      "ID": "2.2.2",
+      "_id": 0.4471936903481,
+      "block": "1",
+      "buttonLeft": "",
+      "buttonReturn": "",
+      "buttonRight": "",
+      "form": "1",
+      "img": "static/image/bg.jpg",
+      "name": "2.2",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
+      "title": "Работа с экспертным сообществом",
+      "video": "static/video/"
+    },
+    {
+      "ID": "2.2.3",
+      "_id": 0.190346841,
+      "block": "1",
+      "buttonLeft": "",
+      "buttonReturn": "",
+      "buttonRight": "",
+      "form": "1",
+      "img": "static/image/bg.jpg",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
+      "title": "Информационно-разъяснительные материалы",
+      "video": "static/video/"
+    }
+  ],
+  "theme": "1"
+}
+
     print("Items are: ")
     print(items)
 
         # ## TODO: Check is there video, if so - send 3, if only img send 2, if text+img send 1
 
     with open("static/json/data.json", "w") as der:
-        jsn = json.dump(items[0], der, indent=2, ensure_ascii=False)
+        jsn = json.dump(items, der, indent=2, ensure_ascii=False)
         print(items)
-        background_thread(items[0])
+        background_thread(items)
     # return render_template('index.html', async_mode=socketio.async_mode, ip=ip)
 
 
@@ -152,15 +206,14 @@ def test_connect():
 
 @socketio.on('message', namespace='/server')
 def my_msg(message, message2):
-    print('message is: ' "+" ,message ,"+" 'json:',message2)
+    print('message is: ' "+" ,message ,"+" )
     button(message)
-    disp(message2)
 
 
-@socketio.on('my_disp', namespace='/disp')
-def disp(message2):
-    print("disp connected!")
-    socketio.emit('my_disp',message2 , namespace='/disp')
+
+@socketio.on('mydisp', namespace='/mydisp')
+def handle_message(message):
+    print('received message: ' + message)
 
 
 
@@ -168,9 +221,6 @@ def disp(message2):
 def ek():
     return render_template('main.html', async_mode=socketio.async_mode, ip=ip)
 
-@app.route('/e')
-def em():
-    return ("HELLO")
 
 if __name__ == '__main__':
     socketio.run(app, host='0.0.0.0', port=8888, debug=True)

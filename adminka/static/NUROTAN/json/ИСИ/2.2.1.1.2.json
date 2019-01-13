@@ -2,43 +2,42 @@
   "ID":"2.2.1.1.2",
   "logo_title": "NurOtan",
   "logo_path": "/img/logo.png",
-  "slide_max": "5",
-  "slide_now": "1",
+  "type": "2",
   "content": [
-    {    "type": "1",
+    {
         "title": "Институт стратегических инициатив",
         "img_path": "/static/img/ИСИ",
         "video": "/video/1.mp4",
-        "map": 9,
-        "text": "Бла бла бла бла бла бла бла"
+        "map": 1,
+        "text": ""
       },
-    {    "type": "1",
+    {
         "title": "Институт стратегических инициатив",
         "img_path": "/static/img/ИСИ2",
         "video": "/video/1.mp4",
-        "map": 9,
-        "text": "Бла бла бла бла бла бла бла"
+        "map": 2,
+        "text": ""
       },
-    {    "type": "1",
+    {
         "title": "Институт стратегических инициатив",
         "img_path": "/static/img/ИСИ3",
         "video": "/video/1.mp4",
-        "map": 9,
-        "text": "Бла бла бла бла бла бла бла"
+        "map": 3,
+        "text": ""
       },
-    {    "type": "1",
+    {
         "title": "Институт стратегических инициатив",
         "img_path": "/static/img/ИСИ3",
         "video": "/video/1.mp4",
-        "map": 9,
-        "text": "Бла бла бла бла бла бла бла"
+        "map": 4,
+        "text": ""
       },
-    {    "type": "1",
+    {
         "title": "Институт стратегических инициатив",
         "img_path": "/static/img/ИСИ4",
         "video": "/video/1.mp4",
-        "map": 9,
-        "text": "Бла бла бла бла бла бла бла"
+        "map": 5,
+        "text": ""
       }
 
   ]

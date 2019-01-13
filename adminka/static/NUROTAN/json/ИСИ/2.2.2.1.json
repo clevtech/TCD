@@ -1,55 +1,42 @@
 {
 "name": "2.2",
 "theme": "1",
-"block": "1",
   "form": "2",
-"num": "2.2.2",
-"ID": "2.2.2",
+"ID": "2.2.1.2",
 "_id": 235235231240998,
-"logo": "static/image/logo.png",
-"logoLeft": "static/image/left.png",
-"logoRight": "static/image/right.png",
-"logoHome": "static/image/home.png",
-"test": [
+"content": [
   {
-  "ID": "2.2.2.1",
-"_id": 0.44690356841,
+  "ID": "2.2.1.2.1",
+"_id": 0.4464290356841,
 "title": "Nur Otan Trends",
 "img": "static/image/nurtrends.png",
 "text": "Nur Otan Trends – дискуссионная площадка по обсуждению наиболее важных\nи значимых социальных и экономических аспектов развития общества с участием\nпредставителей государственных и общественных организаций, экспертов.",
 "video": "",
-"buttonLeft": "",
-"buttonRight": "",
-"buttonReturn": "",
 "block":"2",
   "form": "2"
   },
       {
-  "ID": "2.2.2.2",
-"_id": 0.444719360681,
+  "ID": "2.2.1.2.2",
+"_id": 0.444712359360681,
 "title": "Nur Otan Talks",
 "img": "static/image/treads",
 "text": "Nur Otan Talks – диалоговая площадка по обсуждению интересных тем,\nсобытий и явлений казахстанского общества, а также предоставление широкой\nобщественности возможности познакомиться с известными личностями страны.",
 "video": "static/video/",
-"buttonLeft": "",
-"buttonRight": "",
-"buttonReturn": "",
+
 "block":"2",
   "form": "2"
       },
       {
-  "ID": "2.2.2.3",
-"_id": 0.447360346841,
+  "ID": "2.2.1.2.3",
+"_id": 0.4473604124346841,
 "title": "Резерв",
 "img": "static/image/bg.jpg",
 "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
 "video": "",
-"buttonLeft": "",
-"buttonRight": "",
-"buttonReturn": "",
 "block":"1",
   "form": "2"
       }
 
 ]
 }
+

@@ -1,25 +1,19 @@
 {
+"name": "2.2",
 "theme": "1",
-"block": "1",
+"type": "2",
   "form": "3",
   "num": "3.2",
   "ID": "2.2.1.1",
   "_id": 41248912098,
-"logo": "static/image/logo.png",
-"logoLeft": "static/image/left.png",
-"logoRight": "static/image/right.png",
-"logoHome": "static/image/home.png",
-"test": [
+"content": [
   {
   "ID": "2.2.1.1.1",
 "_id": 0.4469041,
 "title": "Nur Otan Trends",
 "img": "static/image/ИСИ.png",
 "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
-"video": "static/video/",
-"buttonLeft": "",
-"buttonRight": "",
-"buttonReturn": ""
+"video": "static/video/"
 },
       {
   "ID": "2.2.1.1.2",
@@ -27,10 +21,7 @@
 "title": "Казахстан в глобальных рейтингах",
 "img": "static/image/ИСИ2.png",
 "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
-"video": "static/video/",
-"buttonLeft": "",
-"buttonRight": "",
-"buttonReturn": ""
+"video": "static/video/"
 },
       {
   "ID": "2.2.1.1.3",
@@ -38,33 +29,25 @@
 "title": "Отношение к партии и партийным проектам",
 "img": "static/image/ИСИ3.png",
 "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
-"video": "static/video/",
-"buttonLeft": "",
-"buttonRight": "",
-"buttonReturn": ""
+"video": "static/video/"
 },
         {
   "ID": "2.2.1.1.4",
-"_id": 0.4473124236031,
+"_id": 0.44124236031,
 "title": "Отношение к партии и партийным проектам",
 "img": "static/image/ИСИ4.png",
 "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
-"video": "static/video/",
-"buttonLeft": "",
-"buttonRight": "",
-"buttonReturn": ""
+"video": "static/video/"
 },
         {
   "ID": "2.2.1.1.5",
-"_id": 0.44738776031,
+"_id": 0.4473808031,
 "title": "Отношение к партии и партийным проектам",
 "img": "static/image/ИСИ5.png",
 "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
-"video": "static/video/",
-"buttonLeft": "",
-"buttonRight": "",
-"buttonReturn": ""
+"video": "static/video/"
 }
 
 ]
 }
+

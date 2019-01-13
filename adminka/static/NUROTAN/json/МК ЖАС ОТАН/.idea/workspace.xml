@@ -4,31 +4,8 @@
     <list default="true" id="550d2ea4-dc80-4917-92a3-8ef72806c62d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../../../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../mongoDBrealize .py" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../mongoDBrealize .py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ИСИ/2.2.1.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ИСИ/2.2.1.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ИСИ/2.2.2.1.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ИСИ/2.2.2.1.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/json_jas_otan_3.1" beforeDir="false" afterPath="$PROJECT_DIR$/json_jas_otan_3.1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/json_jas_otan_3.1.1" beforeDir="false" afterPath="$PROJECT_DIR$/json_jas_otan_3.1.1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/json_jas_otan_3.1.2" beforeDir="false" afterPath="$PROJECT_DIR$/json_jas_otan_3.1.2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/json_jas_otan_3.1.3" beforeDir="false" afterPath="$PROJECT_DIR$/json_jas_otan_3.1.3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/json_jas_otan_3.1.4" beforeDir="false" afterPath="$PROJECT_DIR$/json_jas_otan_3.1.4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/json_jas_otan_3.2.1" beforeDir="false" afterPath="$PROJECT_DIR$/json_jas_otan_3.2.1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/json_jas_otan_3.2.2" beforeDir="false" afterPath="$PROJECT_DIR$/json_jas_otan_3.2.2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/json_jas_otan_3.2.2.1" beforeDir="false" afterPath="$PROJECT_DIR$/json_jas_otan_3.2.2.1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/json_jas_otan_3.2.2.1.1" beforeDir="false" afterPath="$PROJECT_DIR$/json_jas_otan_3.2.2.1.1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/json_jas_otan_3.2.2.1.2" beforeDir="false" afterPath="$PROJECT_DIR$/json_jas_otan_3.2.2.1.2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/json_jas_otan_3.2.2.1.3" beforeDir="false" afterPath="$PROJECT_DIR$/json_jas_otan_3.2.2.1.3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/json_jas_otan_3.2.2.2" beforeDir="false" afterPath="$PROJECT_DIR$/json_jas_otan_3.2.2.2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/json_jas_otan_3.3" beforeDir="false" afterPath="$PROJECT_DIR$/json_jas_otan_3.3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/json_jas_otan_3.3.1" beforeDir="false" afterPath="$PROJECT_DIR$/json_jas_otan_3.3.1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/json_jas_otan_3.3.2" beforeDir="false" afterPath="$PROJECT_DIR$/json_jas_otan_3.3.2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../../css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../css/theme2.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../../css/theme2.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../css/theme3.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../../css/theme3.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../json/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../json/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../theme.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../templates/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ИСИ/2.2.json" beforeDir="false" afterPath="$PROJECT_DIR$/../ИСИ/2.2.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ИСИ/мусор.json" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -37,59 +14,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/json_jas_otan_3.2.2.2">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/json_jas_otan_3.3">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/json_jas_otan_3.3.1">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="15" lean-forward="true" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/json_jas_otan_3.3.2">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="9" lean-forward="true" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/json_jas_otan_3.3.8">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/json_jas_otan_3.3.9">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/json_jas_otan_3.3.10">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../.." />
@@ -128,21 +53,11 @@
     </navigator>
     <panes>
       <pane id="Course" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="МК ЖАС ОТАН" type="b2602c69:ProjectViewProjectNode" />
-              <item name="МК ЖАС ОТАН" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ИСИ" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -161,7 +76,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1533" height="875" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24966888" />
       <window_info id="Structure" order="1" weight="0.25" />
@@ -259,14 +173,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/json_jas_otan_3.3.8">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/json_jas_otan_3.3.9">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/json_jas_otan_3.3.10">
-      <provider selected="true" editor-type-id="text-editor" />
+    <entry file="file://$PROJECT_DIR$/json_jas_otan_3.2.2.2">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/json_jas_otan_3.3">
       <provider selected="true" editor-type-id="text-editor">
@@ -289,12 +201,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/json_jas_otan_3.2.2.2">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/json_jas_otan_3.3.8">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/json_jas_otan_3.3.9">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/json_jas_otan_3.3.10">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>

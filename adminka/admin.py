@@ -4,13 +4,13 @@ from flask import Flask
 import os
 from pprint import pprint
 from flask_socketio import SocketIO, emit, join_room, leave_room, \
-    close_room, rooms, disconnect
+close_room, rooms, disconnect
 import random
 from threading import Lock
 from pymongo import*
 from pymongo import MongoClient
 import csv
-
+import json
 async_mode = None                                       
 
 
@@ -24,85 +24,53 @@ thread = None
 thread_lock = Lock()
 socketio = SocketIO(app, async_mode=async_mode)
 
-users.insert({
-"theme": "2",
-"block": "2",
-  "_id": 41241241212,
-  "num": "2.2",
-  "ID": "2.2",
-  "form": "2",
-"logo": "static/image/logo.png",
-"logoLeft": "static/image/left.png",
-"logoRight": "static/image/right.png",
-"logoHome": "static/image/home.png",
-"test": [
-{
-  "ID": "2.2.1",
-"_id": 0.44471930146841,
-"title": "Аналитическая деятельность",
-"img": "static/image/bg.jpg",
-"text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
-"video": "static/video/",
-"buttonLeft": "",
-"buttonRight": "",
-"buttonReturn": "",
-"block": "2",
-"form": "2",
-  "theme":"2"
-},
-  {
-    "name": "2.2",
-  "ID": "2.2.2",
-"_id": 0.4471936903481,
-"title": "Работа с экспертным сообществом",
-"img": "static/image/bg.jpg",
-"text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
-"video": "static/video/",
-"buttonLeft": "",
-"buttonRight": "",
-"buttonReturn": "",
-"block": "1",
-"form": "2"
-},
-    {
-  "ID": "2.2.3",
-"_id": 0.190346841,
-"title": "Информационно-разъяснительные материалы",
-"img": "static/image/bg.jpg",
-"text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
-"video": "static/video/",
-"buttonLeft": "",
-"buttonRight": "",
-"buttonReturn": "",
-"block": "1",
-"form": "2"
-}
 
-]
-}
+def import_it(ID):
+    value = str(ID)
 
-)
+    gl = users.find({"ID":{"$gt": str(value), "$lt": str(value) + ".9"}})
+
+    gl = list(gl)
+
+    value2 = value
+    leng = len(value2.split(".")) + 1
+    daughters = []
+    for el in gl:
+        if len(el["ID"].split(".")) <= leng:
+            daughters.append(el)
+
+    gl2 = users.find({"ID":str(value)})
+    it = list(gl2)
 
 
-# def structure_number_one(): #ПАРТИЯ «НҰР ОТАН»
-#     users.insert({})
+    parents_raw = ID.split(".")[0:-1]
+    parents = []
+    parent = ""
+    for i in range(len(parents_raw)):
+        if i == 0:
+            parent = str(parents_raw[i])
+        else:
+            parent += "." + str(parents_raw[i])
+        parents.append(parent)
+
+    parents_final = []
+    for parent in parents:
+        gl3 = list(users.find({"ID":str(parent)}))
+        parents_final.extend(gl3)
+    return it, parents_final, daughters
+
+x, y, z = import_it("3.1")
+print(x)
+print(y)
+print(z)
+
+@socketio.on('mydisp', namespace='/mydisp')
+def handle_message(message):
+    print('received message: ' + message)
 
 
+if __name__ == '__main__':
+    socketio.run(app, host='0.0.0.0', port=8888, debug=True)
 
-
-
-# def structure_number_tree(): #МОЛОДЕЖНОЕ КРЫЛО «ЖАС ОТАН»
-#     users.insert({})
-#
-#
-# def structure_number_four(): #РЕСПУБЛИКАНСКАЯ ОБЩЕСТВЕННАЯ ПРИЕМНАЯ
-#     users.insert({})
-
-
-
-
-# @app.route('/', methods = ['GET', 'POST'])
-# def mark_selected():
-#     return render_template('indexZM.html', async_mode=socketio.async_mode)
 
 
