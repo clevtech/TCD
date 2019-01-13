@@ -12,6 +12,8 @@ from threading import Lock
 from pymongo import*
 from pymongo import MongoClient
 
+
+ip = "192.168.8.100"
 async_mode = None
 
 app = Flask(__name__)
@@ -45,7 +47,7 @@ def bread_read(my_json):
 
 @app.route('/', methods = ['GET', 'POST'])
 def mark_selected():
-    return render_template('index.html', async_mode=socketio.async_mode)
+    return render_template('index.html', async_mode=socketio.async_mode, ip=ip)
 
 
 @app.route('/1', methods = ['GET', 'POST'])
@@ -54,6 +56,7 @@ def one():
     msg = {
           "ID": "2",
           "_id": 5141241249,
+        "theme":"1",
           "block": "1",
           "form": "",
           "logo": "static/image/logo.png",
@@ -79,14 +82,14 @@ def one():
           ]
         }
     background_thread(msg)
-    return render_template('index.html', async_mode=socketio.async_mode)
+    return render_template('index.html', async_mode=socketio.async_mode, ip=ip)
 
 
 
 
 
-@app.route('/button/<value>/', methods = ['GET', 'POST'])
-@socketio.on('message', namespace='/server')
+# @app.route('/button/<value>/', methods = ['GET', 'POST'])
+# @socketio.on('message', namespace='/server')
 def button(value):
     global title
     global text
@@ -105,7 +108,7 @@ def button(value):
         jsn = json.dump(items[0], der, indent=2, ensure_ascii=False)
         print(items)
         background_thread(items[0])
-    return render_template('index.html', async_mode=socketio.async_mode)
+    # return render_template('index.html', async_mode=socketio.async_mode, ip=ip)
 
 
 
@@ -137,7 +140,7 @@ def background_thread(message):
             print("New one")
             socketio.emit('my_response',
                           message,
-namespace='/test')
+                            namespace='/test')
 
 
 @socketio.on('connect', namespace='/test')
@@ -163,7 +166,11 @@ def disp(message2):
 
 @app.route('/ek')
 def ek():
-    return render_template('main.html', async_mode=socketio.async_mode)
+    return render_template('main.html', async_mode=socketio.async_mode, ip=ip)
+
+@app.route('/e')
+def em():
+    return ("HELLO")
 
 if __name__ == '__main__':
     socketio.run(app, host='0.0.0.0', port=8888, debug=True)

@@ -4,7 +4,7 @@
   "_id": 41241241212,
   "num": "2.2",
   "ID": "2.2",
-  "form": "1",
+  "form": "2",
 "logo": "static/image/logo.png",
 "logoLeft": "static/image/left.png",
 "logoRight": "static/image/right.png",
@@ -21,7 +21,7 @@
 "buttonRight": "",
 "buttonReturn": "",
 "block": "1",
-"form": "1.1"
+"form": "2"
 },
   {
     "name": "2.2",
@@ -35,7 +35,7 @@
 "buttonRight": "",
 "buttonReturn": "",
 "block": "1",
-"form": "1.2"
+"form": "2"
 },
     {
   "ID": "2.2.3",
@@ -48,7 +48,7 @@
 "buttonRight": "",
 "buttonReturn": "",
 "block": "1",
-"form": "1.3"
+"form": "2"
 }
 
 ]

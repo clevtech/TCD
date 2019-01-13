@@ -29,7 +29,7 @@
     border-radius: 30px;
     margin-right:5px;
     margin-left: 5px;
-    height: 23px;
+    height: 40px;
 }
 
 .header2 .head-left-item {
@@ -67,7 +67,7 @@
 
 /* BODY */
 
-.left-sidebar {
+.theme-second .left-sidebar {
     height: 100vh;
     min-height: 750px;
     width: 300px;
@@ -80,6 +80,8 @@
     display: flex;
     flex-direction: column;
     text-align: center;
+    top: 0;
+    left: 0;
 }
 
 .left-sidebar h2 {
@@ -94,7 +96,7 @@
     font-size: 25px;
 }
 
-.theme-second-fon {
+.theme-second {
 	background-image: url('../image/fon.png');
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -233,16 +235,20 @@
     background-color: #0a8ba0;
     position: absolute;
     color: #fff;
-    z-index: 3;
+    z-index: 4;
     border-radius: 0 0 200px 0;
     align-items: center;
     justify-content: center;
     display: flex;
     flex-direction: column;
     text-align: center;
+    top: 0;
+    left: 0;
 }
 
-.buttons-sidebar .button-center {
+
+
+.wrapper-button2 .button-center {
     position: relative;
     z-index: 3;
     display: flex;
@@ -251,13 +257,13 @@
     justify-content: space-around;
 }
 
-.buttons-sidebar .button-center .button {
+.wrapper-button2 .button-center .button {
     border-radius: 50%;
     background-color: #F8E346;
     padding: 100px;
 }
 
-.buttons-sidebar .button-center  .active {
+.wrapper-button2 .button-center  .active {
     padding: 120px;
     box-shadow: 0px 2px 69px 11px rgba(252,227,0,1);
 }
