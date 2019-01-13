@@ -5,26 +5,16 @@
       <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mongoDBrealize .py" beforeDir="false" afterPath="$PROJECT_DIR$/mongoDBrealize .py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/NEW/theme .js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/NEW/theme.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/static/NUROTAN/json/ИСИ/2.2.1.1.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/NUROTAN/json/ИСИ/2.2.1.1.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/NUROTAN/json/ИСИ/2.2.1.2.1(слайды).json" beforeDir="false" afterPath="$PROJECT_DIR$/static/NUROTAN/json/ИСИ/2.2.1.2.1(слайды).json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/NUROTAN/json/ИСИ/2.2.1.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/NUROTAN/json/ИСИ/2.2.1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/NUROTAN/json/ИСИ/2.2.2.1.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/NUROTAN/json/ИСИ/2.2.2.1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/NUROTAN/json/ИСИ/2.2.3.1.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/NUROTAN/json/ИСИ/2.2.3.1.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/NUROTAN/json/ИСИ/2.2.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/NUROTAN/json/ИСИ/2.2.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/OLD/theme.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/OLD/theme.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/bread.txt" beforeDir="false" afterPath="$PROJECT_DIR$/static/bread.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/json/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/json/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/json/ИСИ(1.1.1.1)" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/json/ИСИ(1.1.3.1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/json/ИСИ(1.1.3.1).JSON" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/json/академия полит менеджмента(2).json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/json/общественная приемная(1).json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/style1.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/static/theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/theme.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/theme2.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,50 +28,28 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mongoDBrealize .py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="163" column="28" selection-start-line="163" selection-start-column="28" selection-end-line="163" selection-end-column="28" />
+            <state relative-caret-position="108">
+              <caret line="88" column="44" lean-forward="true" selection-start-line="88" selection-start-column="44" selection-end-line="88" selection-end-column="44" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/json/data.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="39" column="19" lean-forward="true" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/json/data.json">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="82" lean-forward="true" selection-start-line="82" selection-end-line="82" />
+            <state relative-caret-position="248">
+              <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="116" selection-start-line="5" selection-start-column="116" selection-end-line="5" selection-end-column="116" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/main.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="49" column="38" selection-start-line="49" selection-start-column="38" selection-end-line="49" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -89,8 +57,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/theme.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2835">
-              <caret line="189" column="8" selection-start-line="189" selection-start-column="4" selection-end-line="189" selection-end-column="8" />
+            <state relative-caret-position="343">
+              <caret line="219" column="20" selection-start-line="219" selection-start-column="20" selection-end-line="219" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/main.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="128">
+              <caret line="21" column="40" lean-forward="true" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -98,8 +75,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/NUROTAN/json/ИСИ/2.2.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+            <state relative-caret-position="195">
+              <caret line="22" column="15" lean-forward="true" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -107,8 +84,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/NUROTAN/json/ИСИ/2.2.1.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="24" lean-forward="true" selection-end-line="55" />
+            <state relative-caret-position="278">
+              <caret line="49" column="12" selection-start-line="49" selection-start-column="12" selection-end-line="49" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -116,8 +93,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/NUROTAN/json/ИСИ/2.2.2.1.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="44" column="10" selection-end-line="49" />
+            <state relative-caret-position="120">
+              <caret line="14" column="21" lean-forward="true" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -125,8 +102,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/NUROTAN/json/ИСИ/2.2.1.1.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="21" selection-start-line="21" selection-end-line="31" selection-end-column="1" />
+            <state relative-caret-position="180">
+              <caret line="12" column="17" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/NUROTAN/json/ИСИ/2.2.1.2.1(слайды).json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="810">
+              <caret line="60" column="25" selection-start-line="60" selection-start-column="25" selection-end-line="60" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -143,36 +129,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>read()</find>
-      <find>connect</find>
-      <find>index</find>
-      <find>socketio</find>
-      <find>MyClick</find>
-      <find>buttonClick</find>
-      <find>users</find>
-      <find>message</find>
-      <find>users conn</find>
-      <find>container</find>
-      <find>my_msg</find>
-      <find>start-block</find>
-      <find>socket</find>
-      <find>form</find>
       <find>window</find>
-      <find>block</find>
       <find>className</find>
-      <find>blockNum</find>
       <find>data.test</find>
-      <find>data</find>
-      <find>server</find>
       <find>background_thread</find>
       <find>btn</find>
-      <find>btnClick</find>
       <find>loadTheme</find>
       <find>card</find>
       <find>this.</find>
       <find>clic</find>
       <find>theme</find>
+      <find>slide</find>
+      <find>btnClick</find>
+      <find>blockNum</find>
       <find>test</find>
+      <find>span</find>
+      <find>data</find>
+      <find>home</find>
+      <find>my_response</find>
+      <find>block</find>
+      <find>form</find>
+      <find>m</find>
+      <find>my_msg</find>
+      <find>connect</find>
+      <find>lenofp</find>
+      <find>my_short_algoritm</find>
+      <find>socketio</find>
+      <find>back</find>
+      <find>my_res</find>
+      <find>socket</find>
+      <find>server</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -181,7 +167,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/static/database/1.1.json" />
         <option value="$PROJECT_DIR$/static/database/1.3.json" />
         <option value="$PROJECT_DIR$/static/database/2.1.json" />
         <option value="$PROJECT_DIR$/static/database/2.3.json" />
@@ -220,25 +205,26 @@
         <option value="$PROJECT_DIR$/static/NUROTAN/json/ИСИ/ИСИ2.2.json" />
         <option value="$PROJECT_DIR$/static/NUROTAN/json/ИСИ/1.2.1.json" />
         <option value="$PROJECT_DIR$/static/NUROTAN/json/ИСИ/ИСИ(слайды 1).json" />
-        <option value="$PROJECT_DIR$/static/NUROTAN/json/ИСИ/2.2.2.1.json" />
         <option value="$PROJECT_DIR$/static/NEW/nurotan/static/OLD/theme.js" />
         <option value="$PROJECT_DIR$/templates/index.html" />
-        <option value="$PROJECT_DIR$/static/NUROTAN/json/ИСИ/2.2.1.2.1(слайды).json" />
+        <option value="$PROJECT_DIR$/static/NUROTAN/json/ИСИ/2.2.3.1.json" />
         <option value="$PROJECT_DIR$/static/NUROTAN/json/ИСИ/2.2.1.1.json" />
-        <option value="$PROJECT_DIR$/static/theme.js" />
+        <option value="$PROJECT_DIR$/static/NUROTAN/json/ИСИ/2.2.2.1.json" />
+        <option value="$PROJECT_DIR$/static/NUROTAN/json/ИСИ/2.2.1.2.1(слайды).json" />
         <option value="$PROJECT_DIR$/templates/main.html" />
-        <option value="$PROJECT_DIR$/mongoDBrealize .py" />
         <option value="$PROJECT_DIR$/static/NUROTAN/json/ИСИ/2.2.json" />
-        <option value="$PROJECT_DIR$/static/json/data.json" />
-        <option value="$PROJECT_DIR$/static/NUROTAN/json/ИСИ/2.2.1.json" />
         <option value="$PROJECT_DIR$/admin.py" />
+        <option value="$PROJECT_DIR$/static/NUROTAN/json/ИСИ/2.2.1.json" />
+        <option value="$PROJECT_DIR$/static/theme.js" />
+        <option value="$PROJECT_DIR$/mongoDBrealize .py" />
+        <option value="$PROJECT_DIR$/static/json/data.json" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="609" />
+    <option name="x" value="312" />
     <option name="y" value="27" />
-    <option name="width" value="707" />
+    <option name="width" value="697" />
     <option name="height" value="654" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -247,6 +233,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Course" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -263,7 +250,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Course" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -397,8 +383,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.admin" />
         <item itemvalue="Python.mongoDBrealize " />
+        <item itemvalue="Python.admin" />
         <item itemvalue="Python.MyProgect" />
         <item itemvalue="Python.testing (1)" />
         <item itemvalue="Python.main" />
@@ -573,32 +559,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/NUROTAN/json/ИСИ/2.2.3.1.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-97" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/NUROTAN/json/ИСИ/2.2.1.2.1(слайды).json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="15" column="25" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/NUROTAN/json/ИСИ/2.2.1.1.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="21" selection-start-line="21" selection-end-line="31" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/theme.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2835">
-          <caret line="189" column="8" selection-start-line="189" selection-start-column="4" selection-end-line="189" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -606,60 +566,84 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/main.html">
+    <entry file="file://$PROJECT_DIR$/static/NUROTAN/json/ИСИ/2.2.3.1.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="49" column="38" selection-start-line="49" selection-start-column="38" selection-end-line="49" selection-end-column="38" />
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/NUROTAN/json/ИСИ/2.2.1.2.1(слайды).json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="60" column="25" selection-start-line="60" selection-start-column="25" selection-end-line="60" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/NUROTAN/json/ИСИ/2.2.2.1.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="44" column="10" selection-end-line="49" />
+        <state relative-caret-position="120">
+          <caret line="14" column="21" lean-forward="true" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mongoDBrealize .py">
+    <entry file="file://$PROJECT_DIR$/static/NUROTAN/json/ИСИ/2.2.1.1.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="163" column="28" selection-start-line="163" selection-start-column="28" selection-end-line="163" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/NUROTAN/json/ИСИ/2.2.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="1" lean-forward="true" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/json/data.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="39" column="19" lean-forward="true" selection-start-line="39" selection-start-column="19" selection-end-line="39" selection-end-column="19" />
+        <state relative-caret-position="180">
+          <caret line="12" column="17" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/NUROTAN/json/ИСИ/2.2.1.json">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="49" column="12" selection-start-line="49" selection-start-column="12" selection-end-line="49" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/NUROTAN/json/ИСИ/2.2.json">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
-          <caret line="13" column="24" lean-forward="true" selection-end-line="55" />
+          <caret line="22" column="15" lean-forward="true" selection-start-line="22" selection-start-column="15" selection-end-line="22" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="21" column="40" lean-forward="true" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/theme.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="219" column="20" selection-start-line="219" selection-start-column="20" selection-end-line="219" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="82" lean-forward="true" selection-start-line="82" selection-end-line="82" />
+        <state relative-caret-position="248">
+          <caret line="80" lean-forward="true" selection-start-line="80" selection-end-line="80" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mongoDBrealize .py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="88" column="44" lean-forward="true" selection-start-line="88" selection-start-column="44" selection-end-line="88" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/json/data.json">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>

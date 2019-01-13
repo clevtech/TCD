@@ -81,6 +81,7 @@ window.onload = function() {
     var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);
     console.log(socket)
 	socket.on('my_response', function(msg) {
+	    console.log('connects test')
 	    console.log("+");
 	    console.log(msg)
 	    loadTheme(msg);
@@ -182,7 +183,8 @@ function themeFirst(data) {
 	btnClick();
 }
 var blockNum = ''
-function btnClick (data) {
+var blockDisp = ''
+function btnClick(data) {
 	let li = document.querySelectorAll('.container ul li');
 	let home = document.getElementById('home');
 	let info = document.getElementById('info-btn');
@@ -205,15 +207,16 @@ function btnClick (data) {
 				li[i].classList.remove('active-block');
             console.log(data.test[i].ID)
             blockNum = data.test[i].ID;
+            blockDisp = data.test[i];
 			console.log('http://0.0.0.0:8888/button/'+blockNum);
-                console.log(blockNum)
-                            namespace = '/server'
+                console.log(blockDisp)
+            namespace = '/server'
             var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);
             console.log(socket)
             socket.on('connect', function() {
             console.log("connected")
             console.log(blockNum)
-                socket.send(data.test[i].ID);
+                socket.send(blockNum, blockDisp);
 			})},500)
 			console.log(i)
 

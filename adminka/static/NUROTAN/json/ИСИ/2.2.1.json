@@ -20,7 +20,7 @@
 "buttonRight": "",
 "buttonReturn": "",
 "block": "1",
-"form": "2"
+"form": "1.1"
 },
   {
     "name": "2.2",
@@ -34,7 +34,7 @@
 "buttonRight": "",
 "buttonReturn": "",
 "block": "1",
-"form": "2"
+"form": "1.2"
 },
     {
   "ID": "2.2.3",
@@ -47,7 +47,7 @@
 "buttonRight": "",
 "buttonReturn": "",
 "block": "1",
-"form": "2"
+"form": "1.3"
 }
 
 ]

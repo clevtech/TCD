@@ -48,120 +48,63 @@ def mark_selected():
     return render_template('index.html', async_mode=socketio.async_mode)
 
 
-# @app.route('/<new_breads>/', methods = ['GET', 'POST'])
-# def my_bread(new_breads):
-#     f = open('static/bread.txt', 'r')
-#     bread = f.read()
-#     f.close()
-#     print("hi")
-#     textlookfor = r"(?!/)[\d+.\d+]+"
-#     allresults = re.findall(textlookfor, bread)
-#     # bread = len(allresults)
-#     # print(allresults)
-#     my_bread  = new_breads
-#     print(my_bread)
-#     # button(value = my_bread )
-#     allresults.index(my_bread)
-#     index_bread = (allresults.index(my_bread))
-#     button(value = allresults[index_bread])
-#     return render_template('index.html', async_mode=socketio.async_mode, name = new_breads)
-#
+@app.route('/1', methods = ['GET', 'POST'])
+def one():
+    button(value = 2)
+    msg = {
+          "ID": "2",
+          "_id": 5141241249,
+          "block": "1",
+          "form": "",
+          "logo": "static/image/logo.png",
+          "logoHome": "static/image/home.png",
+          "logoLeft": "static/image/left.png",
+          "logoRight": "static/image/right.png",
+          "name": "2.2",
+          "num": "3.2",
+          "test": [
+            {
+              "ID": "2.2",
+              "_id": 0.447690146841,
+              "block": "1",
+              "buttonLeft": "",
+              "buttonReturn": "",
+              "buttonRight": "",
+              "form": "1.2",
+              "img": "static/image/bg.jpg",
+              "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, at!",
+              "title": "Институт стратегических инициатив",
+              "video": "static/video/"
+            }
+          ]
+        }
+    background_thread(msg)
+    return render_template('index.html', async_mode=socketio.async_mode)
 
 
-@socketio.on('message', namespace='/server')
-def my_msg(message):
-    print('message', {'data': message})
-    with open('static/json/data.json', 'r', encoding='utf-8') as data: # открывает json файл "W"- это команда на запись (write, read)
-        my_json = json.load(data)
-        print(my_json["test"])
-
-
-
-
-def my_short_algoritm(value, results):
-    parent= str(value) + "."
-    lenofp = len(parent)
-    parentnum = parent.split(".")
-    lenofnumparent = len(parentnum)
-    # print(lenofnumparent)
-    slides = []
-    for el in results:
-        line = str(el)
-        number = line.split(".")
-
-        print(number)
-        # print(len(number))
-        slides.append(line)
-
-    print("Our daughters are:")
-    print(slides)
-    dau = []
-    for el in slides:
-        if len(el.split("."))==lenofnumparent:
-            if el[0:lenofp] == parent:
-                dau.append(el)
-    lenght = len(dau)
-    dau.sort()
-    print(dau)
-    list_numbers = list(dau)
-    print(list_numbers)
-    return list_numbers
 
 
 
 @app.route('/button/<value>/', methods = ['GET', 'POST'])
 @socketio.on('message', namespace='/server')
-def button(value):
+def button(value, msg = "2"):
     global title
     global text
     global car
     global z
     print("Value from button: " + str(value))
     print("Now we changed theme")
-    gl = users.find({"ID":{"$gt": str(value), "$lt": str(value) + ".99"}})
+    gl = users.find({"ID":str(value)})
     items = list(gl)
     print("Items are: ")
     print(items)
-    print( ", ".join( repr(e) for e in items ) )
-#     results = [ item['ID'] for item in items ]
-#     # print("Values from MongoDB: ")
-#     # print(results)
-#
-# ## Algorithm for taking daughters
-#     list_numbers = my_short_algoritm(value, results)
-#     ## Till here
-#     find_user = users.find({"ID":{"$in" : list_numbers}})
-#     sort_id = list(find_user)
 
-    # print(sort_id)
-    write2 = []
-    with open('static/json/data.json', 'r', encoding='utf-8') as dat: # открывает json файл "W"- это команда на запись (write, read)
-        global my_json
-        my_json = json.load(dat)
-        # write2.extend(my_json["test"])
-        write2.extend(items)
-        # print(my_json["test"])
-        # print(my_json["block"])
-        # print(my_json["test"])
-        print(write2)
-        print( ", ".join( repr(e) for e in write2 ) )
-        my_val = str(value)
-
-
-
-
-        # del (my_json["test"])[:]
-        # # print(my_json)
-        # my_json["test"].extend(sort_id)
-        # my_json["num"] = str(value)
-        #
         # ## TODO: Check is there video, if so - send 3, if only img send 2, if text+img send 1
-        # print(sort_id)
 
-        # bread_read(my_json)
-    with open("static/json/data.json", "w") as der :
-        jsn = json.dump(write2, der, indent=2, ensure_ascii=False )
-    background_thread(my_json)
+    with open("static/json/data.json", "w") as der:
+        jsn = json.dump(items[0], der, indent=2, ensure_ascii=False)
+        print(items)
+        background_thread(items[0])
     return render_template('index.html', async_mode=socketio.async_mode)
 
 
@@ -185,6 +128,7 @@ def background_thread(message):
     print(message)
     # Спит 0.1 секунду
     socketio.sleep(1)
+
     if message != {}:
         if old_msg != message:
             print("Message is: ")
@@ -202,6 +146,17 @@ def test_connect():
     with thread_lock:
         if thread is None:
             thread = socketio.start_background_task(target=background_thread)
+
+@socketio.on('connects', namespace='/server')
+def my_msg(message, message2):
+    print('message is: ' "+" ,message ,"+" 'json',(str(message2)))
+    disp(message2)
+
+
+@socketio.on('my_disp', namespace='/disp')
+def disp(message2):
+    socketio.emit('my_disp',message2 , namespace='/disp')
+
 
 
 @app.route('/ek')
