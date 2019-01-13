@@ -150,6 +150,7 @@ def test_connect():
 @socketio.on('message', namespace='/server')
 def my_msg(message, message2):
     print('message is: ' "+" ,message ,"+" 'json:',message2)
+    button(message)
     disp(message2)
 
 
