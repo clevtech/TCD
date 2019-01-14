@@ -32,8 +32,8 @@ async_mode = None
 app = Flask(__name__)
 
 client = MongoClient('mongodb://localhost:27017/')
-db = client["nurotan"]
-users = db.users
+db = client["NOtest"]
+users = db.old
 
 nums = random.random()
 
@@ -121,7 +121,7 @@ def tablet(ekran, lang):
 @app.route('/click/<ekran>/<lang>/<id>')
 def clicked(ekran, lang, id):
 	print(id)
-	return "200"
+	return "1"
 
 
 @app.route('/disp/<ekran>/<lang>') # Вывод на экраны
