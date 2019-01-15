@@ -108,8 +108,8 @@ body{
     flex-basis: 300px;
     flex-grow: 1;
     display: flex;
-    flex-direction: column;    
-	
+    flex-direction: column;
+
 }
 .wrapper .container ul .active-block {
 	transform: scale(1.1);
@@ -127,12 +127,12 @@ body{
 }
 .wrapper .container ul li .info h2 {
 	margin: 10px 0;
-	
+
 }
 .wrapper .container ul li .info p {
 	margin: 10px 0;
-	
-} 
+
+}
 .wrapper .container ul li img {
 	width: 100%;
 	object-fit: cover;
@@ -161,7 +161,7 @@ body{
 }
  .wrapper-content img {
 	width: 100%;
-	
+
 }
 
 .wrapper-button {
@@ -219,7 +219,14 @@ body{
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
-} 
+}
+.layout-left.logo {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	object-fit: contain;
+	width: 150px;
+}
 .layout-right {
 	width: 50%;
 	background-color: #027285;

@@ -133,19 +133,27 @@ class Click:
 			post = dict()
 			post["type"] = ""
 			post["title"] = el["title"]
+			try:
+				l = el["img"]
+			except:
+				el["img"] = ""
+			if el["img"] == "":
+				post["img"] = self.ip + "/static" + self.me["logo_path"]
 			if el["map"] != "":
 				post["img"] = self.ip + "/static" + el["map"] + ".png"
 				post["type"] = "4"
-			else:
+			if el["img_path"] != "":
 				post["img"] = self.ip + "/static" + el["img_path"]
-				if post["img"] != "" and el["text"] == "" and post["type"] == "":
-					post["type"] = "2"
+			if post["img"] != "" and el["text"] == "":
+				post["type"] = "1"
+			if el["video"] != ":":
+				post["video"] = self.ip + "/static" + el["video"]
 			post["text"] = el["text"]
-			post["video"] = self.ip + "/static" + el["video"]
 			if el["video"] != "" and post["type"] == "":
 				post["type"] = "3"
-			elif post["type"] == "":
-				post["type"] = "1"
+			if post["type"] == "":
+				post["type"] = "2"
+			print(post["type"])
 			self.content.append(copy.deepcopy(post))
 			post.clear()
 
@@ -173,7 +181,7 @@ class Click:
 				child = dict()
 				child["ID"] = kid["ID"]
 				child["title"] = kid["logo_title"]
-				child["img"] = self.ip + kid["logo_path"]
+				child["img"] = self.ip + "/static" + kid["logo_path"]
 				try:
 					child["text"] = kid["content"][0]["text"]
 				except:
@@ -239,10 +247,10 @@ ip = Markup("http://" + get_ip())
 @app.route('/tablet/<ekran>/<lang>/') # Вывод на планшеты
 def tablet(ekran, lang):
 	info = Click(ekran, lang)
-	return render_template('index.html', ip=ip)
+	return render_template('index.html', ip=ip, ekran=Markup(ekran), lang=lang)
 
 
-@app.route('/click/<ekran>/<lang>/<id>')
+@app.route('/click/<ekran>/<lang>/<id>/')
 def clicked(ekran, lang, id):
 	print("Click from: " + ekran + " to ID: " + id)
 	info = Click(id, lang)
@@ -250,9 +258,10 @@ def clicked(ekran, lang, id):
 	return jsonify(info.expor)
 
 
-@app.route('/disp/<ekran>/<lang>') # Вывод на экраны
+@app.route('/disp/<ekran>/<lang>/') # Вывод на экраны
 def ekrany(ekran, lang):
-	return render_template('main.html', ip=ip)
+	info = Click(ekran, lang)
+	return render_template('main.html', ip=ip, lang=lang, ekran=ekran)
 
 
 if __name__ == '__main__':
