@@ -110,7 +110,7 @@ class Click:
 
 
 	def give_static_values(self):
-		self.logo = self.ip + self.me["logo_path"]
+		self.logo = self.ip + "/static" + self.me["logo_path"]
 		# self.theme = self.ekran TODO: then do it
 		self.title = self.me["logo_title"]
 		self.slide = self.me["slide_max"]
@@ -134,14 +134,14 @@ class Click:
 			post["type"] = ""
 			post["title"] = el["title"]
 			if el["map"] != "":
-				post["img"] = self.ip + el["map"] + ".png"
+				post["img"] = self.ip + "/static" + el["map"] + ".png"
 				post["type"] = "4"
 			else:
-				post["img"] = self.ip + el["img_path"]
+				post["img"] = self.ip + "/static" + el["img_path"]
 				if post["img"] != "" and el["text"] == "" and post["type"] == "":
 					post["type"] = "2"
 			post["text"] = el["text"]
-			post["video"] = self.ip + el["video"]
+			post["video"] = self.ip + "/static" + el["video"]
 			if el["video"] != "" and post["type"] == "":
 				post["type"] = "3"
 			elif post["type"] == "":
