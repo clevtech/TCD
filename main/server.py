@@ -33,15 +33,19 @@ app.config['JSON_AS_ASCII'] = False
 # Classes
 class Click:
 	def __init__(self, ID, lang="ru", path='mongodb://localhost:27017/',db_name="NOtest", collection_name="old", path_to_json="static/json/data.json"):
-
 		self.client = MongoClient(path)
 		self.db = self.client[db_name]
-		self.data_from_DB = self.db[collection_name]
+
+		self.lang = lang
+		if lang == "kz":
+			self.data_from_DB = self.db[collection_name + "KZ"]
+		else:
+			self.data_from_DB = self.db[collection_name]
 
 		self.json_path = path_to_json
 		self.id = ""
 		self.ID = ID
-		self.me = ""
+		self.me = dict()
 		self.ip = ""
 		self.title = ""
 		self.daughters = []
@@ -72,10 +76,13 @@ class Click:
 		self.theme = 1 # TODO: when zhamal finishes
 		self.logo = ""
 		self.type = ""
-		self.lang = lang
 		self.ekran = ID[0]
 		self.slide = ""
 		self.raw = []
+		# TODO: write names of displays and logo paths
+		self.names = ["1","1","1","1","1","1"]
+		self.biglogos = ["1","1","1","1","1","1"]
+		self.expor = dict()
 
 		self.get_ip()
 		self.read_db()
@@ -90,24 +97,34 @@ class Click:
 
 	def read_db(self):
 		self.raw = list(self.data_from_DB.find({"name": self.ekran}))
-		self.me = list(self.data_from_DB.find({"ID": self.ID}))[0]
-		self.id = str(self.me["_id"])
+		try:
+			self.me = list(self.data_from_DB.find({"ID": self.ID}))[0]
+			self.id = str(self.me["_id"])
+		except:
+			self.me["logo_title"] = self.names[int(self.ID[0]) - 1]
+			self.me["logo_path"] = self.biglogos[int(self.ID[0]) - 1]
+			self.me["slide_max"] = "0"
+			self.id = str("213123123")
+			self.me["content"] = []
 
 
 	def give_static_values(self):
 		self.logo = self.ip + self.me["logo_path"]
-		self.theme = self.ekran
+		# self.theme = self.ekran TODO: then do it
 		self.title = self.me["logo_title"]
 		self.slide = self.me["slide_max"]
 
 
 	def obtain_type(self): # 0 - 1 slide, 1 - map, 2 - 1+ slides
-		if self.me["content"][0]["map"] != "":
-			self.type = "1"
-		elif len(self.me["content"]) > 1:
-			self.type = "2"
-		else:
-			self.type = "0"
+		try:
+			if self.me["content"][0]["map"] != "":
+				self.type = "1"
+			elif len(self.me["content"]) > 1:
+				self.type = "2"
+			else:
+				self.type = "0"
+		except:
+			self.type = '0'
 
 
 	def generate_content(self):
@@ -121,7 +138,7 @@ class Click:
 			else:
 				post["img"] = self.ip + el["img_path"]
 				if post["img"] != "" and el["text"] == "" and post["type"] == "":
-					post[type] = "2"
+					post["type"] = "2"
 			post["text"] = el["text"]
 			post["video"] = self.ip + el["video"]
 			if el["video"] != "" and post["type"] == "":
@@ -149,9 +166,9 @@ class Click:
 	def populate_kids(self):
 		kids_surname = len(self.ID) + 2
 		kids_IDs = []
-
+		print(self.raw)
 		for kid in self.raw:
-			if len(kid["ID"]) == kids_surname: # and kid["lang"] == self.lang:
+			if len(kid["ID"]) == kids_surname and kid["ID"][:-2] == self.ID: # and kid["lang"] == self.lang:
 				child = dict()
 				child["ID"] = kid["ID"]
 				child["title"] = kid["logo_title"]
@@ -161,6 +178,7 @@ class Click:
 				except:
 					child["text"] = child["title"]
 				self.daughters.append(child)
+				child.clear()
 
 
 	def get_ip(self):
@@ -177,25 +195,28 @@ class Click:
 
 
 	def export(self):
-		self.expo = {
-					"id": self.id,
-					"ID": self.ID,
-					"theme": self.theme,
-					"ekran": self.ekran,
-					"lang": self.lang,
-					"logo": self.logo,
-					"type": self.type,
-					"map": [],
-					"slide": self.ID + "(" + str(self.slide) + ")",
-					"dochki": self.daughters,
-					"roditeli": self.parents,
-					"content": self.content
-					}
+		slide = self.ID + "(" + str(self.slide) + ')'
+		self.expor = dict()
+		self.expor["id"] = self.id
+		self.expor["ID"] = self.ID
+		self.expor["theme"] = self.theme
+		self.expor["ID"] = self.ID
+		self.expor["theme"] = self.theme
+		self.expor["ekran"] = self.ekran
+		self.expor["lang"] = self.lang
+		self.expor["logo"] = self.logo
+		self.expor["type"] = self.type
+		self.expor["map"] = []
+		self.expor["slide"] = slide
+		self.expor["dochki"] = self.daughters
+		self.expor["roditeli"] = self.parents
+		self.expor["content"] = self.content
+		print(self.expor)
 
 
 	def write_to_json(self):
 		with open(self.json_path, 'w') as outfile:
-			json.dump(self.expo, outfile)
+			json.dump(self.expor, outfile)
 
 
 ## Functions
@@ -217,13 +238,16 @@ ip = Markup("http://" + get_ip())
 ## Routes
 @app.route('/tablet/<ekran>/<lang>/') # Вывод на планшеты
 def tablet(ekran, lang):
+	info = Click(ekran, lang)
 	return render_template('index.html', ip=ip)
 
 
 @app.route('/click/<ekran>/<lang>/<id>')
 def clicked(ekran, lang, id):
+	print("Click from: " + ekran + " to ID: " + id)
 	info = Click(id, lang)
-	return jsonify(info.expo)
+	pprint(info.expor)
+	return jsonify(info.expor)
 
 
 @app.route('/disp/<ekran>/<lang>') # Вывод на экраны
