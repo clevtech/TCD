@@ -168,7 +168,6 @@ class Click:
 	def populate_kids(self):
 		kids_surname = len(self.ID) + 2
 		kids_IDs = []
-		print(self.raw)
 		for kid in self.raw:
 			if len(kid["ID"]) == kids_surname and kid["ID"][:-2] == self.ID: # and kid["lang"] == self.lang:
 				child = dict()
@@ -213,7 +212,6 @@ class Click:
 		self.expor["dochki"] = self.daughters
 		self.expor["roditeli"] = self.parents
 		self.expor["content"] = self.content
-		print(self.expor)
 
 
 	def write_to_json(self):
