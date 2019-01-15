@@ -24,6 +24,7 @@ import socket
 from pymongo import*
 from pymongo import MongoClient
 from flask import Markup
+import copy
 
 
 app = Flask(__name__)
@@ -145,7 +146,8 @@ class Click:
 				post["type"] = "3"
 			elif post["type"] == "":
 				post["type"] = "1"
-			self.content.append(post)
+			self.content.append(copy.deepcopy(post))
+			post.clear()
 
 
 	def populate_parents(self):
@@ -177,7 +179,7 @@ class Click:
 					child["text"] = kid["content"][0]["text"]
 				except:
 					child["text"] = child["title"]
-				self.daughters.append(child)
+				self.daughters.append(copy.deepcopy(child))
 				child.clear()
 
 
