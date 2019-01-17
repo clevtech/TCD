@@ -34,3 +34,10 @@ xhr.open('GET', "http://" + window.location.hostname + ':8888/static/json/data.j
 ```
 + new Date().getTime()
 ```
+
+## Загрузка MonoDB
+
+Загружаешь его с помощью утилиты mongorestore в папке main:
+```
+mongorestore ./mongodump/NOtest
+```
