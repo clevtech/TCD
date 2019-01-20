@@ -209,8 +209,6 @@ class Click:
 		self.expor["id"] = self.id
 		self.expor["ID"] = self.ID
 		self.expor["theme"] = self.theme
-		self.expor["ID"] = self.ID
-		self.expor["theme"] = self.theme
 		self.expor["ekran"] = self.ekran
 		self.expor["lang"] = self.lang
 		self.expor["logo"] = self.logo
