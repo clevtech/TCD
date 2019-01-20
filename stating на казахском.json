@@ -1,0 +1,92 @@
+[
+  {
+	"name" : "1",
+	"ID" : "1",
+	"logo_title" : "«Нұр Отан» Партиясы",
+	"logo_path" : "/img/logo.png",
+	"slide_max" : 1,
+	"slide_now" : 1,
+	"content" : [
+		{
+			"block" : "2",
+			"title" : "«Нұр Отан» Партиясы",
+			"img_path" : "",
+			"video" : "",
+			"map" : "",
+			"text" : "«Нұр Отан» Партиясы"
+		}
+	]
+},
+{
+"name" : "2",
+"ID" : "2",
+"logo_title" : "Саяся Менеджмент Академиясы және Стратегиялық Бастамалар Институты",
+"logo_path" : "/img/logo.png",
+"slide_max" : 1,
+"slide_now" : 1,
+"content" : [
+  {
+    "block" : "2",
+    "title" : "Саяся Менеджмент Академиясы және Стратегиялық Бастамалар Институты",
+    "img_path" : "",
+    "video" : "",
+    "map" : "",
+    "text" : "Саяся Менеджмент Академиясы және Стратегиялық Бастамалар Институты"
+  }
+]
+},
+{
+"name" : "3",
+"ID" : "3",
+"logo_title" : "«Жас Отан» Жастар Қанаты",
+"logo_path" : "/img/logo.png",
+"slide_max" : 1,
+"slide_now" : 1,
+"content" : [
+  {
+    "block" : "2",
+    "title" : "«Жас Отан» Жастар Қанаты",
+    "img_path" : "",
+    "video" : "",
+    "map" : "",
+    "text" : "«Жас Отан» Жастар Қанаты"
+  }
+]
+},
+{
+"name" : "4",
+"ID" : "4",
+"logo_title" : "Республикалық қоғамдық қабылдау бөлімі",
+"logo_path" : "/img/logo.png",
+"slide_max" : 1,
+"slide_now" : 1,
+"content" : [
+  {
+    "block" : "2",
+    "title" : "Республикалық қоғамдық қабылдау бөлімі",
+    "img_path" : "",
+    "video" : "",
+    "map" : "",
+    "text" : "Республикалық қоғамдық қабылдау бөлімі"
+  }
+]
+},
+{
+"name" : "5",
+"ID" : "5",
+"logo_title" : "Елбасы",
+"logo_path" : "/img/logo.png",
+"slide_max" : 1,
+"slide_now" : 1,
+"content" : [
+  {
+    "block" : "2",
+    "title" : "Елбасы",
+    "img_path" : "",
+    "video" : "",
+    "map" : "",
+    "text" : "Елбасы"
+  }
+]
+},
+]
