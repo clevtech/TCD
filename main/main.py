@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
- __author__ = "Bauyrzhan Ospan"
+__author__ = "Bauyrzhan Ospan"
 __copyright__ = "Copyright 2018, Cleverest Technologies"
 __version__ = "1.0.1"
 __maintainer__ = "Bauyrzhan Ospan"
 __email__ = "bospan@cleverest.tech"
 __status__ = "Development"
 
- import requests
+import requests
 import glob
 import os
 from flask import Flask, render_template, session, request, json, jsonify, url_for, Markup, redirect
@@ -27,7 +27,7 @@ from flask import Markup
 import copy
 
 
- app = Flask(__name__)
+app = Flask(__name__)
 app.config['JSON_AS_ASCII'] = False
 
 
@@ -37,13 +37,13 @@ class Click:
 		self.client = MongoClient(path)
 		self.db = self.client[db_name]
 
- 		self.lang = lang
+		self.lang = lang
 		if lang == "kz":
 			self.data_from_DB = self.db[collection_name + "KZ"]
 		else:
 			self.data_from_DB = self.db[collection_name]
 
- 		self.json_path = path_to_json
+		self.json_path = path_to_json
 		self.id = ""
 		self.ID = ID
 		self.me = dict()
@@ -85,7 +85,7 @@ class Click:
 		self.biglogos = ["1","1","1","1","1","1"]
 		self.expor = dict()
 
- 		self.get_ip()
+		self.get_ip()
 		self.read_db()
 		self.give_static_values()
 		self.obtain_type()
@@ -96,7 +96,7 @@ class Click:
 		self.write_to_json()
 
 
- 	def read_db(self):
+	def read_db(self):
 		self.raw = list(self.data_from_DB.find({"name": self.ekran}))
 		try:
 			self.me = list(self.data_from_DB.find({"ID": self.ID}))[0]
@@ -109,14 +109,14 @@ class Click:
 			self.me["content"] = []
 
 
- 	def give_static_values(self):
+	def give_static_values(self):
 		self.logo = self.ip + "/static" + self.me["logo_path"]
 		# self.theme = self.ekran TODO: then do it
 		self.title = self.me["logo_title"]
 		self.slide = self.me["slide_max"]
 
 
- 	def obtain_type(self): # 0 - 1 slide, 1 - map, 2 - 1+ slides
+	def obtain_type(self): # 0 - 1 slide, 1 - map, 2 - 1+ slides
 		try:
 			if self.me["content"][0]["map"] != "":
 				self.type = "1"
@@ -128,7 +128,7 @@ class Click:
 			self.type = '0'
 
 
- 	def generate_content(self):
+	def generate_content(self):
 		for el in self.me["content"]:
 			post = dict()
 			post["type"] = ""
@@ -158,7 +158,7 @@ class Click:
 			post.clear()
 
 
- 	def populate_parents(self):
+	def populate_parents(self):
 		try:
 			list_of_man = self.ID.split(".")[:-1]
 		except:
@@ -173,7 +173,7 @@ class Click:
 			self.parents.append(father_name)
 
 
- 	def populate_kids(self):
+	def populate_kids(self):
 		kids_surname = len(self.ID) + 2
 		kids_IDs = []
 		for kid in self.raw:
@@ -190,7 +190,7 @@ class Click:
 				child.clear()
 
 
- 	def get_ip(self):
+	def get_ip(self):
 		s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 		try:
 			# doesn't even have to be reachable
@@ -203,7 +203,7 @@ class Click:
 		self.ip = "http://" + IP + ":8888"
 
 
- 	def export(self):
+	def export(self):
 		slide = self.ID + "(" + str(self.slide) + ')'
 		self.expor = dict()
 		self.expor["id"] = self.id
@@ -222,7 +222,7 @@ class Click:
 		self.expor["content"] = self.content
 
 
- 	def write_to_json(self):
+	def write_to_json(self):
 		with open(self.json_path, 'w') as outfile:
 			json.dump(self.expor, outfile)
 
@@ -240,7 +240,7 @@ def get_ip():
 		s.close()
 	return IP
 
- ip = Markup("http://" + get_ip())
+ip = Markup("http://" + get_ip())
 
 
  ## Routes
@@ -250,7 +250,7 @@ def tablet(ekran, lang):
 	return render_template('index.html', ip=ip, ekran=Markup(ekran), lang=lang)
 
 
- @app.route('/click/<ekran>/<lang>/<id>/')
+@app.route('/click/<ekran>/<lang>/<id>/')
 def clicked(ekran, lang, id):
 	print("Click from: " + ekran + " to ID: " + id)
 	info = Click(id, lang)
@@ -258,11 +258,11 @@ def clicked(ekran, lang, id):
 	return jsonify(info.expor)
 
 
- @app.route('/disp/<ekran>/<lang>/') # Вывод на экраны
+@app.route('/disp/<ekran>/<lang>/') # Вывод на экраны
 def ekrany(ekran, lang):
 	info = Click(ekran, lang)
 	return render_template('main.html', ip=ip, lang=lang, ekran=ekran)
 
 
- if __name__ == '__main__':
+if __name__ == '__main__':
 	app.run(host='0.0.0.0', port=8888, debug=True)

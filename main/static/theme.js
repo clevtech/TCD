@@ -97,14 +97,14 @@ function themeFirst(data) {
 			let li = document.createElement('li');
 			li.innerHTML += `<img src="`+ data.dochki[i].img + `" alt='image'>
 			<div class='info'><h2>`+ data.dochki[i].title +`</h2>
-			<p>`+ data.dochki[i].text +`</p></div>`;
+			<p>`+ data.dochki[i].text.substring(0,40) +`...</p></div>`;
 			ul.insertBefore(li, ul.children[i])
 		}
 
 	container.appendChild(ul);
 	}
 	themeContent.appendChild(themeFirst);
-	btnClick(data.dochki);
+	btnClick(data);
 	mapClick();
 }
 
@@ -114,26 +114,24 @@ function btnClick (data) {
 	let li = document.querySelectorAll('.container ul li');
 	let span = document.querySelectorAll('.menu-buttons span');
 	let home = document.getElementById('logo-home');
-
+	console.log(data)
+	home.onclick = () => {
+		ajaxClickButton(data.roditeli[0].ID);
+	}
 
 	for(let i=0; i<span.length;i++) {
 		span[i].onclick = () => {
 			// console.log(i);
-			let hrf = data[i].ID;
+			let hrf = data.ID;
 			// hrf.slice(-(2*i);
 			ajaxClickButton(hrf);
 		}
 	}
 
-	home.onclick = () => {
-		hrf = ''
-		ajaxClickButton(hrf);
-	}
-
 	for(let i=0;i<li.length;i++) {
 		li[i].onclick = () => {
-			console.log(data[i].ID)
-			blockClickAjax(data[i].ID);
+			console.log(data.dochki[i].ID)
+			blockClickAjax(data.dochki[i].ID);
 			for(let j = 0; j < li.length; j++) {
 				li[j].classList.remove('active-block');
 			}
@@ -148,16 +146,23 @@ function btnClick (data) {
 // Theme1 click Block
 
 function blockClickAjax(hrf) {
-
+	console.log(hrf);
 	let xhr = new XMLHttpRequest();
       	xhr.open('GET',  "http://" + window.location.hostname +':8888/click/1/ru/'+hrf, true);
+      	console.log(window.location.hostname);
       	xhr.send();
       	xhr.onreadystatechange = function() {
 	        if (xhr.readyState != 4) return;
 	        if (xhr.status != 200) {
 	          	alert(xhr.status + ': ' + xhr.statusText);
 	        } else {
-	          console.log("+");
+	          	let theme = document.querySelector('#theme-content');
+
+				theme.removeChild(theme.firstChild);
+				let data = JSON.parse(xhr.responseText);
+				console.log(data);
+	          	console.log("+");
+	          	themeFirst(data);
 	        }
 		}
 }
