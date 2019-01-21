@@ -1,0 +1,20 @@
+<html>
+  <head>
+  </head>
+<body>
+<h1>{{ID}}</h1>
+<h2><a href=/admin/{{ekran}}/{{lang}}>HOME</a></h2>
+<form id="form1">
+  Logo title:<br>
+  <input type="text" name="logo_title" value="{{logo_title}}"><br>
+  Logo:<br><img width="100" src="/static{{logo_path}}"></img><br>
+  <input type="text" name="logo_path" value={{logo_path}}><br>
+  <a href="/upload_logo/{{ID}}/{{lang}}"> Change it </a>
+  <hr>
+  {{content}}
+</form>
+
+<button type="submit" form="form1" formmethod="post">Save</button>
+
+</body>
+</html>

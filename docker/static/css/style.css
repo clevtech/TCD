@@ -1,0 +1,261 @@
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+body{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+/* HEADER */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    background-image: linear-gradient(-90deg, #007e93, #074550);
+    width: 100%;
+    min-height: 15vh;
+    color: #fff;
+    padding: 20px 30px;
+}
+
+.header .head-left-item {
+	display: flex;
+	justify-content: space-around;
+	width: 30%;
+	align-items: center;
+}
+.header .head-left-item img {
+	height: 100px;
+
+}
+.header .head-left-item h3 {
+	font-size: 20px;
+	padding: 5px;
+	margin: 0;
+}
+.header .head-left-item p {
+	font-size: 14px;
+	padding: 5px;
+	margin: 0;
+}
+.header .head-right-item {
+	display: flex;
+	justify-content: space-around;
+	width: 45%;
+	align-items: center;
+}
+.header .arrows {
+	display: flex;
+	justify-content: space-around;
+	width: 30%;
+}
+.header .arrows img {
+	padding: 15px;
+	background-color: #005b6a;
+	height: 50px;
+	width: 50px;
+}
+.header .menu-buttons {
+	display: flex;
+	justify-content: center;
+	width: 70%;
+}
+.header .menu-buttons span{
+	border: none;
+	background-color: #005b6a;
+	color: #fff;
+	padding: 20px 15px;
+}
+.header .menu-buttons .active1 {
+	color: #005b6a;
+	background-color: #fce300;
+}
+
+/* BODY */
+
+.wrapper {
+	display: flex;
+	justify-content: center;
+	background-color: #00768a;
+	color: #fff;
+	padding-bottom: 50px;
+	min-height: 85vh;
+}
+
+.wrapper .container {
+	width: 90%;
+	margin-top: 20px;
+}
+.wrapper .container ul {
+
+	flex-wrap: wrap;
+	margin: 0;
+	padding: 0;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+#start-block {
+	display: flex;
+}
+
+#inside-block {
+	display: none;
+}
+
+.wrapper .container ul li {
+	list-style: none;
+    width: 25%;
+    flex-basis: 300px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+
+}
+.wrapper .container ul .active-block {
+	transform: scale(1.1);
+	background-color: #FCE300;
+	color: #00879D;
+	border: 1px solid #FCE300;
+
+}
+
+.wrapper .container ul li .info {
+	padding: 0 20px;
+	display: flex;
+    flex-direction: column;
+    min-height: 110px;
+}
+.wrapper .container ul li .info h2 {
+	margin: 10px 0;
+
+}
+.wrapper .container ul li .info p {
+	margin: 10px 0;
+
+}
+.wrapper .container ul li img {
+	width: 100%;
+	object-fit: cover;
+	height: 250px;
+}
+
+.block-active {
+	border: 1px solid #fce300;
+	color: #005b6a;
+	background-color: #fce300;
+	-webkit-transform: scale(1.1,1.1);
+    -webkit-transition-timing-function: ease-out;
+    -webkit-transition-duration: 550ms;
+    -moz-transform: scale(1.1,1.1);
+    -moz-transition-timing-function: ease-out;
+    -moz-transition-duration: 550ms;
+}
+
+.wrapper-content {
+	width: 100%;
+	height: 100vh;
+	background-color: #02788c;
+	display: flex;
+	justify-content: space-between;
+
+}
+ .wrapper-content img {
+	width: 100%;
+
+}
+
+.wrapper-button {
+	background-color: #017c90;
+	width: 100%;
+	height: 85vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.wrapper-center {
+	background-color: #009ab3;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.wrapper-center .button {
+	width: 180px;
+	padding: 70px;
+	position: relative;
+}
+.wrapper-center .button img {
+	height: 70px;
+}
+.wrapper-center .button span {
+	position: absolute;
+	bottom: 15px;
+	left: 60px;
+	color: #065E6D;
+	text-transform: uppercase;
+	font-size: 12px;
+}
+
+.wrapper-center .button-active {
+	background-color: #fce300;
+}
+
+.wrapper .color1 {
+	background-color: #009ab3;
+}
+
+.wrapper .color2 {
+	background-color: #00879d;
+}
+
+/* MEDIA */
+
+.layout-left {
+	width: 50%;
+	overflow: hidden;
+}
+.layout-left img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.layout-left.logo {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	object-fit: contain;
+	width: 150px;
+}
+.layout-right {
+	width: 50%;
+	background-color: #027285;
+	display: flex;
+	flex-direction: column;
+	padding: 50px;
+	align-items: flex-start;
+}
+.layout-right h1 {
+	color: #fff;
+}
+.layout-right span {
+	width: 300px;
+	background-color: #fce300;
+	height: 5px;
+
+}
+.layout-right p {
+	color: #fff;
+}
+
+/* MAP */
+
+.theme-first .wrap-map {
+    width: 100%;
+    height: 85vh;
+    min-height: 600px;
+    background-color: #02798C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

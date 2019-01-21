@@ -328,7 +328,7 @@ def tree(ekran="1", lang="ru"):
 		except:
 			SLIDES = "no info"
 
-		elem["f"] = "<h4>" + str(el["ID"]) + "</h4><br><img width='42' src='/static" + LOGO + "'></img><br><a href='/slide/" + str(el["ID"]) + "'>" + TITLE + "</a><br>Slides: " + SLIDES
+		elem["f"] = "<h4>" + str(el["ID"]) + "</h4><br><img width='42' src='/static" + LOGO + "'></img><br><a href='/slide/" + str(el["ID"]) + "/" + lang + "'>" + TITLE + "</a><br>Slides: " + SLIDES
 		elem["f"] = elem["f"] + "<br><a href='/delete/" + str(el["ID"]) + "/" + lang + "'>DELETE</a>"
 		elem["f"] = elem["f"] + "<br><a href='/add/" + str(el["ID"]) + "/" + lang + "'>ADD</a>"
 		p.append(copy.deepcopy(elem))
