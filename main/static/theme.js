@@ -1,12 +1,12 @@
 window.onload = () => {
-    console.log("http://" + window.location.hostname + ':8888/static/json/data.json');
+
     loadData();
 }
 
 function loadData() {
-  console.log("http://" + window.location.hostname + ':8888/static/json/data.json');
+
 	var xhr = new XMLHttpRequest();
-  console.log("http://" + window.location.hostname + ':8888/static/json/data.json');
+
 	xhr.open('GET', "http://" + window.location.hostname + ':8888/static/json/data.json?' + new Date().getTime(), true);
 	xhr.send();
 	xhr.onreadystatechange = function() {
@@ -15,7 +15,7 @@ function loadData() {
 	      	console.log(xhr.status + ': ' + xhr.statusText);
 	    } else {
 	    	let data = JSON.parse(xhr.responseText)
-	    	console.log(data)
+	    	console.log(data);
 	    	if(data.theme == 1) {
 		        themeFirst(data);
 		    }else if(data.theme == 2) {
@@ -66,6 +66,7 @@ function themeFirst(data) {
 
 	let div5 = document.createElement('div');
 	div5.className = 'menu-buttons';
+
 	for(let i = 0; i < data.roditeli.length; i++) {
 		let span = document.createElement('span');
 		span.innerHTML = data.roditeli[i].title;
@@ -114,23 +115,27 @@ function btnClick (data) {
 	let li = document.querySelectorAll('.container ul li');
 	let span = document.querySelectorAll('.menu-buttons span');
 	let home = document.getElementById('logo-home');
-	console.log(data)
 	home.onclick = () => {
-		ajaxClickButton(data.roditeli[0].ID);
+		console.log(data);
+		ajaxClickButton('1');
 	}
 
 	for(let i=0; i<span.length;i++) {
+		let length = span.length;
 		span[i].onclick = () => {
-			// console.log(i);
+			id = i+1;
+			console.log(i);
 			let hrf = data.ID;
-			// hrf.slice(-(2*i);
-			ajaxClickButton(hrf);
+			console.log(hrf);
+			let hrf1 = hrf.substr(0,2*id);
+			console.log(hrf1);
+			console.log(hrf);
+			ajaxClickButton('1');
 		}
 	}
 
 	for(let i=0;i<li.length;i++) {
 		li[i].onclick = () => {
-			console.log(data.dochki[i].ID)
 			blockClickAjax(data.dochki[i].ID);
 			for(let j = 0; j < li.length; j++) {
 				li[j].classList.remove('active-block');
@@ -143,25 +148,42 @@ function btnClick (data) {
 	}
 }
 
-// Theme1 click Block
+// click home block roditeli
 
-function blockClickAjax(hrf) {
-	console.log(hrf);
+function ajaxClickButton(hrf) {
 	let xhr = new XMLHttpRequest();
       	xhr.open('GET',  "http://" + window.location.hostname +':8888/click/1/ru/'+hrf, true);
-      	console.log(window.location.hostname);
       	xhr.send();
       	xhr.onreadystatechange = function() {
 	        if (xhr.readyState != 4) return;
 	        if (xhr.status != 200) {
-	          	alert(xhr.status + ': ' + xhr.statusText);
+	          	console.log(xhr.status + ': ' + xhr.statusText);
 	        } else {
 	          	let theme = document.querySelector('#theme-content');
 
 				theme.removeChild(theme.firstChild);
 				let data = JSON.parse(xhr.responseText);
-				console.log(data);
-	          	console.log("+");
+
+	          	themeFirst(data);
+	        }
+		}
+}
+// Theme1 click Block
+
+function blockClickAjax(hrf) {
+	let xhr = new XMLHttpRequest();
+      	xhr.open('GET',  "http://" + window.location.hostname +':8888/click/1/ru/'+hrf, true);
+      	xhr.send();
+      	xhr.onreadystatechange = function() {
+	        if (xhr.readyState != 4) return;
+	        if (xhr.status != 200) {
+	          	console.log(xhr.status + ': ' + xhr.statusText);
+	        } else {
+	          	let theme = document.querySelector('#theme-content');
+
+				theme.removeChild(theme.firstChild);
+				let data = JSON.parse(xhr.responseText);
+
 	          	themeFirst(data);
 	        }
 		}
@@ -236,7 +258,6 @@ function mapClick() {
 	for(let i = 0; i < map.length; i++) {
 
 		map[i].onclick = function() {
-			console.log(i);
 			for(let j = 0; j < map.length; j++) {
 				map[j].classList.remove('yellow');
 			}
@@ -279,7 +300,6 @@ function themeSecond(data) {
 
 	leftSidebar.innerHTML = `<img src="static/image/logo-white2.png" alt="logo">
 	<h2>Академия политического менеджмента</h2>`;
-	console.log(data)
 	themeSecond.insertBefore(header, themeSecond.children[1]);
 
 	if(data.type == 2) {
@@ -589,14 +609,7 @@ function mapClick3() {
 	}
 }
 
-function ajaxClickButton(hrf) {
 
-	let theme = document.querySelector('#theme-content');
-	console.log(theme.firstChild);
-	theme.removeChild(theme.firstChild);
-	let link = 'http://192.168.8.105:8888/click/1/ru/'+hrf;
-	loadData();
-}
 
 function Language(lang) {
 	let link = 'http://192.168.8.105:8888/click/' + lang;
