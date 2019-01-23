@@ -28,7 +28,7 @@ import copy
 from werkzeug.utils import secure_filename
 
 
-UPLOAD_FOLDER = './static/img/'
+UPLOAD_FOLDER = '/home/akbota/TCD/main/static/img/'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'mp4', 'mpeg4'])
 
 app = Flask(__name__)
