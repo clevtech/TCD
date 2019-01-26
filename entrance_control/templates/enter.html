@@ -64,38 +64,60 @@
         var image = data_uri;
         var form = document.getElementById('myForm');
         var formData = new FormData(form);
-        formData.append("face", image);
+        formData.append("file", image);
         var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("POST", "");
+        xmlhttp.open("POST", "/photo/");
 
         // check when state changes,
         xmlhttp.onreadystatechange = function() {
 
-        if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            alert(xmlhttp.responseText);
-            }
+        // if(xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        //     alert(xmlhttp.responseText);
+        //     }
         }
-
         xmlhttp.send(formData);
-        window.location.href = '/';
         } );
   }
 </script>
   <body>
-    <!-- First Parallax Image with Logo Text -->
-    <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
-      <a href="/give/">
-      <div class="w3-display-middle" style="white-space:nowrap;">
-        <center>
-        <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">{{text}}</span>
+
+  <!-- First Parallax Image with Logo Text -->
+  <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+    <div class="w3-display-middle" style="white-space:nowrap;">
+      <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">
+        Введите код доступа:
+      </span>
+      <center>
         <br>
-        <div id="my_camera"></div>
-            <input class="w3-black" type="button" onclick="snap()" value="Отправить">
-            <div id="results"></div>
-        </center>
-      </div>
-    </a>
+        <br>
+      <form method = "POST" action='check/'>
+      <input class="w3-black" type="text" name="kod"><br>
+      <br>
+      <input class="w3-black" type="button" onclick="snap();submit();" value="Отправить">
+      </form>
+      </center>
     </div>
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div id="my_camera"></div>
 
   </body>
   </html>
