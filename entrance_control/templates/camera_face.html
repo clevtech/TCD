@@ -64,9 +64,9 @@
         var image = data_uri;
         var form = document.getElementById('myForm');
         var formData = new FormData(form);
-        formData.append("file", image);
+        formData.append("face", image);
         var xmlhttp = new XMLHttpRequest();
-        xmlhttp.open("POST", "");
+        xmlhttp.open("GET", "");
 
         // check when state changes,
         xmlhttp.onreadystatechange = function() {

@@ -40,7 +40,7 @@ def welcome():
 @app.route('/give/', methods=['GET','POST'])
 def give(val="face"):
 	if request.method == 'POST':
-		if val == "udo":
+		if request.form['file']:
 			with open("static/udo.png", "wb") as fh:
 				fh.write(base64.decodebytes(request.form['file'].split("base64,")[1].encode()))
 			gg = 1
@@ -51,9 +51,12 @@ def give(val="face"):
 				text = "Штрих код не видно"
 				return render_template('camera.html', text = text)
 		else:
+			with open("static/face.png", "wb") as fh:
+				fh.write(base64.decodebytes(request.form['face'].split("base64,")[1].encode()))
 			return render_template('index.html')
-	text = "Поднесите ИИН штрих код и нажмите отправить"
-	return render_template('camera.html', text = text)
+	else:
+		text = "Поднесите ИИН штрих код и нажмите отправить"
+		return render_template('camera.html', text = text)
 
 
 if __name__ == '__main__':
