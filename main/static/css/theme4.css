@@ -1,0 +1,259 @@
+
+/* HEADER */
+
+.header4 {
+    display: flex;
+    justify-content: space-between;
+    background-color: #F7F7F7;
+    color: #3F3F3F;
+    width: 100%;
+    min-height: 15vh;
+    padding: 20px 30px;
+}
+
+.header4 .head-left-item {
+	display: flex;
+	justify-content: space-around;
+	width: 30%;
+	align-items: center;
+}
+.header4 .head-left-item img {
+	height: 100px;
+
+}
+.header4 .head-left-item h3 {
+	font-size: 20px;
+	padding: 5px;
+	margin: 0;
+	color: #E9373C;
+}
+.header4 .head-left-item p {
+	font-size: 14px;
+	padding: 5px;
+	margin: 0;
+}
+.header4 .head-right-item {
+	display: flex;
+	justify-content: space-around;
+	width: 45%;
+	align-items: center;
+}
+.header4 .arrows {
+	display: flex;
+	justify-content: space-around;
+	width: 30%;
+}
+.header4 .arrows img {
+	object-fit: contain;
+	height: 40px;
+	width: 40px;
+}
+.header4 .menu-buttons {
+	display: flex;
+	justify-content: center;
+	width: 70%;
+}
+.header4 .menu-buttons span{
+	border: none;
+	color: #868686;
+	
+}
+.header4 .menu-buttons span:after {
+	content: '>';
+}
+.header4 .menu-buttons span:last-child:after{
+	content: '';
+} 
+.header4 .menu-buttons .active1 {
+	color: #DE3237;
+}
+
+/* BODY */
+
+.wrapper4 {
+	display: flex;
+	justify-content: center;
+	background-color: #fff;
+	color: #fff;
+	padding-bottom: 50px;
+	min-height: 85vh;
+}
+
+.wrapper4 .container {
+	width: 90%;
+	margin-top: 20px;
+}
+.wrapper4 .container ul {
+
+	flex-wrap: wrap;
+	margin: 0;
+	padding: 0;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.wrapper4 #start-block {
+	display: flex;
+}
+
+.wrapper4 #inside-block {
+	display: none;
+}
+
+.wrapper4 .container ul li {
+	list-style: none;
+    width: 25%;
+    flex-basis: 300px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+	transition: 0.3s;
+}
+.wrapper4 .container ul .active-block {
+	transform: scale(1.1);
+	background-color: #FCE300;
+	color: #DE3237;
+	border: 1px solid #FCE300;
+
+}
+
+.wrapper4 .container ul li .info {
+	padding: 0 20px;
+	display: flex;
+    flex-direction: column;
+    min-height: 110px;
+}
+.wrapper4 .container ul li .info h2 {
+	margin: 10px 0;
+
+}
+.wrapper4 .container ul li .info p {
+	margin: 10px 0;
+
+}
+.wrapper4 .container ul li img {
+	width: 100%;
+	object-fit: cover;
+	height: 250px;
+}
+
+.wrapper4 .block-active {
+	border: 1px solid #fce300;
+	color: #005b6a;
+	background-color: #fce300;
+	-webkit-transform: scale(1.1,1.1);
+    -webkit-transition-timing-function: ease-out;
+    -webkit-transition-duration: 550ms;
+    -moz-transform: scale(1.1,1.1);
+    -moz-transition-timing-function: ease-out;
+    -moz-transition-duration: 550ms;
+}
+
+.wrapper-content4 {
+	width: 100%;
+	height: 100vh;
+	background-color: #02788c;
+	display: flex;
+	justify-content: space-between;
+
+}
+ .wrapper-content4 img {
+	width: 100%;
+
+}
+
+.wrapper-button4 {
+	background-color: #017c90;
+	width: 100%;
+	height: 85vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.wrapper-center4 {
+	background-color: #009ab3;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.wrapper-center4 .button {
+	width: 180px;
+	padding: 70px;
+	position: relative;
+}
+.wrapper-center4 .button img {
+	height: 70px;
+}
+.wrapper-center4 .button span {
+	position: absolute;
+	bottom: 15px;
+	left: 60px;
+	color: #065E6D;
+	text-transform: uppercase;
+	font-size: 12px;
+}
+
+.wrapper-center4 .button-active {
+	background-color: #fce300;
+
+}
+
+.wrapper4 .color1 {
+	background-color: #FF4449;
+}
+
+.wrapper4 .color2 {
+	background-color: #DE3237;
+}
+
+/* MEDIA */
+
+.layout-left {
+	width: 50%;
+	overflow: hidden;
+}
+.layout-left img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.layout-left.logo {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	object-fit: contain;
+	width: 150px;
+}
+.layout-right {
+	width: 50%;
+	background-color: #027285;
+	display: flex;
+	flex-direction: column;
+	padding: 50px;
+	align-items: flex-start;
+}
+.layout-right h1 {
+	color: #fff;
+}
+.layout-right span {
+	width: 300px;
+	background-color: #fce300;
+	height: 5px;
+
+}
+.layout-right p {
+	color: #fff;
+}
+
+/* MAP */
+
+.theme-fourth .wrap-map {
+    width: 100%;
+    height: 85vh;
+    min-height: 600px;
+    background-color: #02798C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
