@@ -647,7 +647,7 @@ ip = Markup("http://" + get_ip())
 @app.route('/tablet/<ekran>/<lang>/') # Вывод на планшеты
 def tablet(ekran, lang):
 	info = Click(ekran, lang)
-	return render_template('index.html', ip=ip, ekran=Markup(ekran), lang=lang, json_path=info.json_path)
+	return render_template('index.html', ip=ip, ekran=Markup(ekran), lang=lang, json_path=Markup(info.json_path))
 
 
 @app.route('/click/<ekran>/<lang>/<id>/')
