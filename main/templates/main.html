@@ -18,8 +18,8 @@
       var lang = document.getElementById("lang").innerText;
       console.log(lang);
       console.log(ekran);
-      var namespace = '/static/json/data.json?';
-      var path = location.protocol + '//' + document.domain + ':' + location.port + namespace
+      var namespace = '{{json_path}}?';
+      var path = namespace
 
 
       $('document').ready(function() {

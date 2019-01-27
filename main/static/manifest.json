@@ -4,7 +4,7 @@
   "description": "Cleverest Technologies web app",
   "theme_color": "transparent",
   "background_color": "transparent",
-  "display": "standalone",
+  "display": "fullscreen",
   "orientation": "portrait",
   "scope": "/",
   "start_url": "/",

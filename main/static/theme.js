@@ -10,7 +10,7 @@ function loadData() {
 
 	var xhr = new XMLHttpRequest();
 
-	xhr.open('GET', "http://" + window.location.hostname + ':8888/static/json/data.json?' + new Date().getTime(), true);
+	xhr.open('GET', '{{json_path}}?' + new Date().getTime(), true);
 	xhr.send();
 	xhr.onreadystatechange = function() {
 	    if (xhr.readyState != 4) return;
@@ -511,10 +511,10 @@ function themeThird(data) {
     	}else{
     		var length = parseInt(data.dochki.length/3+1);
     	}
-    	
+
     	let lastj = 0;
     	for(let i = 0; i < length; i++){
-    		
+
     		let ul = document.createElement('ul');
     		ul.className = 'table';
     		console.log(data.dochki.length);
@@ -543,7 +543,7 @@ function themeThird(data) {
 
     	let ul2 = document.createElement('ul');
     	ul2.className = 'span';
-    	
+
 		for(let i = 0; i < data.roditeli.length; i++) {
 			let span = document.createElement('span');
 			span.innerHTML = data.roditeli[i].title;
@@ -716,7 +716,7 @@ function Language(lang) {
 }
 
 
-////theme 4 
+////theme 4
 
 
 function themeFourth(data) {
@@ -756,7 +756,7 @@ function themeFourth(data) {
 	let div3 = document.createElement('div');
 	div3.className = 'head-right-item';
 
-	
+
 	let div4 = document.createElement('div');
 	div4.className = 'arrows';
 
@@ -771,7 +771,7 @@ function themeFourth(data) {
 	lang.className = 'lang';
 	lang.innerHTML = 'Язык: <img src="http://'+ window.location.hostname+ ':8888/static/image/rus.png" alt="lang">'
 
-	
+
 
 	div3.insertBefore(lang, div3.children[1]);
 	themeFourth.insertBefore(header, themeFourth.children[0]);
@@ -962,7 +962,7 @@ function mapClick4() {
 	}
 }
 
-// theme5 
+// theme5
 
 function themeFifth(data) {
 	let themeContent = document.getElementById('theme-content');
@@ -1004,13 +1004,13 @@ function themeFifth(data) {
     	}else{
     		var length = parseInt(data.dochki.length/3+1);
     	}
-    	
+
     	let lastj = 0;
     	for(let i = 0; i < length; i++){
-    		
+
     		let ul = document.createElement('ul');
     		ul.className = 'table';
-    		
+
     		for(let j = lastj; j < data.dochki.length; j++){
     			let li = document.createElement('li');
 	    		li.innerHTML = `<h3 class="text">Lorem ipsum dolor.</h3>
@@ -1036,7 +1036,7 @@ function themeFifth(data) {
 
     	let ul2 = document.createElement('ul');
     	ul2.className = 'span';
-    	
+
 		for(let i = 0; i < data.roditeli.length; i++) {
 			let span = document.createElement('span');
 			span.innerHTML = data.roditeli[i].title;
@@ -1068,11 +1068,11 @@ function themeFifthClick(data) {
 
     for(let i = 0; i < li2.length; i++) {
     	li2[i].onclick = () => {
-    		
+
     		blockClickAjax5(data.dochki[i].ID);
     	}
     }
-			
+
     home.onclick = function() {
 
     	ajaxClickButton5('1');
@@ -1229,4 +1229,3 @@ function Language(lang) {
 	    }
 	}
 }
-

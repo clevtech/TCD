@@ -430,7 +430,7 @@ class Click:
 		else:
 			self.data_from_DB = self.db[collection_name]
 
-		self.json_path = path_to_json
+		self.json_path = "http://"
 		self.id = ""
 		self.ID = ID
 		self.me = dict()
@@ -542,7 +542,7 @@ class Click:
 				post["img"] = self.ip + "/static" + el["map"] + ".png"
 				post["type"] = "4"
 			if el["img_path"] != "":
-				post["img"] = self.ip + "/static" + el["img_path"]
+				post["img"] = self.ip + "/" + el["img_path"]
 			if post["img"] != "" and el["text"] == "":
 				post["type"] = "1"
 			if el["video"] != ":":
@@ -579,7 +579,7 @@ class Click:
 			if len(kid["ID"]) == kids_surname and kid["ID"][:-2] == self.ID: # and kid["lang"] == self.lang:
 				child = dict()
 				child["ID"] = kid["ID"]
-				child["title"] = kid["logo_title"]
+				child["title"] = kid["content"][0]["title"]
 				child["img"] = self.ip + "/static" + kid["logo_path"]
 				try:
 					child["text"] = kid["content"][0]["text"]
@@ -599,7 +599,10 @@ class Click:
 			IP = '127.0.0.1'
 		finally:
 			s.close()
+
 		self.ip = "http://" + IP + ":8888"
+		self.json_path = self.ip + "/static/json/data" + str(self.ID[0]) + ".json"
+		self.json_path2 = "./static/json/data" + str(self.ID[0]) + ".json"
 
 
 	def export(self):
@@ -620,7 +623,7 @@ class Click:
 
 
 	def write_to_json(self):
-		with open(self.json_path, 'w') as outfile:
+		with open(self.json_path2, 'w') as outfile:
 			json.dump(self.expor, outfile)
 
 
@@ -644,7 +647,7 @@ ip = Markup("http://" + get_ip())
 @app.route('/tablet/<ekran>/<lang>/') # Вывод на планшеты
 def tablet(ekran, lang):
 	info = Click(ekran, lang)
-	return render_template('index.html', ip=ip, ekran=Markup(ekran), lang=lang)
+	return render_template('index.html', ip=ip, ekran=Markup(ekran), lang=lang, json_path=info.json_path)
 
 
 @app.route('/click/<ekran>/<lang>/<id>/')
@@ -658,7 +661,7 @@ def clicked(ekran, lang, id):
 @app.route('/disp/<ekran>/<lang>/') # Вывод на экраны
 def ekrany(ekran, lang):
 	info = Click(ekran, lang)
-	return render_template('main.html', ip=ip, lang=lang, ekran=ekran)
+	return render_template('main.html', ip=ip, lang=lang, ekran=ekran, json_path=info.json_path)
 
 
 @app.route('/') # Вывод на экраны
