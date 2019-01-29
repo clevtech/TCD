@@ -626,7 +626,7 @@ class Click:
 		self.expor["logo"] = self.logo
 		self.expor["type"] = self.type
 		self.expor["map"] = []
-		self.expor["slide"] = 0
+		self.expor["slide"] = self.slide
 		self.expor["dochki"] = self.daughters
 		self.expor["roditeli"] = self.parents
 		self.expor["content"] = self.content
@@ -677,12 +677,12 @@ def clicked(ekran, lang, id):
 
 
 @app.route('/click/<ekran>/<lang>/<id>/<napravlenie>')
-def clicked_value(ekran, lang, id):
+def clicked_value(ekran, lang, id, napravlenie):
 	print("Click from: " + ekran + " to ID: " + id)
 	info = Click(id, lang)
-	lenght = len(info.exor["content"])
-	now = slide[0:-1]
-	direction = slide[-1]
+	lenght = len(info.expor["content"])
+	now = napravlenie[0:-1]
+	direction = napravlenie[-1]
 	if direction == "+":
 		if now == lenght - 1:
 			now = "0"
