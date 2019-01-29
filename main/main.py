@@ -431,7 +431,7 @@ def tree(ekran="1", lang="ru"):
 ## EKRANY
  # Classes
 class Click:
-	def __init__(self, ID, lang="ru", path='mongodb://localhost:27017/',db_name="NOtest", collection_name="old", path_to_json="static/json/data.json"):
+	def __init__(self, ID, lang="ru", slide = "0", path='mongodb://localhost:27017/',db_name="NOtest", collection_name="old", path_to_json="static/json/data.json"):
 		self.client = MongoClient(path)
 		self.db = self.client[db_name]
 
@@ -476,7 +476,7 @@ class Click:
 		self.logo = ""
 		self.type = ""
 		self.ekran = ID[0]
-		self.slide = ""
+		self.slide = slide
 		self.raw = []
 		# TODO: write names of displays and logo paths
 		self.names = ["1","1","1","1","1","1"]
@@ -523,7 +523,6 @@ class Click:
 		self.logo = self.ip + "/static" + self.me["logo_path"]
 		# self.theme = self.ekran TODO: then do it
 		self.title = self.me["logo_title"]
-		self.slide = self.me["slide_max"]
 
 
 	def obtain_type(self): # 0 - 1 slide, 1 - map, 2 - 1+ slides
@@ -627,7 +626,7 @@ class Click:
 		self.expor["logo"] = self.logo
 		self.expor["type"] = self.type
 		self.expor["map"] = []
-		self.expor["slide"] = slide
+		self.expor["slide"] = 0
 		self.expor["dochki"] = self.daughters
 		self.expor["roditeli"] = self.parents
 		self.expor["content"] = self.content
@@ -676,14 +675,38 @@ def clicked(ekran, lang, id):
 	print("sended")
 	return jsonify(info.expor)
 
-#
-#
-# @app.route('/click/<ekran>/<lang>/<id>/<napravlenie>')
-# def clicked(ekran, lang, id):
-# 	print("Click from: " + ekran + " to ID: " + id)
-# 	info = Click(id, lang)
-# 	pprint(info.expor)
-# 	return jsonify(info.expor)
+
+@app.route('/click/<ekran>/<lang>/<id>/<napravlenie>')
+def clicked_value(ekran, lang, id):
+	print("Click from: " + ekran + " to ID: " + id)
+	info = Click(id, lang)
+	lenght = len(info.exor["content"])
+	now = slide[0:-1]
+	direction = slide[-1]
+	if direction == "+":
+		if now == lenght - 1:
+			now = "0"
+		else:
+			now = str(int(now) + 1)
+	elif direction == "-":
+		if now == "0":
+			now = str(lenght - 1)
+		else:
+			now = str(int(now) - 1)
+	else:
+		now = "0"
+	print("########################################")
+	print("#### Slide change ##########")
+	print("########################################")
+	print("Slide is: ")
+	print(now)
+	print("ID is: ")
+	print(id)
+	print("########################################")
+	print("#### End of slide change ##########")
+	print("########################################")
+	info = Click(id, lang, now)
+	return jsonify(info.expor)
 
 
 
