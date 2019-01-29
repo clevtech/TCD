@@ -18,7 +18,7 @@ body{
 	width: 100%;
 }
 
-.header3 .left-item {	
+.header3 .left-item {
 	width: 50%;
 	display: flex;
 	justify-content: center;
@@ -88,7 +88,7 @@ body{
 	width: 100%;
 	display: none;
 	justify-content: space-between;
-	align-items: stretch;
+	align-items: center;
 	padding: 15px 30px;
 	margin: 0 auto;
 	color: #fff;
@@ -101,7 +101,7 @@ body{
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
-	align-items: stretch;
+	align-items: center;
 	padding: 15px 30px;
 	margin: 0 auto;
 	color: #fff;
@@ -184,7 +184,13 @@ body{
 }
 
 /* DISPLAY */
+.display2 {
+  width: 100%;
 
+}
+.display2 img{
+  object-fit: contain;
+}
 .display {
 	width: 100%;
     height: 100vh;
@@ -202,16 +208,17 @@ body{
 }
 
 .display .right-item h1{
-	color: #005b6a;
-	font-family: Roboto;
+	color: #DE3237;
+	font-family: sans-serif;
 	font-style: normal;
 	font-weight: 900;
 	line-height: 36px;
 	font-size: 28px;
 	text-transform: uppercase;
+  padding-bottom: 30px;
 }
 .display .right-item p {
-	font-family: Roboto;
+	font-family: sans-serif;
 	font-style: normal;
 	font-weight: normal;
 	line-height: 21px;
@@ -226,8 +233,8 @@ body{
 
 .display .left-item img{
 	width: 100%;
-    height: 100%;
-    object-fit: cover;
+  height: 100%;
+  object-fit: contain;
 
 }
 
@@ -279,7 +286,7 @@ body{
 }
 
 .theme-third .bg {
-	background-color: #005B6A !important;	
+	background-color: #005B6A !important;
 }
 
 /* MAP */

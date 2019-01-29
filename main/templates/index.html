@@ -34,12 +34,15 @@
 		    	let data = JSON.parse(xhr.responseText)
 		    	console.log(data);
 		    	if(data.theme == 1) {
-			       	//themeFirst(data);
-			        themeFifth(data);
+			        themeFirst(data);
 			    }else if(data.theme == 2) {
 			        themeSecond(data);
 			    }else if(data.theme == 3) {
+			        themeFourth(data);
+			    }else if(data.theme == 4) {
 			        themeThird(data);
+			    }else if(data.theme == 5) {
+			        themeFifth(data);
 			    }
 		    }
 		}
@@ -75,24 +78,12 @@
 		let div4 = document.createElement('div');
 		div4.className = 'arrows';
 
-		div4.innerHTML = `<img src="` + "http://" + window.location.hostname + `:8888/static/image/theme1-left.png" alt="left-arrow">
-		<img id="logo-home" src="` + "http://" + window.location.hostname + `:8888/static/image/home.png" alt="left-arrow">
-		<img src="` + "http://" + window.location.hostname + `:8888/static/image/theme1-right.png" alt="left-arrow">`;
+		div4.innerHTML = `<img id="logo-home" src="` + "http://" + window.location.hostname + `:8888/static/image/home.png" alt="left-arrow">`;
 
 		div3.insertBefore(div4, div3.children[0]);
 		header.insertBefore(div3, header.children[1]);
 
-		let div5 = document.createElement('div');
-		div5.className = 'menu-buttons';
 
-		for(let i = 0; i < data.roditeli.length; i++) {
-			let span = document.createElement('span');
-			span.innerHTML = data.roditeli[i].title;
-			div5.insertBefore(span, div5.children[i]);
-			if(i == (data.roditeli.length -1)) span.className='active1';
-		}
-
-		div3.insertBefore(div5, div3.children[1]);
 		themeFirst.insertBefore(header, themeFirst.children[0]);
 
 		if(data.type == 2){
@@ -132,22 +123,13 @@
 
 	function btnClick (data) {
 		let li = document.querySelectorAll('.container ul li');
-		let span = document.querySelectorAll('.menu-buttons span');
+
 		let home = document.getElementById('logo-home');
 		home.onclick = () => {
-			console.log(data);
-			ajaxClickButton('1');
+			location.reload(true)
 		}
 
-		for(let i=0; i<span.length;i++) {
-			let length = span.length;
-			span[i].onclick = () => {
-				id = i+1;
-				let hrf = data.ID;
-				let hrf1 = hrf.substr(0,2*id);
-				ajaxClickButton('1');
-			}
-		}
+
 
 		for(let i=0;i<li.length;i++) {
 			li[i].onclick = () => {
@@ -217,15 +199,15 @@
 
 		let buttonLeft = document.createElement('div');
 		buttonLeft.className = 'button';
-		buttonLeft.innerHTML = '<img src="' + "http://" + window.location.hostname +':8888/static/image/theme1-left2.png" alt=""><span>НАЗАД</span>';
+		buttonLeft.innerHTML = '<img src="http://' + window.location.hostname +':8888/static/image/theme1-left2.png" alt=""><span>НАЗАД</span>';
 
 		let buttonCenter = document.createElement('div');
 		buttonCenter.className = 'button button-active';
-		buttonCenter.innerHTML = '<img src="' + "http://" + window.location.hostname +':8888/static/image/theme1-return.png" alt=""><span>НА ГЛАВНУЮ</span>';
+		buttonCenter.innerHTML = '<img src="http://' + window.location.hostname +':8888/static/image/theme1-return.png" alt=""><span>НА ГЛАВНУЮ</span>';
 
 		let buttonRigth = document.createElement('div');
 		buttonRigth.className = 'button';
-		buttonRigth.innerHTML = '<img src="' + "http://" + window.location.hostname +':8888/static/image/theme1-right2.png" alt=""><span>ВПЕРЕД</span>';
+		buttonRigth.innerHTML = '<img src="http://' + window.location.hostname +':8888/static/image/theme1-right2.png" alt=""><span>ВПЕРЕД</span>';
 
 		wrapperCenter.insertBefore(buttonLeft, wrapperCenter.children[0]);
 		wrapperCenter.insertBefore(buttonCenter, wrapperCenter.children[1]);
@@ -299,24 +281,12 @@
 		let headLeft = document.createElement('div');
 		headLeft.className = 'head-left-item';
 
-		let spanDiv = document.createElement('div');
-		spanDiv.className = 'menu-buttons';
 
-		for(let i = 0; i < data.roditeli.length; i++) {
-			let span = document.createElement('span');
-			span.innerHTML = data.roditeli[i].title;
-			spanDiv.insertBefore(span, spanDiv.children[i]);
-			if(i == (data.roditeli.length -1)) span.className='active';
-		}
-		headLeft.appendChild(spanDiv)
-		/*headLeft.innerHTML = `<div class="menu-buttons">
-		<span id="home" class="active">Главная</span>
-		<span id="info-btn">Информационный блок</span></div>`;*/
 		header.insertBefore(headLeft, header.children[0]);
 
 		let headRight = document.createElement('div');
 		headRight.className = 'head-right-item';
-		headRight.innerHTML = '<img src="/static/image/theme2-left.png" alt="left-arrow"><img id="logo-home" src="/static/image/home.png" alt="left-arrow"><img src="/static/image/theme2-right.png 	" alt="right-arrow">';
+		headRight.innerHTML = '<img id="logo-home" src="/static/image/home.png" alt="left-arrow">';
 		header.insertBefore(headRight, header.children[1]);
 
 		// Theme 2 Sidebar
@@ -324,8 +294,7 @@
 		let leftSidebar = document.createElement('div');
 		leftSidebar.className = 'left-sidebar';
 
-		leftSidebar.innerHTML = `<img src="/static/image/logo-white2.png" alt="logo">
-		<h2>Академия политического менеджмента</h2>`;
+		leftSidebar.innerHTML = `<img src="/static/image/logo-white2.png" alt="logo">`;
 		themeSecond.insertBefore(header, themeSecond.children[1]);
 
 		if(data.type == 2) {
@@ -360,19 +329,15 @@
 
 	function btnClick2(data) {
 		let home = document.getElementById('logo-home');
-		let span = document.querySelectorAll('.menu-buttons span');
-		console.log(span);
+
 		let li = document.querySelectorAll('.wrapper2 li');
 
 		home.onclick = () => {
-			clickAjax2('1');
+			location.reload(true)
 		}
-		for(let i = 0; i < span.length; i++) {
-			span[i].onclick = () => {
-				clickAjax2('1');
-			}
-		}
-		console.log(li);
+
+
+
 		for(let i = 0; i < li.length; i++) {
 			li[i].onclick = () => {
 				blockClickAjax2(data.dochki[i].ID);
@@ -437,7 +402,7 @@
 		            		<img src="/static/image/theme2-left2.png" alt="">
 		            		<span>НАЗАД</span>
 		            	</div>
-		            	<div class="button active">
+		            	<div id ="btn-home"class="button active">
 		            		<img src="/static/image/theme2-return.png" alt="">
 		            		<span>НА ГЛАВАНУЮ</span>
 		            	</div>
@@ -506,7 +471,7 @@
 	    let rightItem = document.createElement('div');
 	    rightItem.className = 'right-item';
 	    rightItem.innerHTML = `<img id="btn-left" src="/static/image/theme3-left.png" alt="left">
-	   	<img id = "home" src="/static/image/theme3-home.png" alt="home">
+	   	<img id = "logo-home" src="/static/image/theme3-home.png" alt="home">
 	    <img id="btn-right" src="/static/image/theme3-right.png" alt="right">`;
 
 	    header.insertBefore(rightItem, header.children[1]);
@@ -527,22 +492,23 @@
 	    	}
 
 	    	let lastj = 0;
-	    	for(let i = 0; i < length; i++){
+	    	for(let i = 0; i < length; i++) {
 
 	    		let ul = document.createElement('ul');
 	    		ul.className = 'table';
 	    		console.log(data.dochki.length);
 	    		for(let j = lastj; j < data.dochki.length; j++){
 	    			let li = document.createElement('li');
-		    		li.innerHTML = `<h3 class="text">Lorem ipsum dolor.</h3>
-		            <span>next...</span>`;
+		    		li.innerHTML = `<h3 class="text">`+data.dochki[j].title+`</h3>
+		            <span>Подробнее...</span>`;
+            li.style.backgroundImage = 'url("'+data.dochki[j].img+'")'
 		            ul.appendChild(li);
 		            lastj = j+1;
 		            if(j == 2 || j == 5 || j == 8 || j == 11 || j == 14 || j == 17) {
 		            	break;
 		            }
 	    		}
-	            wrap.insertBefore(ul, wrap.children[i]);
+	        wrap.insertBefore(ul, wrap.children[i]);
 	    	}
 	    	let bottom = document.createElement('div');
 	    	bottom.className = 'bottom';
@@ -555,16 +521,7 @@
 	    	}
 	    	bottom.appendChild(ul);
 
-	    	let ul2 = document.createElement('ul');
-	    	ul2.className = 'span';
 
-			for(let i = 0; i < data.roditeli.length; i++) {
-				let span = document.createElement('span');
-				span.innerHTML = data.roditeli[i].title;
-				ul2.insertBefore(span, ul2.children[i]);
-				if(i == (data.roditeli.length -1)) span.className='active1';
-			}
-			bottom.appendChild(ul2);
 	    	wrap.appendChild(bottom);
 	    }
 
@@ -574,14 +531,15 @@
 		themeContent.appendChild(themeThird);
 		mapClick3();
 		themeThreeClick(data);
+    slideClick(data);
 	}
-	//  Theme Click
+	//  Theme3 Click
 	function themeThreeClick(data) {
 		let li = document.querySelectorAll('.circle li');
 	    let table = document.querySelectorAll('.wrapper3 .table');
 	    let left = document.getElementById('btn-left');
 	    let right = document.getElementById('btn-right');
-	    let home = document.getElementById('home');
+	    let home = document.getElementById('logo-home');
 	    let li2 = document.querySelectorAll('.wrapper3 .table li');
 	    console.log(li2);
 
@@ -593,7 +551,7 @@
 	    }
 
 	    home.onclick = function() {
-	    	console.log("+");
+	    	 location.reload(true);
 	    }
 
 	    for(let i = 0; i < li.length; i++) {
@@ -617,10 +575,10 @@
 	    }
 
 	    function btnClick3(i) {
-	        for(let j = 0; j < table.length; j++) {
+	        for(let j = 0; j < li.length; j++) {
 	            li[j].classList.remove('bg');
 
-	            table[j].style.display = 'none';
+	           table[j].style.display = 'none';
 	        }
 	        li[i].classList.toggle('bg');
 	        table[i].style.display = 'flex';
@@ -639,9 +597,9 @@
 		        } else {
 		          	let theme = document.querySelector('#theme-content');
 
-					theme.removeChild(theme.firstChild);
-					let data = JSON.parse(xhr.responseText);
-
+					        theme.removeChild(theme.firstChild);
+					       let data = JSON.parse(xhr.responseText);
+                 console.log(data);
 		          	themeThird(data);
 		        }
 			}
@@ -649,22 +607,64 @@
 
 	//theme3 Slide Btn
 
-	function buttonSlide3( wrap) {
+	function buttonSlide3(data, wrap) {
 		let wrapBtn = document.createElement('div');
 		wrapBtn.className = 'wrapper-buttons';
-		wrapBtn.innerHTML = `<div class="button">
-	    		<img src="/static/image/button-left.png" alt="icon">
+		wrapBtn.innerHTML = `<div id='left-click' class="button">
+	    		<img src="/static/image/theme3-left2.png" alt="icon">
 	    	</div>
 	    	<div class="button">
-	    		<img src="/static/image/button-return.png" alt="icon">
+	    		<img src="/static/image/theme3-return.png" alt="icon">
 	    	</div>
-	    	<div class="button">
-	    		<img src="/static/image/button-right" alt="icon">
+	    	<div id='right-click' class="button">
+	    		<img src="/static/image/theme3-right2.png" alt="icon">
 	    	</div>`;
 
 	    	wrap.appendChild(wrapBtn);
 	}
-
+// slideClick3(data){
+//   let left = document.getElementById('left-click');
+//   let right = document.getElementById('right-click');
+//
+//   left.onclick = () => {
+//     let xhr = new XMLHttpRequest();
+// 	      	xhr.open('GET',  "http://" + window.location.hostname +':8888/click/{{ekran}}/{{lang}}/' + data.ID + '/0', true);
+// 	      	xhr.send();
+// 	      	xhr.onreadystatechange = function() {
+// 		        if (xhr.readyState != 4) return;
+// 		        if (xhr.status != 200) {
+// 		          	console.log(xhr.status + ': ' + xhr.statusText);
+// 		        } else {
+// 		          	let theme = document.querySelector('#theme-content');
+//
+// 					        theme.removeChild(theme.firstChild);
+// 					       let data = JSON.parse(xhr.responseText);
+//                  console.log(data);
+// 		          	themeThird(data);
+// 		        }
+// 			}
+//   }
+//
+//   right.onclick = () => {
+//     let xhr = new XMLHttpRequest();
+// 	      	xhr.open('GET',  "http://" + window.location.hostname +':8888/click/{{ekran}}/{{lang}}/' + data.ID + '/1', true);
+// 	      	xhr.send();
+// 	      	xhr.onreadystatechange = function() {
+// 		        if (xhr.readyState != 4) return;
+// 		        if (xhr.status != 200) {
+// 		          	console.log(xhr.status + ': ' + xhr.statusText);
+// 		        } else {
+// 		          	let theme = document.querySelector('#theme-content');
+//
+// 					        theme.removeChild(theme.firstChild);
+// 					       let data = JSON.parse(xhr.responseText);
+//                  console.log(data);
+// 		          	themeThird(data);
+// 		        }
+// 			}
+//   }
+// 
+// }
 	//theme3 Map
 
 	function map3(wrap) {
@@ -746,25 +746,17 @@
 		let div = document.createElement('div');
 		div.className = 'head-left-item';
 		let img = document.createElement('img');
-		img.setAttribute('src', "http://" + window.location.hostname + ':8888/static/image/logo-white.png');
+		img.setAttribute('src', "http://" + window.location.hostname + ':8888/static/image/logo-red.png');
 		img.setAttribute('alt', 'logo');
 
 		let div2 = document.createElement('div');
-		div2.innerHTML = `<h3>НҰР ОТАН</h3>
-		<p>ПАРТИЯСЫ САЙЛАУАЛДЫ<br>БАҒДАРЛАМАСЫ</p>`;
+		div2.innerHTML = `<h3>ЖАС ОТАН</h3>
+		<p>МОЛОДЕЖНОЕ<br>КРЫЛО</p>`;
 
-		let div5 = document.createElement('div');
-		div5.className = 'menu-buttons';
 
-		for(let i = 0; i < data.roditeli.length; i++) {
-			let span = document.createElement('span');
-			span.innerHTML = data.roditeli[i].title;
-			div5.insertBefore(span, div5.children[i]);
-			if(i == (data.roditeli.length -1)) span.className='active1';
-		}
 		div.insertBefore(img, div.children[0]);
 		div.insertBefore(div2, div.children[1]);
-		div.insertBefore(div5, div.children[2]);
+
 
 		header.insertBefore(div, header.children[0]);
 		let div3 = document.createElement('div');
@@ -774,20 +766,13 @@
 		let div4 = document.createElement('div');
 		div4.className = 'arrows';
 
-		div4.innerHTML = `<img src="` + "http://" + window.location.hostname + `:8888/static/image/theme4-left.png" alt="left-arrow">
-		<img id="logo-home" src="` + "http://" + window.location.hostname + `:8888/static/image/theme4-home.png" alt="left-arrow">
-		<img src="` + "http://" + window.location.hostname + `:8888/static/image/theme4-right.png" alt="left-arrow">`;
+		div4.innerHTML = `<img id="logo-home" src="` + "http://" + window.location.hostname + `:8888/static/image/home-red.png" alt="left-arrow">`;
 
 		div3.insertBefore(div4, div3.children[0]);
 		header.insertBefore(div3, header.children[1]);
 
-		let lang = document.createElement('div');
-		lang.className = 'lang';
-		lang.innerHTML = 'Язык: <img src="http://'+ window.location.hostname+ ':8888/static/image/rus.png" alt="lang">'
 
 
-
-		div3.insertBefore(lang, div3.children[1]);
 		themeFourth.insertBefore(header, themeFourth.children[0]);
 
 		if(data.type == 2){
@@ -861,22 +846,7 @@
 	// click home block roditeli
 
 	function ajaxClickButton4(hrf) {
-		let xhr = new XMLHttpRequest();
-	      	xhr.open('GET',  "http://" + window.location.hostname +':8888/click/1/ru/'+hrf, true);
-	      	xhr.send();
-	      	xhr.onreadystatechange = function() {
-		        if (xhr.readyState != 4) return;
-		        if (xhr.status != 200) {
-		          	console.log(xhr.status + ': ' + xhr.statusText);
-		        } else {
-		          	let theme = document.querySelector('#theme-content');
-
-					theme.removeChild(theme.firstChild);
-					let data = JSON.parse(xhr.responseText);
-
-		          	themeFourth(data);
-		        }
-			}
+		location.reload(true);
 	}
 	// Theme4 click Block
 
@@ -904,7 +874,7 @@
 	function buttonSlide4(themeFourth) {
 
 		let wrapperButton = document.createElement('div');
-		wrapperButton.className = 'wrapper-button';
+		wrapperButton.className = 'wrapper-button4';
 
 		let  wrapperCenter = document.createElement('div');
 		wrapperCenter.className = 'wrapper-center';
@@ -912,22 +882,22 @@
 
 		let buttonLeft = document.createElement('div');
 		buttonLeft.className = 'button';
-		buttonLeft.innerHTML = '<img src="' + "http://" + window.location.hostname +':8888/static/image/theme1-left2.png" alt=""><span>НАЗАД</span>';
+		buttonLeft.innerHTML = '<img src="http://' + window.location.hostname +':8888/static/image/theme1-left2.png" alt=""><span>НАЗАД</span>';
 
 		let buttonCenter = document.createElement('div');
 		buttonCenter.className = 'button button-active';
-		buttonCenter.innerHTML = '<img src="' + "http://" + window.location.hostname +':8888/static/image/theme1-return.png" alt=""><span>НА ГЛАВНУЮ</span>';
+		buttonCenter.innerHTML = '<img src="http://' + window.location.hostname +':8888/static/image/theme1-return.png" alt=""><span>НА ГЛАВНУЮ</span>';
 
 		let buttonRigth = document.createElement('div');
 		buttonRigth.className = 'button';
-		buttonRigth.innerHTML = '<img src="' + "http://" + window.location.hostname +':8888/static/image/theme1-right2.png" alt=""><span>ВПЕРЕД</span>';
+		buttonRigth.innerHTML = '<img src="http://' + window.location.hostname +':8888/static/image/theme1-right2.png" alt=""><span>ВПЕРЕД</span>';
 
 		wrapperCenter.insertBefore(buttonLeft, wrapperCenter.children[0]);
 		wrapperCenter.insertBefore(buttonCenter, wrapperCenter.children[1]);
 		wrapperCenter.insertBefore(buttonRigth, wrapperCenter.children[2]);
 
 		wrapperButton.appendChild(wrapperCenter);
-		themeFirst.insertBefore(wrapperButton, themeFirst.children[1]);
+		themeFourth.insertBefore(wrapperButton, themeFourth.children[1]);
 	}
 
 	// Theme 4 MAP
@@ -992,14 +962,14 @@
 		let leftItem = document.createElement('div');
 		leftItem.className = 'left-item';
 		leftItem.innerHTML = `<img src="http://` + window.location.hostname + `:8888/static/image/logo-blue.png" alt="logo">
-	    <h2 class="logo-text"><span>Экран<br> Призмдента</span></h2>`;
+	    <h2 class="logo-text"><span><br></span></h2>`;
 
 	    header.insertBefore(leftItem, header.children[0]);
 
 	    let rightItem = document.createElement('div');
 	    rightItem.className = 'right-item';
 	    rightItem.innerHTML = `<img id="btn-left" src="/static/image/theme3-left.png" alt="left">
-	   	<img id = "home" src="/static/image/theme3-home.png" alt="home">
+	   	<img id = "logo-home" src="/static/image/theme3-home.png" alt="home">
 	    <img id="btn-right" src="/static/image/theme3-right.png" alt="right">`;
 
 	    header.insertBefore(rightItem, header.children[1]);
@@ -1027,8 +997,9 @@
 
 	    		for(let j = lastj; j < data.dochki.length; j++){
 	    			let li = document.createElement('li');
-		    		li.innerHTML = `<h3 class="text">Lorem ipsum dolor.</h3>
-		            <span>next...</span>`;
+		    		li.innerHTML = `<h3 class="text">`+data.dochki[j].title+`</h3>
+		            <span>Подпобнее...</span>`;
+                li.style.backgroundImage = 'url("'+data.dochki[j].img+'")';
 		            ul.appendChild(li);
 		            lastj = j+1;
 		            if(j == 2 || j == 5 || j == 8 || j == 11 || j == 14 || j == 17) {
@@ -1048,16 +1019,7 @@
 	    	}
 	    	bottom.appendChild(ul);
 
-	    	let ul2 = document.createElement('ul');
-	    	ul2.className = 'span';
 
-			for(let i = 0; i < data.roditeli.length; i++) {
-				let span = document.createElement('span');
-				span.innerHTML = data.roditeli[i].title;
-				ul2.insertBefore(span, ul2.children[i]);
-				if(i == (data.roditeli.length -1)) span.className='active1';
-			}
-			bottom.appendChild(ul2);
 	    	wrap.appendChild(bottom);
 	    }
 
@@ -1072,11 +1034,11 @@
 	//  Theme5 Click
 
 	function themeFifthClick(data) {
-		let li = document.querySelectorAll('.circle li');
+		  let li = document.querySelectorAll('.circle li');
 	    let table = document.querySelectorAll('.wrapper5 .table');
 	    let left = document.getElementById('btn-left');
 	    let right = document.getElementById('btn-right');
-	    let home = document.getElementById('home');
+	    let home = document.getElementById('logo-home');
 	    let li2 = document.querySelectorAll('.wrapper5 .table li');
 
 
@@ -1084,12 +1046,12 @@
 	    	li2[i].onclick = () => {
 
 	    		blockClickAjax5(data.dochki[i].ID);
+
 	    	}
 	    }
 
 	    home.onclick = function() {
-
-	    	ajaxClickButton5('1');
+        location.reload(true)
 	    }
 
 	    for(let i = 0; i < li.length; i++) {
@@ -1156,7 +1118,7 @@
 		          	theme.innerHTML = '';
 
 					let data = JSON.parse(xhr.responseText);
-
+                console.log(data);
 		          	themeFifth(data);
 		        }
 			}

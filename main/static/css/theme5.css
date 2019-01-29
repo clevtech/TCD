@@ -19,7 +19,7 @@ body{
 	z-index: 2;
 }
 
-.header5 .left-item {	
+.header5 .left-item {
 	width: 50%;
 	display: flex;
 	justify-content: center;
@@ -52,14 +52,17 @@ body{
 	justify-content: flex-end;
 	padding-right: 60px;
 	align-items: center;
+
 }
 
 .header5 .menu-buttons .home:after {
 	content: ' > ';
 }
 
-.header3 .right-item img {
-	height: 50px;
+.header5 .right-item img {
+  height: 50px;
+  width: 50px;
+  object-fit: contain;
 	margin: 5px;
 }
 
@@ -104,7 +107,7 @@ body{
 	width: 100%;
 	display: none;
 	justify-content: space-between;
-	align-items: stretch;
+	align-items: center;
 	padding: 15px 30px;
 	margin: 0 auto;
 	color: #fff;
@@ -225,6 +228,7 @@ body{
 	line-height: 36px;
 	font-size: 28px;
 	text-transform: uppercase;
+  padding-bottom: 30px;
 }
 .display5 .right-item p {
 	font-family: Roboto;
@@ -295,7 +299,7 @@ body{
 }
 
 .theme-fifth .bg {
-	background-color: #005B6A !important;	
+	background-color: #005B6A !important;
 }
 
 /* MAP */

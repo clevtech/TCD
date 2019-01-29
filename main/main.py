@@ -8,6 +8,10 @@ __maintainer__ = "Bauyrzhan Ospan"
 __email__ = "bospan@cleverest.tech"
 __status__ = "Development"
 
+
+from gevent import monkey
+monkey.patch_all()
+
 import requests
 import glob
 import os
@@ -35,7 +39,14 @@ UPLOAD_FOLDER = '/home/akbota/TCD/main/static/img/'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'mp4', 'mpeg4'])
 
 
+
+async_mode = None
+
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'secret!'
+socketio = SocketIO(app, async_mode=async_mode)
+thread = None
+thread_lock = Lock()
 app.config['JSON_AS_ASCII'] = False
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 client = MongoClient("mongodb://localhost:27017/")
@@ -608,7 +619,7 @@ class Click:
 	def export(self):
 		slide = self.ID + "(" + str(self.slide) + ')'
 		self.expor = dict()
-		self.expor["id"] = self.id
+		self.expor["id"] = random.randint(0, 100)
 		self.expor["ID"] = self.ID
 		self.expor["theme"] = self.theme
 		self.expor["ekran"] = self.ekran
@@ -625,6 +636,7 @@ class Click:
 	def write_to_json(self):
 		with open(self.json_path2, 'w') as outfile:
 			json.dump(self.expor, outfile)
+			socketio.emit('my_response', self.expor['ekran'], namespace='/clicked')
 
 
  ## Functions
@@ -644,6 +656,11 @@ ip = Markup("http://" + get_ip())
 
 
  ## Routes
+@socketio.on('connect', namespace='/clicked')
+def test_connect():
+    print("Socket is started")
+
+
 @app.route('/tablet/<ekran>/<lang>/') # Вывод на планшеты
 def tablet(ekran, lang):
 	info = Click(ekran, lang)
@@ -657,11 +674,21 @@ def clicked(ekran, lang, id):
 	pprint(info.expor)
 	return jsonify(info.expor)
 
+#
+#
+# @app.route('/click/<ekran>/<lang>/<id>/')
+# def clicked(ekran, lang, id):
+# 	print("Click from: " + ekran + " to ID: " + id)
+# 	info = Click(id, lang)
+# 	pprint(info.expor)
+# 	return jsonify(info.expor)
+
+
 
 @app.route('/disp/<ekran>/<lang>/') # Вывод на экраны
 def ekrany(ekran, lang):
-	info = Click(ekran, lang)
-	return render_template('main.html', ip=ip, lang=lang, ekran=ekran, json_path=info.json_path)
+	json_path = ip + ":8888/static/json/data" + str(ekran) + ".json"
+	return render_template('main.html', ip=ip, lang=lang, ekran=ekran, json_path=json_path)
 
 
 @app.route('/') # Вывод на экраны
@@ -670,4 +697,9 @@ def glavnaia():
 
 
 if __name__ == '__main__':
-	app.run(host='0.0.0.0', port=8888, debug=True)
+    socketio.run(app, host='0.0.0.0', port=8888, debug=True)
+
+# if __name__ == '__main__':
+#     http_server = WSGIServer(('0.0.0.0', 8888), app)
+#     http_server.serve_forever()
+	# app.run(host='0.0.0.0', port=8888, debug=True)

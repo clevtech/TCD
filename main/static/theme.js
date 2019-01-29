@@ -913,7 +913,7 @@ function buttonSlide4(themeFourth) {
 	wrapperCenter.insertBefore(buttonRigth, wrapperCenter.children[2]);
 
 	wrapperButton.appendChild(wrapperCenter);
-	themeFirst.insertBefore(wrapperButton, themeFirst.children[1]);
+	themeFourth.insertBefore(wrapperButton, themeFourth.children[1]);
 }
 
 // Theme 4 MAP

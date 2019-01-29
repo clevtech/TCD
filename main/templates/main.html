@@ -6,6 +6,10 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="{{ip}}:8888/static/css/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ip}}:8888/static/css/theme2.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ip}}:8888/static/css/theme3.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ip}}:8888/static/css/theme4.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{{ip}}:8888/static/css/theme5.css" />
 </head>
 
 <body>
@@ -19,56 +23,320 @@
       console.log(lang);
       console.log(ekran);
       var namespace = '{{json_path}}?';
-      var path = namespace
+      var path = namespace;
+      console.log(path);
 
 
       $('document').ready(function() {
             loadData();
       });
 
-      var lastData = ''
+      var lastData1 = '';
+      var lastData2 = '';
+      var lastData3 = '';
+      var lastData4 = '';
+      var lastData5 = '';
 
       function loadData() {
-
+          console.log('+')
         	$.getJSON(path  + new Date().getTime(), function(data) {
-              console.log(data)
-        		var out = '';
-        		if(data.content[0].type == 1){
-      	      	out += "<div class='layout-center'>";
-      	      	out += "<img src=" + data.content[0].img + ">";
-      	      	out += "</div>";
-      	      	lastData = data.id;
-        		}else if(data.content[0].type == 2){
-                out += "<div class='layout-left'>";
-                out += "<img class='logo' src="+ data.logo +" alt='' />"
-      	        out += "<img src="+ data.content[0].img + ">";
-      	        out += "</div>";
-      	        out += "<div class='layout-right'>";
-      	        out += "<span></span>";
-      	        out += "<h1>" + data.content[0].title + "</h1>";
-      	        out += "<p>" + data.content[0].text + "</p>";
-      	        out += "</div>";
-      	        lastData = data.id;
-        		}
-        		else if(data.content[0].type == 3){
-        			out += "<video controls loop muted autoplay";
-        			out += " src=" + data.dochki[1].video + " width='100%' height='100%'>";
-                  out += "Sorry, your browser doesn't support embedded videos."
-                  out += "</video>"
-                  lastData = data.id;
-        		}else{
-        			loadData();
-        		}
-          	$('.wrapper-content').html(out);
-          	setInterval(function(){
-          		$.getJSON(path  + new Date().getTime(), function(data) {
-        				if(data.id !== lastData){
-         					loadData();
-        				}
-        			})
-        		}, 1000);
-          })
+
+              if(data.theme == 1 ){
+                theme1(data);
+              }else if(data.theme == 2){
+
+                theme3(data);
+              }else if(data.theme == 3){
+                theme2(data);
+              }else if(data.theme == 4){
+                theme4(data);
+              }else if(data.theme == 5){
+                theme5(data);
+              }
+
+      })
+}
+
+function theme1(data) {
+  console.log(data)
+  var out = '';
+  if(data.content[0].type == 1){
+      out += "<div class='layout-center display1'>";
+      out += '<img src="' + data.content[0].img + '">';
+      out += "</div>";
+      lastData1 = data.id;
+  }else if(data.content[0].type == 2){
+      console.log(data.logo);
+      console.log(data.content[0].img)
+      if(data.logo == data.content[0].img){
+
+        out += "<div class='display1'>";
+        out += "<div class='layout-right' style='width:100%'>";
+        out += "<span></span>";
+        out += "<h1>" + data.content[0].title + "</h1>";
+        out += "<p>" + data.content[0].text + "</p>";
+        out += "</div>";
+        out += "</div>";
+      }else{
+        out += "<div class='display1'>";
+        out += "<div class='layout-left '>";
+        out += "<img class='logo' src="+ data.logo +" alt='' />"
+        out += '<img src="'+ data.content[0].img + '">';
+        out += "</div>";
+        out += "<div class='layout-right'>";
+        out += "<span></span>";
+        out += "<h1>" + data.content[0].title + "</h1>";
+        out += "<p>" + data.content[0].text + "</p>";
+        out += "</div>";
+        out += "</div>";
       }
-    </script>
+      lastData1 = data.id;
+  }
+  else if(data.content[0].type == 3){
+    out += "<video controls loop muted autoplay";
+    out += " src=" + data.dochki[1].video + " width='100%' height='100%'>";
+        out += "Sorry, your browser doesn't support embedded videos."
+        out += "</video>"
+        lastData1 = data.id;
+  }else{
+    loadData();
+    console.log('+');
+  }
+  $('.wrapper-content').html(out);
+  setInterval(function(){
+    $.getJSON(path  + new Date().getTime(), function(data) {
+      if(data.id != lastData1){
+        loadData();
+      }
+    })
+  }, 2500);
+}
+
+
+function theme2(data) {
+  console.log(data)
+  var out = '';
+  if(data.content[0].type == 1){
+      out += "<div class='layout-center display2'>";
+      out += '<img src="' + data.content[0].img + '">';
+      out += "</div>";
+      lastData2 = data.id;
+  }else if(data.content[0].type == 2){
+    if(data.logo == data.content[0].img){
+      out += "<div class='display display3'>";
+      out += "<div class='right-item' style='width:100%;'>";
+      out += "<h1>"+data.content[0].title+"</h1>";
+      out += "<p>"+data.content[0].text+"</p>";
+      out += "</div>";
+      out += "</div>";
+    }else{
+      out += "<div class='display display3'>";
+        out += "<div class='left-item'>";
+      out += "<div class='top-item'>";
+      out += "<img  src = "+ data.logo +"/>";
+      out += "</div>";
+      out += '<img src="'+ data.content[0].img+'">';
+      out += "</div>";
+      out += "<div class='right-item'>";
+      out += "<h1>"+data.content[0].title+"</h1>";
+      out += "<p>"+data.content[0].text+"</p>";
+      out += "</div>";
+      out += "</div>";
+    }
+      lastData2 = data.id;
+  }
+  else if(data.content[0].type == 3){
+    out += "<video controls loop muted autoplay";
+    out += " src=" + data.content[0].video + " width='100%' height='100%'>";
+    out += "Sorry, your browser doesn't support embedded videos."
+    out += "</video>"
+        lastData2 = data.id;
+  }else{
+    loadData();
+    console.log('+')
+  }
+  $('.wrapper-content').html(out);
+  setInterval(function(){
+    $.getJSON(path  + new Date().getTime(), function(data) {
+      if(data.id !== lastData2){
+        loadData();
+      }
+    })
+  }, 2500);
+}
+
+function theme3(data) {
+  console.log(data)
+  var out = '';
+  if(data.content[0].type == 1){
+      out += "<div class='layout-center display2'>";
+      out += '<img src="' + data.content[0].img + '">';
+      out += "</div>";
+      lastData3 = data.id;
+  }else if(data.content[0].type == 2){
+    if(data.logo == data.content[0].img){
+      out += "<div class='wrapper-layout display3'>";
+      out += "<div class='theme-overlay'></div>";
+      out += "<div class='right-layout' style='width: 100%;'>";
+      out += "<h2>"+data.content[0].title+"</h2>";
+      out += "<p>"+data.content[0].text+"</p>";
+      out += "</div>";
+      out += "</div>";
+
+    }else{
+      out += "<div class='wrapper-layout display3'>"
+      out += "<div class='theme-overlay' style='background-image:url()'></div>";
+      out += "<div class='left-layout'>";
+      out += "<img class='logo' src='"+data.logo+"'>";
+      out += "<div class='display-image'>";
+      out += '<img src="'+data.content[0].img+'" alt="">';
+      out += "</div>";
+      out += "</div>";
+      out += "<div class='right-layout'>";
+      out += "<h2>"+data.content[0].title+"</h2>";
+      out += "<p>"+data.content[0].text+"</p>";
+      out += "</div>";
+      out += "</div>";
+    }
+      lastData3 = data.id;
+  }
+  else if(data.content[0].type == 3){
+    out += "<video controls loop muted autoplay";
+    out += " src=" + data.content[0].video + " width='100%' height='100%'>";
+    out += "Sorry, your browser doesn't support embedded videos."
+    out += "</video>"
+        lastData3 = data.id;
+  }else{
+    loadData();
+    console.log('+')
+  }
+  $('.wrapper-content').html(out);
+  setInterval(function(){
+    $.getJSON(path  + new Date().getTime(), function(data) {
+      if(data.id != lastData3){
+        loadData();
+      }
+    })
+  }, 2500);
+}
+
+function theme4(data) {
+  console.log(data)
+  var out = '';
+  if(data.content[0].type == 1){
+      out += "<div class='layout-center display4'>";
+      out += '<img src="' + data.content[0].img + '"/>';
+      out += "</div>";
+      lastData4 = data.id;
+  }else if(data.content[0].type == 2){
+    if(data.logo == data.content[0].img){
+      out += "<div class='display4'>";
+      out += "<div class='layout-right' style='width: 100%'>";
+      out += "<span></span>";
+      out += "<h1>" + data.content[0].title + "</h1>";
+      out += "<p>" + data.content[0].text + "</p>";
+      out += "</div>";
+      out += "</div>";
+    }else{
+      out += "<div class='display4'>";
+      out += "<div class='layout-left '>";
+      out += "<img class='logo' src='"+ data.logo +"' alt='' />"
+      out += '<img src="'+ data.content[0].img + '">';
+      out += "</div>";
+      out += "<div class='layout-right'>";
+      out += "<span></span>";
+      out += "<h1>" + data.content[0].title + "</h1>";
+      out += "<p>" + data.content[0].text + "</p>";
+      out += "</div>";
+      out += "</div>";
+    }
+      lastData4 = data.id;
+  }
+  else if(data.content[0].type == 3){
+    out += "<video controls loop muted autoplay";
+    out += " src=''" + data.dochki[1].video + "' width='100%' height='100%'>";
+    out += "Sorry, your browser doesn't support embedded videos."
+    out += "</video>"
+    lastData4 = data.id;
+  }else{
+    loadData();
+    console.log('+');
+  }
+  $('.wrapper-content').html(out);
+  setInterval(function(){
+    $.getJSON(path  + new Date().getTime(), function(data) {
+      if(data.id != lastData4){
+        loadData();
+      }
+    })
+  }, 2500);
+}
+let num = '';
+function theme5(data) {
+  console.log(data)
+  var out = '';
+  if(data.type == 1){
+    let j = data.num;
+    out += "<div class='layout-center display5'>";
+    out += '<img src="' + data.content[j].img + '" />';
+    out += "</div>";
+
+
+  }
+  if(data.content[0].type == 1){
+      out += "<div class='layout-center display5'>";
+      out += '<img src="' + data.content[0].img + '" />';
+      out += "</div>";
+      lastData5 = data.id;
+  }else if(data.content[0].type == 2){
+    if(data.logo == data.content[0].img){
+      out += "<div class='display5'>";
+      out += "<div class='layout-right'>";
+      out += "<span></span>";
+      out += "<h1>" + data.content[0].title + "</h1>";
+      out += "<p>" + data.content[0].text + "</p>";
+      out += "</div>";
+      out += "</div>";
+      lastData5 = data.id;
+    }else{
+      out += "<div class='display5'>";
+      out += "<div class='layout-left '>";
+      out += "<img class='logo' src='"+ data.logo +"' alt='' />"
+      out += '<img src="'+ data.content[0].img + '">';
+      out += "</div>";
+      out += "<div class='layout-right'>";
+      out += "<span></span>";
+      out += "<h1>" + data.content[0].title + "</h1>";
+      out += "<p>" + data.content[0].text + "</p>";
+      out += "</div>";
+      out += "</div>";
+    }
+    lastData5 = data.id;
+  }
+  else if(data.content[0].type == 3){
+    out += "<video controls loop muted autoplay";
+    out += " src=" + data.dochki[1].video + " width='100%' height='100%'>";
+    out += "Sorry, your browser doesn't support embedded videos."
+    out += "</video>"
+    lastData5 = data.id;
+  }else{
+    loadData();
+    console.log('+');
+  }
+  $('.wrapper-content').html(out);
+  setInterval(function(){
+    $.getJSON(path  + new Date().getTime(), function(data) {
+      if(data.id != lastData5){
+        loadData();
+
+      }
+      if(j != data.num){
+        theme5();
+      }
+    })
+  }, 1500);
+}
+
+</script>
 </body>
 </html>
