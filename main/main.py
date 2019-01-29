@@ -706,6 +706,7 @@ def clicked_value(ekran, lang, id):
 	print("#### End of slide change ##########")
 	print("########################################")
 	info = Click(id, lang, now)
+	socketio.emit('my_response', ekran, namespace='/clicked')
 	return jsonify(info.expor)
 
 
