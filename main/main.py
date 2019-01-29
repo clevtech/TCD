@@ -636,7 +636,7 @@ class Click:
 	def write_to_json(self):
 		with open(self.json_path2, 'w') as outfile:
 			json.dump(self.expor, outfile)
-			socketio.emit('my_response', self.expor['ekran'], namespace='/clicked')
+
 
 
  ## Functions
@@ -672,11 +672,13 @@ def clicked(ekran, lang, id):
 	print("Click from: " + ekran + " to ID: " + id)
 	info = Click(id, lang)
 	pprint(info.expor)
+	socketio.emit('my_response', ekran, namespace='/clicked')
+	print("sended")
 	return jsonify(info.expor)
 
 #
 #
-# @app.route('/click/<ekran>/<lang>/<id>/')
+# @app.route('/click/<ekran>/<lang>/<id>/<napravlenie>')
 # def clicked(ekran, lang, id):
 # 	print("Click from: " + ekran + " to ID: " + id)
 # 	info = Click(id, lang)
