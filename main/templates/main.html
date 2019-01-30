@@ -21,24 +21,20 @@
     <script>
       var ekran = document.getElementById("ekran").innerText;
       var lang = document.getElementById("lang").innerText;
-      console.log(lang);
-      console.log(ekran);
+
       var namespace = '{{json_path}}?';
       var path = namespace;
-      console.log(path);
+
 
 
       $('document').ready(function() {
             loadData();
-            namespace = '/clicked';
-        var socket = io.connect('http://192.168.8.105:8888/' + namespace);
+            namespace2 = '/clicked';
+        var socket = io.connect('{{socket_path}}');
 
         socket.on('my_response', function(message) {
             console.log(message);
-            if (message == "1") {
-                console.log("reload Theme");
-                loadData();
-            }
+            loadData();
         });
       });
 
@@ -49,7 +45,6 @@
       var lastData5 = '';
 
       function loadData() {
-          console.log('+')
         	$.getJSON(path  + new Date().getTime(), function(data) {
 
               if(data.theme == 1 ){
@@ -71,39 +66,39 @@
 function theme1(data) {
   console.log(data)
   var out = '';
-  if(data.content[0].type == 1){
+  if(data.content[parseInt(data.slide)].type == 1){
       out += "<div class='layout-center display1'>";
-      out += '<img src="' + data.content[0].img + '">';
+      out += '<img src="' + data.content[parseInt(data.slide)].img + '">';
       out += "</div>";
       lastData1 = data.id;
-  }else if(data.content[0].type == 2){
+  }else if(data.content[parseInt(data.slide)].type == 2){
       console.log(data.logo);
-      console.log(data.content[0].img)
-      if(data.logo == data.content[0].img){
+      console.log(data.content[parseInt(data.slide)].img)
+      if(data.logo == data.content[parseInt(data.slide)].img){
 
         out += "<div class='display1'>";
         out += "<div class='layout-right' style='width:100%'>";
         out += "<span></span>";
-        out += "<h1>" + data.content[0].title + "</h1>";
-        out += "<p>" + data.content[0].text + "</p>";
+        out += "<h1>" + data.content[parseInt(data.slide)].title + "</h1>";
+        out += "<p>" + data.content[parseInt(data.slide)].text + "</p>";
         out += "</div>";
         out += "</div>";
       }else{
         out += "<div class='display1'>";
         out += "<div class='layout-left '>";
         out += "<img class='logo' src="+ data.logo +" alt='' />"
-        out += '<img src="'+ data.content[0].img + '">';
+        out += '<img src="'+ data.content[parseInt(data.slide)].img + '">';
         out += "</div>";
         out += "<div class='layout-right'>";
         out += "<span></span>";
-        out += "<h1>" + data.content[0].title + "</h1>";
-        out += "<p>" + data.content[0].text + "</p>";
+        out += "<h1>" + data.content[parseInt(data.slide)].title + "</h1>";
+        out += "<p>" + data.content[parseInt(data.slide)].text + "</p>";
         out += "</div>";
         out += "</div>";
       }
       lastData1 = data.id;
   }
-  else if(data.content[0].type == 3){
+  else if(data.content[parseInt(data.slide)].type == 3){
     out += "<video controls loop muted autoplay";
     out += " src=" + data.dochki[1].video + " width='100%' height='100%'>";
         out += "Sorry, your browser doesn't support embedded videos."
@@ -127,17 +122,17 @@ function theme1(data) {
 function theme2(data) {
   console.log(data)
   var out = '';
-  if(data.content[0].type == 1){
+  if(data.content[parseInt(data.slide)].type == 1){
       out += "<div class='layout-center display2'>";
-      out += '<img src="' + data.content[0].img + '">';
+      out += '<img src="' + data.content[parseInt(data.slide)].img + '">';
       out += "</div>";
       lastData2 = data.id;
-  }else if(data.content[0].type == 2){
-    if(data.logo == data.content[0].img){
+  }else if(data.content[parseInt(data.slide)].type == 2){
+    if(data.logo == data.content[parseInt(data.slide)].img){
       out += "<div class='display display3'>";
       out += "<div class='right-item' style='width:100%;'>";
-      out += "<h1>"+data.content[0].title+"</h1>";
-      out += "<p>"+data.content[0].text+"</p>";
+      out += "<h1>"+data.content[parseInt(data.slide)].title+"</h1>";
+      out += "<p>"+data.content[parseInt(data.slide)].text+"</p>";
       out += "</div>";
       out += "</div>";
     }else{
@@ -146,19 +141,19 @@ function theme2(data) {
       out += "<div class='top-item'>";
       out += "<img  src = "+ data.logo +"/>";
       out += "</div>";
-      out += '<img src="'+ data.content[0].img+'">';
+      out += '<img src="'+ data.content[parseInt(data.slide)].img+'">';
       out += "</div>";
       out += "<div class='right-item'>";
-      out += "<h1>"+data.content[0].title+"</h1>";
-      out += "<p>"+data.content[0].text+"</p>";
+      out += "<h1>"+data.content[parseInt(data.slide)].title+"</h1>";
+      out += "<p>"+data.content[parseInt(data.slide)].text+"</p>";
       out += "</div>";
       out += "</div>";
     }
       lastData2 = data.id;
   }
-  else if(data.content[0].type == 3){
+  else if(data.content[parseInt(data.slide)].type == 3){
     out += "<video controls loop muted autoplay";
-    out += " src=" + data.content[0].video + " width='100%' height='100%'>";
+    out += " src=" + data.content[parseInt(data.slide)].video + " width='100%' height='100%'>";
     out += "Sorry, your browser doesn't support embedded videos."
     out += "</video>"
         lastData2 = data.id;
@@ -167,30 +162,24 @@ function theme2(data) {
     console.log('+')
   }
   $('.wrapper-content').html(out);
-  setInterval(function(){
-    $.getJSON(path  + new Date().getTime(), function(data) {
-      if(data.id !== lastData2){
-        loadData();
-      }
-    })
-  }, 2500);
+
 }
 
 function theme3(data) {
   console.log(data)
   var out = '';
-  if(data.content[0].type == 1){
+  if(data.content[parseInt(data.slide)].type == 1){
       out += "<div class='layout-center display2'>";
-      out += '<img src="' + data.content[0].img + '">';
+      out += '<img src="' + data.content[parseInt(data.slide)].img + '">';
       out += "</div>";
       lastData3 = data.id;
-  }else if(data.content[0].type == 2){
-    if(data.logo == data.content[0].img){
+  }else if(data.content[parseInt(data.slide)].type == 2){
+    if(data.logo == data.content[parseInt(data.slide)].img){
       out += "<div class='wrapper-layout display3'>";
       out += "<div class='theme-overlay'></div>";
       out += "<div class='right-layout' style='width: 100%;'>";
-      out += "<h2>"+data.content[0].title+"</h2>";
-      out += "<p>"+data.content[0].text+"</p>";
+      out += "<h2>"+data.content[parseInt(data.slide)].title+"</h2>";
+      out += "<p>"+data.content[parseInt(data.slide)].text+"</p>";
       out += "</div>";
       out += "</div>";
 
@@ -200,20 +189,20 @@ function theme3(data) {
       out += "<div class='left-layout'>";
       out += "<img class='logo' src='"+data.logo+"'>";
       out += "<div class='display-image'>";
-      out += '<img src="'+data.content[0].img+'" alt="">';
+      out += '<img src="'+data.content[parseInt(data.slide)].img+'" alt="">';
       out += "</div>";
       out += "</div>";
       out += "<div class='right-layout'>";
-      out += "<h2>"+data.content[0].title+"</h2>";
-      out += "<p>"+data.content[0].text+"</p>";
+      out += "<h2>"+data.content[parseInt(data.slide)].title+"</h2>";
+      out += "<p>"+data.content[parseInt(data.slide)].text+"</p>";
       out += "</div>";
       out += "</div>";
     }
       lastData3 = data.id;
   }
-  else if(data.content[0].type == 3){
+  else if(data.content[parseInt(data.slide)].type == 3){
     out += "<video controls loop muted autoplay";
-    out += " src=" + data.content[0].video + " width='100%' height='100%'>";
+    out += " src=" + data.content[parseInt(data.slide)].video + " width='100%' height='100%'>";
     out += "Sorry, your browser doesn't support embedded videos."
     out += "</video>"
         lastData3 = data.id;
@@ -222,48 +211,42 @@ function theme3(data) {
     console.log('+')
   }
   $('.wrapper-content').html(out);
-  setInterval(function(){
-    $.getJSON(path  + new Date().getTime(), function(data) {
-      if(data.id != lastData3){
-        loadData();
-      }
-    })
-  }, 2500);
+
 }
 
 function theme4(data) {
   console.log(data)
   var out = '';
-  if(data.content[0].type == 1){
+  if(data.content[parseInt(data.slide)].type == 1){
       out += "<div class='layout-center display4'>";
-      out += '<img src="' + data.content[0].img + '"/>';
+      out += '<img src="' + data.content[parseInt(data.slide)].img + '"/>';
       out += "</div>";
       lastData4 = data.id;
-  }else if(data.content[0].type == 2){
-    if(data.logo == data.content[0].img){
+  }else if(data.content[parseInt(data.slide)].type == 2){
+    if(data.logo == data.content[parseInt(data.slide)].img){
       out += "<div class='display4'>";
       out += "<div class='layout-right' style='width: 100%'>";
       out += "<span></span>";
-      out += "<h1>" + data.content[0].title + "</h1>";
-      out += "<p>" + data.content[0].text + "</p>";
+      out += "<h1>" + data.content[parseInt(data.slide)].title + "</h1>";
+      out += "<p>" + data.content[parseInt(data.slide)].text + "</p>";
       out += "</div>";
       out += "</div>";
     }else{
       out += "<div class='display4'>";
       out += "<div class='layout-left '>";
       out += "<img class='logo' src='"+ data.logo +"' alt='' />"
-      out += '<img src="'+ data.content[0].img + '">';
+      out += '<img src="'+ data.content[parseInt(data.slide)].img + '">';
       out += "</div>";
       out += "<div class='layout-right'>";
       out += "<span></span>";
-      out += "<h1>" + data.content[0].title + "</h1>";
-      out += "<p>" + data.content[0].text + "</p>";
+      out += "<h1>" + data.content[parseInt(data.slide)].title + "</h1>";
+      out += "<p>" + data.content[parseInt(data.slide)].text + "</p>";
       out += "</div>";
       out += "</div>";
     }
       lastData4 = data.id;
   }
-  else if(data.content[0].type == 3){
+  else if(data.content[parseInt(data.slide)].type == 3){
     out += "<video controls loop muted autoplay";
     out += " src=''" + data.dochki[1].video + "' width='100%' height='100%'>";
     out += "Sorry, your browser doesn't support embedded videos."
@@ -274,13 +257,7 @@ function theme4(data) {
     console.log('+');
   }
   $('.wrapper-content').html(out);
-  setInterval(function(){
-    $.getJSON(path  + new Date().getTime(), function(data) {
-      if(data.id != lastData4){
-        loadData();
-      }
-    })
-  }, 2500);
+
 }
 let num = '';
 function theme5(data) {
@@ -294,18 +271,18 @@ function theme5(data) {
 
 
   }
-  if(data.content[0].type == 1){
+  if(data.content[parseInt(data.slide)].type == 1){
       out += "<div class='layout-center display5'>";
-      out += '<img src="' + data.content[0].img + '" />';
+      out += '<img src="' + data.content[parseInt(data.slide)].img + '" />';
       out += "</div>";
       lastData5 = data.id;
-  }else if(data.content[0].type == 2){
-    if(data.logo == data.content[0].img){
+  }else if(data.content[parseInt(data.slide)].type == 2){
+    if(data.logo == data.content[parseInt(data.slide)].img){
       out += "<div class='display5'>";
       out += "<div class='layout-right'>";
       out += "<span></span>";
-      out += "<h1>" + data.content[0].title + "</h1>";
-      out += "<p>" + data.content[0].text + "</p>";
+      out += "<h1>" + data.content[parseInt(data.slide)].title + "</h1>";
+      out += "<p>" + data.content[parseInt(data.slide)].text + "</p>";
       out += "</div>";
       out += "</div>";
       lastData5 = data.id;
@@ -313,18 +290,18 @@ function theme5(data) {
       out += "<div class='display5'>";
       out += "<div class='layout-left '>";
       out += "<img class='logo' src='"+ data.logo +"' alt='' />"
-      out += '<img src="'+ data.content[0].img + '">';
+      out += '<img src="'+ data.content[parseInt(data.slide)].img + '">';
       out += "</div>";
       out += "<div class='layout-right'>";
       out += "<span></span>";
-      out += "<h1>" + data.content[0].title + "</h1>";
-      out += "<p>" + data.content[0].text + "</p>";
+      out += "<h1>" + data.content[parseInt(data.slide)].title + "</h1>";
+      out += "<p>" + data.content[parseInt(data.slide)].text + "</p>";
       out += "</div>";
       out += "</div>";
     }
     lastData5 = data.id;
   }
-  else if(data.content[0].type == 3){
+  else if(data.content[parseInt(data.slide)].type == 3){
     out += "<video controls loop muted autoplay";
     out += " src=" + data.dochki[1].video + " width='100%' height='100%'>";
     out += "Sorry, your browser doesn't support embedded videos."
@@ -335,17 +312,7 @@ function theme5(data) {
     console.log('+');
   }
   $('.wrapper-content').html(out);
-  setInterval(function(){
-    $.getJSON(path  + new Date().getTime(), function(data) {
-      if(data.id != lastData5){
-        loadData();
 
-      }
-      if(j != data.num){
-        theme5();
-      }
-    })
-  }, 1500);
 }
 
 </script>

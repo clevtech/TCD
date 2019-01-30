@@ -657,12 +657,13 @@ ip = Markup("http://" + get_ip())
  ## Routes
 @socketio.on('connect', namespace='/clicked')
 def test_connect():
-    print("Socket is started")
+	print("Socket is started")
 
 
 @app.route('/tablet/<ekran>/<lang>/') # Вывод на планшеты
 def tablet(ekran, lang):
 	info = Click(ekran, lang)
+	socketio.emit('my_response', ekran, namespace='/clicked')
 	return render_template('index.html', ip=ip, ekran=Markup(ekran), lang=lang, json_path=Markup(info.json_path))
 
 
@@ -676,20 +677,23 @@ def clicked(ekran, lang, id):
 	return jsonify(info.expor)
 
 
-@app.route('/click/<ekran>/<lang>/<id>/<napravlenie>')
+@app.route('/click/<ekran>/<lang>/<id>/<napravlenie>', methods=['POST', 'GET'])
 def clicked_value(ekran, lang, id, napravlenie):
+	print(request)
+	with open("./static/json/data" + ekran + ".json", 'r') as f:
+		old_data = json.load(f)
 	print("Click from: " + ekran + " to ID: " + id)
 	info = Click(id, lang)
-	lenght = len(info.expor["content"])
-	now = napravlenie[0:-1]
+	lenght = len(old_data["content"])
+	now = old_data["slide"]
 	direction = napravlenie[-1]
 	if direction == "+":
-		if now == lenght - 1:
+		if int(now) == lenght - 1:
 			now = "0"
 		else:
 			now = str(int(now) + 1)
 	elif direction == "-":
-		if now == "0":
+		if int(now) == "0":
 			now = str(lenght - 1)
 		else:
 			now = str(int(now) - 1)
@@ -714,7 +718,8 @@ def clicked_value(ekran, lang, id, napravlenie):
 @app.route('/disp/<ekran>/<lang>/') # Вывод на экраны
 def ekrany(ekran, lang):
 	json_path = ip + ":8888/static/json/data" + str(ekran) + ".json"
-	return render_template('main.html', ip=ip, lang=lang, ekran=ekran, json_path=json_path)
+	socket_path = ip + ":8888/clicked"
+	return render_template('main.html', ip=ip, lang=lang, ekran=ekran, json_path=json_path, socket_path=socket_path)
 
 
 @app.route('/') # Вывод на экраны
@@ -723,7 +728,7 @@ def glavnaia():
 
 
 if __name__ == '__main__':
-    socketio.run(app, host='0.0.0.0', port=8888, debug=True)
+	socketio.run(app, host='0.0.0.0', port=8888, debug=True)
 
 # if __name__ == '__main__':
 #     http_server = WSGIServer(('0.0.0.0', 8888), app)
