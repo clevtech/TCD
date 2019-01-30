@@ -112,11 +112,12 @@
 				ul.insertBefore(li, ul.children[i])
 			}
 
-		container.appendChild(ul);
+			container.appendChild(ul);
 		}
 		themeContent.appendChild(themeFirst);
 		btnClick(data);
-		mapClick();
+
+		if(data.type == 2) buttonSlideAjax(data);
 	}
 
 	// Theme1 button click
@@ -158,13 +159,14 @@
 		        } else {
 		          	let theme = document.querySelector('#theme-content');
 
-					theme.removeChild(theme.firstChild);
-					let data = JSON.parse(xhr.responseText);
+							theme.removeChild(theme.firstChild);
+							let data = JSON.parse(xhr.responseText);
 
-		          	themeFirst(data);
-		        }
+		          themeFirst(data);
+		       }
 			}
 	}
+
 	// Theme1 click Block
 
 	function blockClickAjax(hrf) {
@@ -178,15 +180,15 @@
 		        } else {
 		          	let theme = document.querySelector('#theme-content');
 
-					theme.removeChild(theme.firstChild);
-					let data = JSON.parse(xhr.responseText);
+								theme.removeChild(theme.firstChild);
+								let data = JSON.parse(xhr.responseText);
 
 		          	themeFirst(data);
 		        }
 			}
 	}
 
-	// Theme 1 Slide Button
+	// Theme 1 Slide Buttons
 
 	function buttonSlide( themeFirst) {
 
@@ -199,14 +201,17 @@
 
 		let buttonLeft = document.createElement('div');
 		buttonLeft.className = 'button';
+		buttonLeft.setAttribute('id', 'btn-left');
 		buttonLeft.innerHTML = '<img src="http://' + window.location.hostname +':8888/static/image/theme1-left2.png" alt=""><span>НАЗАД</span>';
 
 		let buttonCenter = document.createElement('div');
 		buttonCenter.className = 'button button-active';
+		buttonLeft.setAttribute('id', 'btn-home');
 		buttonCenter.innerHTML = '<img src="http://' + window.location.hostname +':8888/static/image/theme1-return.png" alt=""><span>НА ГЛАВНУЮ</span>';
 
 		let buttonRigth = document.createElement('div');
 		buttonRigth.className = 'button';
+		buttonLeft.setAttribute('id', 'btn-right');
 		buttonRigth.innerHTML = '<img src="http://' + window.location.hostname +':8888/static/image/theme1-right2.png" alt=""><span>ВПЕРЕД</span>';
 
 		wrapperCenter.insertBefore(buttonLeft, wrapperCenter.children[0]);
@@ -216,6 +221,46 @@
 		wrapperButton.appendChild(wrapperCenter);
 		themeFirst.insertBefore(wrapperButton, themeFirst.children[1]);
 	}
+
+	// slide button click
+
+	function buttonSlideAjax(data) {
+		let left = document.getElementById('btn-left');
+		let homeSlide = document.getElementById('btn-home');
+		let right = document.getElementById('btn-right');
+
+		left.onclick = () => {
+			let arrow = '-';
+			buttonClickAjax(data.slide, arrow);
+		}
+		right.onclick = () => {
+			let arrow = '+';
+			buttonClickAjax(data.slide, arrow);
+		}
+		homeSlide.onclick = () => location.reload(true);
+	}
+
+	//slide buttons send
+
+	function buttonClickAjax(hrf, arrow) {
+		let xhr = new XMLHttpRequest();
+
+			xhr.open('GET',  '{{ip}}' + ':8888/click/{{ekran}}/{{lang}}/' + data.ID + '/' + hrf + arrow, true);
+			xhr.send();
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState != 4) return;
+				if (xhr.status != 200) {
+						console.log(xhr.status + ': ' + xhr.statusText);
+				}else {
+					console.log(arrow);
+					if(arrow == '+') {
+						console.log('next');
+					}else {
+						console.log('prev');
+					}
+				}
+			}
+		}
 
 	// Theme 1 MAP
 
@@ -323,29 +368,10 @@
 		themeContent.appendChild(themeSecond);
 		mapClick();
 		btnClick2(data);
-		if(data.type == 2) buttonSlideAjax(data);
+		if(data.type == 2) buttonSlideAjax2(data);
 	}
 
 	//theme2 click
-	function buttonClickAjax2(hrf, arrow) {
-	    let xhr = new XMLHttpRequest();
-						console.log('{{ip}}'+'/'+hrf+'/'+arrow)
-	          xhr.open('GET',  '{{ip}}'+'/'+hrf+'/'+arrow, true);
-	          xhr.send();
-	          xhr.onreadystatechange = function() {
-	            if (xhr.readyState != 4) return;
-	            if (xhr.status != 200) {
-	                console.log(xhr.status + ': ' + xhr.statusText);
-	            } else {
-	                let theme = document.querySelector('#theme-content');
-
-	          theme.removeChild(theme.firstChild);
-	          let data = JSON.parse(xhr.responseText);
-
-	                themeSecond(data);
-	            }
-	      }
-	  }
 
 
 
@@ -360,13 +386,16 @@
 		        } else {
 		          	let theme = document.querySelector('#theme-content');
 
-					theme.removeChild(theme.firstChild);
-					let data = JSON.parse(xhr.responseText);
+								theme.removeChild(theme.firstChild);
+								let data = JSON.parse(xhr.responseText);
 
 		          	themeSecond(data);
 		        }
 			}
 	}
+
+// update Blocks
+
 	function blockClickAjax2(hrf) {
 		let xhr = new XMLHttpRequest();
 	      	xhr.open('GET',  "http://" + window.location.hostname +':8888/click/1/ru/'+hrf, true);
@@ -418,8 +447,8 @@
 		themeSecond.insertBefore(wrapBtn, themeSecond.children[3]);
 
 	}
-
-	function buttonSlideAjax(data) {
+	//Slide buttons
+	function buttonSlideAjax2(data) {
 
         let left = document.getElementById('btn-left');
         let right = document.getElementById('btn-right');
@@ -582,11 +611,11 @@
 		themeContent.appendChild(themeThird);
 		mapClick3();
 		themeThreeClick(data);
-    slideClick(data);
+    if(data.type == 2) buttonSlideAjax3(data);
 	}
 	//  Theme3 Click
 	function themeThreeClick(data) {
-		let li = document.querySelectorAll('.circle li');
+			let li = document.querySelectorAll('.circle li');
 	    let table = document.querySelectorAll('.wrapper3 .table');
 	    let left = document.getElementById('btn-left');
 	    let right = document.getElementById('btn-right');
@@ -661,61 +690,56 @@
 	function buttonSlide3(data, wrap) {
 		let wrapBtn = document.createElement('div');
 		wrapBtn.className = 'wrapper-buttons';
-		wrapBtn.innerHTML = `<div id='left-click' class="button">
+		wrapBtn.innerHTML = `<div id='slide-left' class="button">
 	    		<img src="/static/image/theme3-left2.png" alt="icon">
 	    	</div>
-	    	<div class="button">
+	    	<div class="button" id='slide-home'>
 	    		<img src="/static/image/theme3-return.png" alt="icon">
 	    	</div>
-	    	<div id='right-click' class="button">
+	    	<div id='slide-right' class="button">
 	    		<img src="/static/image/theme3-right2.png" alt="icon">
 	    	</div>`;
 
 	    	wrap.appendChild(wrapBtn);
 	}
-// slideClick3(data){
-//   let left = document.getElementById('left-click');
-//   let right = document.getElementById('right-click');
-//
-//   left.onclick = () => {
-//     let xhr = new XMLHttpRequest();
-// 	      	xhr.open('GET',  "http://" + window.location.hostname +':8888/click/{{ekran}}/{{lang}}/' + data.ID + '/0', true);
-// 	      	xhr.send();
-// 	      	xhr.onreadystatechange = function() {
-// 		        if (xhr.readyState != 4) return;
-// 		        if (xhr.status != 200) {
-// 		          	console.log(xhr.status + ': ' + xhr.statusText);
-// 		        } else {
-// 		          	let theme = document.querySelector('#theme-content');
-//
-// 					        theme.removeChild(theme.firstChild);
-// 					       let data = JSON.parse(xhr.responseText);
-//                  console.log(data);
-// 		          	themeThird(data);
-// 		        }
-// 			}
-//   }
-//
-//   right.onclick = () => {
-//     let xhr = new XMLHttpRequest();
-// 	      	xhr.open('GET',  "http://" + window.location.hostname +':8888/click/{{ekran}}/{{lang}}/' + data.ID + '/1', true);
-// 	      	xhr.send();
-// 	      	xhr.onreadystatechange = function() {
-// 		        if (xhr.readyState != 4) return;
-// 		        if (xhr.status != 200) {
-// 		          	console.log(xhr.status + ': ' + xhr.statusText);
-// 		        } else {
-// 		          	let theme = document.querySelector('#theme-content');
-//
-// 					        theme.removeChild(theme.firstChild);
-// 					       let data = JSON.parse(xhr.responseText);
-//                  console.log(data);
-// 		          	themeThird(data);
-// 		        }
-// 			}
-//   }
-//
-// }
+
+	function buttonSlideAjax3(data) {
+		console.log('slide btn')
+		let left = document.getElementById('slide-left');
+		let homeSlide = document.getElementById('slide-home');
+		let right = document.getElementById('slide-right');
+		console.log('left', left);
+		left.onclick = () => {
+			let arrow = '-';
+			buttonClickAjax3(data.slide, arrow, data);
+		}
+		right.onclick = () => {
+			let arrow = '+';
+			buttonClickAjax3(data.slide, arrow, data);
+		}
+		homeSlide.onclick = () => location.reload(true);
+	}
+
+	function buttonClickAjax3(hrf, arrow, data) {
+		let xhr = new XMLHttpRequest();
+
+			xhr.open('GET',  '{{ip}}' + ':8888/click/{{ekran}}/{{lang}}/' + data.ID + '/' + hrf + arrow, true);
+			xhr.send();
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState != 4) return;
+				if (xhr.status != 200) {
+						console.log(xhr.status + ': ' + xhr.statusText);
+				}else {
+					console.log(arrow);
+					if(arrow == '+') {
+						console.log('next');
+					}else {
+						console.log('prev');
+					}
+				}
+			}
+	}
+
 	//theme3 Map
 
 	function map3(wrap) {
@@ -857,6 +881,7 @@
 		themeContent.appendChild(themeFourth);
 		btnClick4(data);
 		mapClick4();
+		if(data.type == 2) buttonSlideAjax4(data);
 	}
 
 	// Theme4 button click
@@ -933,14 +958,17 @@
 
 		let buttonLeft = document.createElement('div');
 		buttonLeft.className = 'button';
+		buttonLeft.setAttribute('id', 'btn-left');
 		buttonLeft.innerHTML = '<img src="http://' + window.location.hostname +':8888/static/image/theme1-left2.png" alt=""><span>НАЗАД</span>';
 
 		let buttonCenter = document.createElement('div');
 		buttonCenter.className = 'button button-active';
+		buttonCenter.setAttribute('id', 'btn-home');
 		buttonCenter.innerHTML = '<img src="http://' + window.location.hostname +':8888/static/image/theme1-return.png" alt=""><span>НА ГЛАВНУЮ</span>';
 
 		let buttonRigth = document.createElement('div');
 		buttonRigth.className = 'button';
+		buttonRigth.setAttribute('id', 'btn-right');
 		buttonRigth.innerHTML = '<img src="http://' + window.location.hostname +':8888/static/image/theme1-right2.png" alt=""><span>ВПЕРЕД</span>';
 
 		wrapperCenter.insertBefore(buttonLeft, wrapperCenter.children[0]);
@@ -951,6 +979,41 @@
 		themeFourth.insertBefore(wrapperButton, themeFourth.children[1]);
 	}
 
+	function buttonSlideAjax4() {
+		let left = document.getElementById('btn-left');
+		let homeSlide = document.getElementById('btn-home');
+		let right = document.getElementById('btn-right');
+
+		left.onclick = () => {
+			let arrow = '-';
+			buttonClickAjax4(data.slide, arrow, data);
+		}
+		right.onclick = () => {
+			let arrow = '+';
+			buttonClickAjax4(data.slide, arrow, data);
+		}
+		homeSlide.onclick = () => location.reload(true);
+	}
+
+	function buttonClickAjax4(hrf, arrow, data){
+		let xhr = new XMLHttpRequest();
+
+			xhr.open('GET',  '{{ip}}' + ':8888/click/{{ekran}}/{{lang}}/' + data.ID + '/' + hrf + arrow, true);
+			xhr.send();
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState != 4) return;
+				if (xhr.status != 200) {
+						console.log(xhr.status + ': ' + xhr.statusText);
+				}else {
+					console.log(arrow);
+					if(arrow == '+') {
+						console.log('next');
+					}else {
+						console.log('prev');
+					}
+				}
+			}
+	}
 	// Theme 4 MAP
 
 	function map4 (themeFourth) {
@@ -1030,7 +1093,7 @@
 	    wrap.className = 'wrapper5';
 
 	    if(data.type == 2) {
-	    	buttonSlide3(data, wrap);
+	    	buttonSlide5(data, wrap);
 	    }else if(data.type == 1) {
 	    	map3(wrap);
 	    }else{
@@ -1080,6 +1143,7 @@
 		themeContent.appendChild(themeFifth);
 		mapClick3();
 		themeFifthClick(data);
+		if(data.type == 2) buttonSlideAjax5(data);
 	}
 
 	//  Theme5 Click
@@ -1177,20 +1241,56 @@
 
 	//theme5 Slide Btn
 
-	function buttonSlide5( wrap) {
+	function buttonSlide5(data, wrap) {
 		let wrapBtn = document.createElement('div');
 		wrapBtn.className = 'wrapper-buttons';
-		wrapBtn.innerHTML = `<div class="button">
-	    		<img src="/static/image/button-left.png" alt="icon">
+		wrapBtn.innerHTML = `<div class="button" id='slide-left'>
+	    		<img src="` + "http://" + window.location.hostname + `:8888/static/image/theme3-left2.png" alt="icon">
 	    	</div>
-	    	<div class="button">
-	    		<img src="/static/image/button-return.png" alt="icon">
+	    	<div class="button" id='slide-home'>
+	    		<img src="` + "http://" + window.location.hostname + `:8888/static/image/theme3-return.png" alt="icon">
 	    	</div>
-	    	<div class="button">
-	    		<img src="/static/image/button-right" alt="icon">
+	    	<div class="button" id='slide-right'>
+	    		<img src="` + "http://" + window.location.hostname + `:8888/static/image/theme3-right2.png" alt="icon">
 	    	</div>`;
 
 	    	wrap.appendChild(wrapBtn);
+	}
+	function buttonSlideAjax5(data) {
+		console.log('slide btn')
+		let left = document.getElementById('slide-left');
+		let homeSlide = document.getElementById('slide-home');
+		let right = document.getElementById('slide-right');
+		console.log('left', left);
+		left.onclick = () => {
+			let arrow = '-';
+			buttonClickAjax3(data.slide, arrow, data);
+		}
+		right.onclick = () => {
+			let arrow = '+';
+			buttonClickAjax3(data.slide, arrow, data);
+		}
+		homeSlide.onclick = () => location.reload(true);
+	}
+
+	function buttonClickAjax5(hrf, arrow, data) {
+		let xhr = new XMLHttpRequest();
+
+			xhr.open('GET',  '{{ip}}' + ':8888/click/{{ekran}}/{{lang}}/' + data.ID + '/' + hrf + arrow, true);
+			xhr.send();
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState != 4) return;
+				if (xhr.status != 200) {
+						console.log(xhr.status + ': ' + xhr.statusText);
+				}else {
+					console.log(arrow);
+					if(arrow == '+') {
+						console.log('next');
+					}else {
+						console.log('prev');
+					}
+				}
+			}
 	}
 
 	//theme3 Map

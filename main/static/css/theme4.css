@@ -257,7 +257,11 @@
 	color: #000;
   text-align: justify;
 }
-
+.display4 img {
+	width: 100%;
+	object-fit: contain !important;
+	align-items:center !important;
+}
 /* MAP */
 
 .theme-fourth .wrap-map {
